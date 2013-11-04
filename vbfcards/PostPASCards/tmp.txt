@@ -1,8 +1,0 @@
-------------
-# we have just one channel, in which we observe 0 events
---
-------------
-bin               1  	 1   	 1   	 1  	 1    	 1   	 1     
---
-------------
-lumi_8TeV      lnN   1.026	 - 	 - 	 - 	 - 	 - 	1.026
