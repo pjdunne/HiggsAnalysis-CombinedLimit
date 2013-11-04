@@ -1,0 +1,23 @@
+# Invisible Higgs analysis for mH=125 GeV
+imax 1
+jmax 6  number of backgrounds
+kmax 9  number of nuisance parameters (sources of systematical uncertainties)
+------------
+# we have just one channel, in which we observe 0 events
+bin 1
+observation 390
+------------
+bin			     1		1	 1	 1	 1	 1	 1     
+process			     qqH	zvv	 wmu	 wel	 wtau	 qcd	 others
+process			     0		1	 2	 3	 4	 5	 6     
+rate			     212.859	101.879	 67.2274 68.2064 54.4137 36.8432 10.3709
+------------
+lumi_8TeV	      lnN    1.04	-	 -	 -	 -	 -       1.04
+CMS_vbfhinv_qqh_norm  lnN    1.12154	-	 -	 -	 -	 -	 -	
+CMS_vbfhinv_zvv_stat  gmN 12 -		8.4899   -	 -	 -	 -	 - 
+CMS_vbfhinv_zvv_norm  lnN    -		1.25331  -	 -	 -	 -	 - 
+CMS_vbfhinv_wmu_norm  lnN    -		-	 1.23748 -	 -	 -	 - 
+CMS_vbfhinv_wel_norm  lnN    -		-	 -	 1.29736 -	 -	 - 
+CMS_vbfhinv_wtau_norm lnN    -		-	 -	 -	 1.44471 -       - 
+CMS_vbfhinv_qcd_norm  lnN    -		-	 -       -       -       1.84373 - 
+CMS_vbfhinv_mc_norm   lnN    -		-        -       -       -       -	 1.30341
