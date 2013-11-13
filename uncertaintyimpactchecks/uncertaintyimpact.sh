@@ -36,8 +36,11 @@ combine -M Asymptotic -m $mass nonuiscard.txt &> tmpcombresult.txt
 nonuismedexp=`grep "Expected 50.0%" tmpcombresult.txt | awk '{print $5}'`
 rm tmpcombresult.txt
 
+allnuislimit=`echo "100*$allnuismedexp"|bc -l`
+nonuislimit=`echo "100*$nonuismedexp"|bc -l`
+
 echo Median expected limit with:
-echo "   "All Nuisances: $allnuismedexp, No Nuisances: $nonuismedexp
+printf "   All Nuisances: %.1f%%, No Nuisances: %.1f%%\n" "$allnuislimit" "$nonuislimit"
 
 printf "Nuisance                      Effect of removing nuisance   Effect of adding nuisance to empty card \n"
 #LOOP OVER NUISANCES
@@ -72,7 +75,10 @@ do
     #echo Result with nuisance subtracted: $nuissubtmedexp, result with only this Nuisance: $nuisonlymedexp
     
     outpercdiffsubt=`printf "%.1f%%" "$percdiffsubt"`
-    printf "%-29s %.1f%% \n" "$outpercdiffsubt" "$percdiffonly"
+    #printf "%-29s %.1f%% \n" "$outpercdiffsubt" "$percdiffonly"
+    printf "%5.1f%%                        %5.1f%% \n" "$percdiffsubt" "$percdiffonly"
 done
+
+rm nonuiscard.txt
 
 cd $thisdir
