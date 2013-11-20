@@ -1,8 +1,11 @@
 #!/bin/bash
 echo Datacard Interpolator for VBF Higgs to Invisible Analysis
-CARDDIR="../vbfcards/PostPASCards/"
+CARDDIR="../vbfcards/PromptPaperCards/cardsfromchayanit/"
+TARGETDIR="../vbfcards/PromptPaperCards/InterpolatedCards/"
 XSDATFILE="../data/lhc-hxswg/sm/xs/8TeV/8TeV-vbfH.txt"
 mkdir sourceuncs
+
+cat $XSDATFILE | awk '{print $1, $2}' >xsinfo.txt
 
 #GET INFO AT MASSES WE HAVE CARDS FOR
 echo Processing input cards:
@@ -12,13 +15,12 @@ do
     #GET MASS FROM CARD NAME
     mass=`echo $card | sed "s:${CARDDIR}vbfhinv_::" | sed "s/_8TeV.txt/.0/"`
     #GET XS INFO FROM LHC-HXSWG FILE
-    grep "^$mass" $XSDATFILE > tmp.txt
-    xs=`cat tmp.txt | awk '{print $2}'`
+    root -l -b -q xs.cpp"("'"'xsinfo.txt'"',$mass")" >tmp.txt
+    xs=`cat tmp.txt | grep "newxs" | awk '{print $2}'`
     rm tmp.txt
 
     #GET SIGNAL YIELD INFO FROM CARDS
     yield=`grep "rate" $card | awk '{print $2}'`
-    
     echo $mass $xs $yield >>inputinfo.txt
 
     #GET FIRST ERROR IN CARDS
@@ -65,33 +67,34 @@ done
 
 #GET INFO AT MASSES WE WANT CARDS FOR
 
-rm -r $CARDDIR/InterpolatedCards
-mkdir $CARDDIR/InterpolatedCards
+rm -r $TARGETDIR
+mkdir $TARGETDIR
 
 echo Making new cards for:
-newmasses="115 125 135 145"
+newmasses=`cat masses.txt`
 for newmass in $newmasses
 do
     echo "   mH =" $newmass GeV
     #GET NEW XS 
-    grep "^${newmass}.0" $XSDATFILE > tmp.txt
-    xs=`cat tmp.txt | awk '{print $2}'`
+    root -l -b -q xs.cpp"("'"'xsinfo.txt'"',$newmass")" >tmp.txt
+    xs=`cat tmp.txt | grep "newxs" |awk '{print $2}'`
     echo $newmass $xs > outputxsinfo.txt
     rm tmp.txt
 
 #MAKE NEW CARDS
     #FIRST 12 LINES ARE UNCHANGED
-    grep -m 12 "" ${CARDDIR}vbfhinv_125_8TeV.txt >${CARDDIR}/InterpolatedCards/vbfhinv_${newmass}_8TeV.txt 
+    grep -m 12 "" ${CARDDIR}vbfhinv_125_8TeV.txt >$TARGETDIR/vbfhinv_${newmass}_8TeV.txt 
+    sed -i "s:# Invisible Higgs analysis for mH=125 GeV:# Invisible Higgs analysis for mH=$newmass GeV:" $TARGETDIR/vbfhinv_${newmass}_8TeV.txt
 
     #PUT NEW RATE IN
     root -l -q newyield.cpp >tmp.txt
     rate=`cat tmp.txt | grep "rate" | awk '{print $2}'`
     rm tmp.txt
     oldrate=`grep "rate" ${CARDDIR}vbfhinv_125_8TeV.txt | awk '{print $2}'`                                                                                
-    grep "rate" ${CARDDIR}vbfhinv_125_8TeV.txt | sed "s:$oldrate:$rate:" >>${CARDDIR}/InterpolatedCards/vbfhinv_${newmass}_8TeV.txt
+    grep "rate" ${CARDDIR}vbfhinv_125_8TeV.txt | sed "s:$oldrate:$rate:" >>$TARGETDIR/vbfhinv_${newmass}_8TeV.txt
 
     #LINE 14 UNCHANGED
-    echo ------------ >>${CARDDIR}/InterpolatedCards/vbfhinv_${newmass}_8TeV.txt 
+    echo ------------ >>${TARGETDIR}/vbfhinv_${newmass}_8TeV.txt 
 
     #PUT NEW ERRORS IN
     for sources in `grep -A 10000 "$firsterr" $CARDDIR/vbfhinv_125_8TeV.txt | awk '{print $1}'`
@@ -127,7 +130,7 @@ do
 	    exit 1
         fi
 
-	grep "$sources" ${CARDDIR}vbfhinv_125_8TeV.txt | sed "s:$olderr:$err:" >>${CARDDIR}/InterpolatedCards/vbfhinv_${newmass}_8TeV.txt
+	grep "$sources" ${CARDDIR}vbfhinv_125_8TeV.txt | sed "s:$olderr:$err:" >>${TARGETDIR}/vbfhinv_${newmass}_8TeV.txt
     done
 
 
@@ -135,4 +138,4 @@ do
 done
 rm inputinfo.txt
 rm -r sourceuncs
-echo Interpolated datacards successfully created at: $CARDDIR/InterpolatedCards/
+echo Interpolated datacards successfully created at: $TARGETDIR
