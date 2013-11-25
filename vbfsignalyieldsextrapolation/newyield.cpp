@@ -60,6 +60,8 @@
   
   for(int i=0;i<outmass->size();i++){
     std::cout<<outmass->at(i)<<std::endl;
+    std::cout<<"yieldoverxs "<<yieldoverxs->Eval(outmass->at(i))<<std::endl;
+    std::cout<<"xs "<<outxs->at(i)<<std::endl;
     std::cout<<"rate                "<<outyield->at(i)<<std::endl;
   }
 

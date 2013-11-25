@@ -11,6 +11,7 @@ echo Uncertainty effect estimator script
 #GET FIRST ERROR IN CARD
 grep -A 1 -e "-------" $card >tmp.txt
 firsterr=`tail -1 tmp.txt | awk '{print $1}'`
+rm tmp.txt
 
 #RUN WITH ALL NUISANCES
 echo "   "Getting expected limit with all nuisances
