@@ -1,7 +1,7 @@
 #!/bin/bash
 echo Datacard Interpolator for VBF Higgs to Invisible Analysis
 CARDDIR="../vbfcards/PromptPaperCards/cardsfromchayanit/"
-TARGETDIR="../vbfcards/PromptPaperCards/couplings/"
+TARGETDIR="../vbfcards/PromptPaperCards/searches/"
 XSDATFILE="../data/lhc-hxswg/sm/xs/8TeV/8TeV-vbfH.txt"
 mkdir sourceuncs
 

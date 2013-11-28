@@ -4,10 +4,10 @@ jmax 6  number of backgrounds
 kmax 15  number of nuisance parameters (sources of systematical uncertainties)
 ------------
 # we have just one channel, in which we observe 0 events
-bin 1
+bin vbf
 observation 390
 ------------
-bin               1  	 1   	 1   	 1  	 1    	 1   	 1     
+bin              vbf 	 vbf 	 vbf 	 vbf	 vbf  	 vbf 	 vbf   
 process          qqH 	 zvv 	 wmu 	 wel 	 wtau 	 qcd 	 others
 process           0  	 1   	 2   	 3  	 4    	 5   	 6     
 rate            186.511	103.452	66.7633	62.7291	53.3091	32.4562	20.045
@@ -19,7 +19,7 @@ CMS_scale_j   lnN   0.9026/1.0906	0.956/1.0014	1.001/0.971	1.033/0.872	1.074/1.0
 CMS_res_j     lnN   0.9796/1.0192	0.979/1.015	0.94/1.01	1.149/0.968	0.976/0.964	1.155/0.827	0.974/0.88
 CMS_scale_met lnN   0.9946/1.00172	0.986/0.997	0.998/0.996	1.018/0.976	1.007/1.004	1.028/0.982	0.9996/1.003
 pdf_qqbar     lnN   1.0438	 - 	 - 	 - 	 - 	 - 	 - 	
-QCD_qqH       lnN   1.04	 - 	 - 	 - 	 - 	 - 	 - 	
+QCDscale_qqH       lnN   1.04	 - 	 - 	 - 	 - 	 - 	 - 	
 CMS_VBFHinv_zvv_stat      gmN 12  -	8.62097	 - 	 - 	 - 	 - 	 - 
 CMS_VBFHinv_zvv_norm      lnN     - 	1.24298	 - 	 - 	 - 	 - 	 - 
 CMS_VBFHinv_wmu_norm      lnN     - 	 - 	1.23864	 - 	 - 	 - 	 - 
