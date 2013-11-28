@@ -1,0 +1,28 @@
+imax 1 number of channels
+jmax * number of background
+kmax * number of nuisance parameters
+Observation 22
+shapes *   *   zhinvll_nj0_115.input_7TeV.root  histo_$PROCESS histo_$PROCESS_$SYSTEMATIC
+shapes data_obs * zhinvll_nj0_115.input_7TeV.root  histo_Data 
+bin hinvll7TeV hinvll7TeV hinvll7TeV hinvll7TeV hinvll7TeV hinvll7TeV hinvll7TeV
+process ZH Zjets VVV WZ ZZ EM Wjets
+process 0 1 2 3 4 5 6
+rate  7.193  0.435   0.000   4.196  15.060   0.000   0.104
+lumi_7TeV                               lnN  1.022   -   1.022 1.022 1.022   -     -  
+CMS_zhinv_MVALepEffBounding          shape  1.000   -   1.000 1.000 1.000   -	  -  
+CMS_zhinv_MVALepResBounding          shape  1.000   -   1.000 1.000 1.000   -	  -  
+CMS_zhinv_MVAMETResBounding          shape  1.000   -   1.000 1.000 1.000   -	  -  
+CMS_zhinv_MVAJESBounding             shape  1.000   -   1.000 1.000 1.000   -	  -  
+UEPS			               lnN  1.030   -     -     -     -     -     -  
+pdf_qqbar                              lnN  1.055   -     -   1.048 1.057   -     -  
+QCDscale_VH		               lnN  1.070   -     -     -     -     -     -  
+QCDscale_VV		               lnN    -     -     -   1.107 1.065   -     -  
+QCDscale_VVV		               lnN    -     -   1.500   -     -     -     -  
+CMS_FakeRate                           lnN    -     -     -     -     -	    -   1.486
+CMS_zhinv_ZLL_7TeV                      lnN    -   2.000   -     -     -     -     -  
+CMS_zhinv_MVAWBounding               shape    -     -     -	-     -     -   1.000
+CMS_zhinvll_MVAZHStatBounding_7TeV     shape  1.000   -     -     -     -     -     -  
+CMS_zhinvll_MVAVVVStatBounding_7TeV    shape    -     -	1.000   -     -     -     -  
+CMS_zhinvll_MVAWZStatBounding_7TeV     shape    -     -     -   1.000   -     -     -  
+CMS_zhinvll_MVAZZStatBounding_7TeV     shape    -     -     -     -   1.000   -     -  
+CMS_zhinvll_MVAWjetsStatBounding_7TeV  shape    -     -	  -     -     -     -	1.000

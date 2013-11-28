@@ -1,0 +1,22 @@
+imax 1 number of channels
+jmax * number of background
+kmax * number of nuisance parameters
+Observation 5
+bin hinvll7TeV hinvll7TeV hinvll7TeV hinvll7TeV hinvll7TeV hinvll7TeV hinvll7TeV
+process ZH Zjets VVV WZ ZZ EM Wjets
+process 0 1 2 3 4 5 6
+rate  0.971  0.705   0.000   2.360   2.927   0.000   0.000
+lumi_7TeV                    lnN 1.022   -   1.022 1.022 1.022   -     -  
+CMS_eff_l 		  lnN 1.036   -   1.000 1.036 1.035   -     -  
+CMS_p_scale_l		  lnN 1.025   -   1.000 1.010 1.008   -     -  
+CMS_res_met		  lnN 1.006   -   1.000 1.014 1.015   -     -  
+CMS_res_j 		  lnN 1.083   -   1.000 1.079 1.107   -     -  
+pdf_qqbar                   lnN 1.043   -     -   1.048 1.057   -     -  
+QCDscale_VH		  lnN 1.110   -     -     -     -     -     -  
+QCDscale_VV		  lnN   -     -     -   1.107 1.065   -     -  
+QCDscale_VVV		  lnN   -     -   1.500   -     -     -     -  
+CMS_zhinv_ZLL_7TeV           lnN   -   2.000   -     -     -     -     -  
+CMS_zhinvll_stat_ZH_7TeV    lnN 1.064   -     -	  -	-     -     -  
+CMS_zhinvll_stat_VVV_7TeV   lnN	-     -   1.000   -	-     -     -  
+CMS_zhinvll_stat_WZ_7TeV    lnN	-     -     -	1.044	-     -     -  
+CMS_zhinvll_stat_ZZ_7TeV    lnN	-     -     -	  -   1.022   -     -  

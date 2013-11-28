@@ -1,0 +1,30 @@
+imax 1 number of channels
+jmax * number of background
+kmax * number of nuisance parameters
+Observation 78
+shapes *   *   zhinvll_nj0_135.input_8TeV.root  histo_$PROCESS histo_$PROCESS_$SYSTEMATIC
+shapes data_obs * zhinvll_nj0_135.input_8TeV.root  histo_Data 
+bin hinvll8TeV hinvll8TeV hinvll8TeV hinvll8TeV hinvll8TeV hinvll8TeV hinvll8TeV
+process ZH Zjets VVV WZ ZZ EM Wjets
+process 0 1 2 3 4 5 6
+rate 24.551  0.478   0.148  22.072  64.202   0.764   0.942
+lumi_8TeV                               lnN  1.044   -   1.044 1.044 1.044   -     -  
+CMS_zhinv_MVALepEffBounding          shape  1.000   -   1.000 1.000 1.000   -	  -  
+CMS_zhinv_MVALepResBounding          shape  1.000   -   1.000 1.000 1.000   -	  -  
+CMS_zhinv_MVAMETResBounding          shape  1.000   -   1.000 1.000 1.000   -	  -  
+CMS_zhinv_MVAJESBounding             shape  1.000   -   1.000 1.000 1.000   -	  -  
+UEPS			               lnN  1.030   -     -     -     -     -     -  
+pdf_qqbar                              lnN  1.055   -     -   1.048 1.057   -     -  
+QCDscale_VH		               lnN  1.070   -     -     -     -     -     -  
+QCDscale_VV		               lnN    -     -     -   1.107 1.065   -     -  
+QCDscale_VVV		               lnN    -     -   1.500   -     -     -     -  
+CMS_FakeRate                           lnN    -     -     -     -     -	    -   1.258
+CMS_zhinv_ZLL_8TeV                      lnN    -   2.000   -     -     -     -     -  
+CMS_zhinv_EM_8TeV                       lnN    -     -     -     -     -   2.001   -  
+CMS_zhinv_MVAWBounding               shape    -     -     -	-     -     -   1.000
+CMS_zhinvll_MVAZHStatBounding_8TeV     shape  1.000   -     -     -     -     -     -  
+CMS_zhinvll_MVAVVVStatBounding_8TeV    shape    -     -	1.000   -     -     -     -  
+CMS_zhinvll_MVAWZStatBounding_8TeV     shape    -     -     -   1.000   -     -     -  
+CMS_zhinvll_MVAZZStatBounding_8TeV     shape    -     -     -     -   1.000   -     -  
+CMS_zhinvll_MVAEMStatBounding_8TeV     shape    -     -	  -     -     -   1.000   -  
+CMS_zhinvll_MVAWjetsStatBounding_8TeV  shape    -     -	  -     -     -     -	1.000
