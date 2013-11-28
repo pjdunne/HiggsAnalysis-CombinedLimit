@@ -1,0 +1,41 @@
+imax 1
+jmax *
+kmax *
+-------------------------------
+shapes * * zllhinv_125_7TeV.root mumueq0jets/$PROCESS mumueq0jets/$PROCESS_$SYSTEMATIC
+-------------------------------
+bin 1
+Observation 11.000000
+-------------------------------
+                                          bin      1      1      1      1      1 
+                                      process zh1252lmet zz2l2nu wz3lnu zlldata topwwwjetsdata 
+                                      process      0      1      2      3      4 
+                                         rate 3.300982 7.281104 2.337825 0.719318 0.639098 
+-------------------------------
+                          lumi_7TeV        lnN 1.022000 1.022000 1.022000      -      - 
+                        accept_7TeV        lnN 1.000000 1.000000 1.000000      -      - 
+                         CMS_eff_mu        lnN 1.030000 1.030000 1.030000      -      - 
+                             pdf_gg        lnN      -      -      -      -      - 
+                          pdf_qqbar        lnN 1.104005 1.036000 1.050200      -      - 
+                               UEPS        lnN      -      -      -      -      - 
+                       QCDscale_ggH        lnN      -      -      -      -      - 
+                    QCDscale_ggH1in        lnN      -      -      -      -      - 
+                    QCDscale_ggH2in        lnN      -      -      -      -      - 
+                        QCDscale_ZH        lnN      -      -      -      -      - 
+                      QCDscale_ggVV        lnN      -      -      -      -      - 
+                          pdf_qqbar        lnN 1.055000 1.057000 1.048000      -      - 
+                        QCDScale_VV        lnN      - 1.067000 1.077000      -      - 
+                        QCDScale_ZH        lnN 1.070000      -      -      -      - 
+                          CMS_eff_b    shapeN2  1.000  1.000  1.000      -      - 
+                    CMS_hzz2l2v_les    shapeN2  1.000  1.000  1.000      -      - 
+                     CMS_hzz2l2v_pu    shapeN2  1.000  1.000  1.000      -      - 
+CMS_hzz2l2v_stat_mumueq0jets_topwwwjetsdata_7TeV    shapeN2      -      -      -      -  1.000 
+CMS_hzz2l2v_stat_mumueq0jets_wz3lnu_7TeV    shapeN2      -      -  1.000      -      - 
+CMS_hzz2l2v_stat_mumueq0jets_zh1252lmet_7TeV    shapeN2  1.000      -      -      -      - 
+CMS_hzz2l2v_stat_mumueq0jets_zlldata_7TeV    shapeN2      -      -      -  1.000      - 
+CMS_hzz2l2v_stat_mumueq0jets_zz2l2nu_7TeV    shapeN2      -  1.000      -      -      - 
+CMS_hzz2l2v_sys_topwwwjetsdata_7TeV        lnN      -      -      -      - 1.250000 
+       CMS_hzz2l2v_sys_zlldata_7TeV        lnN      -      -      - 2.000000      - 
+                   CMS_hzz2l2v_umet    shapeN2  1.000  1.000  1.000      -      - 
+                          CMS_res_j    shapeN2  1.000  1.000  1.000      -      - 
+                        CMS_scale_j    shapeN2  1.000  1.000  1.000      -      - 

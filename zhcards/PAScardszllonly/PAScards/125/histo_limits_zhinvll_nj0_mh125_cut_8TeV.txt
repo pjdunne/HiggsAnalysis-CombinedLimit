@@ -1,0 +1,25 @@
+imax 1 number of channels
+jmax * number of background
+kmax * number of nuisance parameters
+Observation 78
+bin hinvll8TeV hinvll8TeV hinvll8TeV hinvll8TeV hinvll8TeV hinvll8TeV hinvll8TeV
+process ZH Zjets VVV WZ ZZ EM Wjets
+process 0 1 2 3 4 5 6
+rate 27.265  0.478   0.148  22.072  64.202   0.764   0.942
+lumi_8TeV                    lnN 1.044   -   1.044 1.044 1.044   -     -  
+CMS_eff_l 		  lnN 1.036   -   1.036 1.036 1.036   -     -  
+CMS_p_scale_l		  lnN 1.003   -   1.006 1.003 1.001   -     -  
+CMS_res_met		  lnN 1.005   -   1.008 1.012 1.001   -     -  
+CMS_res_j 		  lnN 1.018   -   1.094 1.037 1.021   -     -  
+pdf_qqbar                   lnN 1.055   -     -   1.048 1.057   -     -  
+QCDscale_VH		  lnN 1.070   -     -     -     -     -     -  
+QCDscale_VV		  lnN   -     -     -   1.107 1.065   -     -  
+QCDscale_VVV		  lnN   -     -   1.500   -     -     -     -  
+CMS_FakeRate                lnN   -     -     -	 -     -     -    1.258
+CMS_zhinv_ZLL_8TeV           lnN   -   2.000   -     -     -     -     -  
+CMS_zhinv_EM_8TeV            lnN   -     -     -     -     -   2.001   -  
+CMS_zhinvll_stat_ZH_8TeV    lnN 1.025   -     -	  -	-     -     -  
+CMS_zhinvll_stat_VVV_8TeV   lnN	-     -   1.125   -	-     -     -  
+CMS_zhinvll_stat_WZ_8TeV    lnN	-     -     -	1.023	-     -     -  
+CMS_zhinvll_stat_ZZ_8TeV    lnN	-     -     -	  -   1.011   -     -  
+CMS_zhinvll_stat_Wjets_8TeV lnN	-     -     -     -     -     -	  1.552
