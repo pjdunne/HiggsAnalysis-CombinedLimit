@@ -1,0 +1,37 @@
+imax 1
+jmax *
+kmax *
+-------------------------------
+shapes * * zllhinv_135_8TeV.root mumueq0jets/$PROCESS mumueq0jets/$PROCESS_$SYSTEMATIC
+-------------------------------
+bin 1
+Observation 46.000000
+-------------------------------
+                                          bin      1      1      1      1      1 
+                                      process zh1352lmet zz2l2nu wz3lnu zlldata topwwwjetsdata 
+                                      process      0      1      2      3      4 
+                                         rate 13.235291 35.861238 14.130665 0.914911 0.685816 
+-------------------------------
+                          lumi_8TeV        lnN 1.026000 1.026000 1.026000      -      - 
+                        accept_8TeV        lnN 1.000000 1.000000 1.000000      -      - 
+                          CMS_eff_m        lnN 1.040000 1.040000 1.040000      -      - 
+                CMS_zllhinv_EM_8TeV        lnN      -      -      -      - 2.018000 
+                   CMS_zllhinv_WZ3l        lnN      -      - 1.010000      -      - 
+                               UEPS        lnN 1.030000      -      -      -      - 
+                          pdf_qqbar        lnN 1.055000 1.057000 1.048000      -      - 
+                        QCDscale_VV        lnN      - 1.067000 1.077000      -      - 
+                        QCDscale_VH        lnN 1.072000      -      -      -      - 
+                          CMS_eff_b    shape  1.000  1.000  1.000      -      - 
+                      CMS_p_scale_m    shape  1.000  1.000  1.000      -      - 
+                          CMS_res_j    shape  1.000  1.000  1.000      -      - 
+                        CMS_scale_j    shape  1.000  1.000  1.000      -      - 
+                      CMS_scale_met    shape  1.000  1.000  1.000      -      - 
+                     CMS_zllhinv_pu    shape  1.000  1.000  1.000      -      - 
+CMS_zllhinv_stat_eq0jets_zlldata_8TeV    shape      -      -      -  1.000      - 
+CMS_zllhinv_stat_mumueq0jets_wz3lnu_8TeV_Bin13    shape      -      -  1.000      -      - 
+CMS_zllhinv_stat_mumueq0jets_wz3lnu_8TeV_Bin14    shape      -      -  1.000      -      - 
+CMS_zllhinv_stat_mumueq0jets_zh1352lmet_8TeV    shape  1.000      -      -      -      - 
+CMS_zllhinv_stat_mumueq0jets_zz2l2nu_8TeV_Bin13    shape      -  1.000      -      -      - 
+CMS_zllhinv_stat_mumueq0jets_zz2l2nu_8TeV_Bin14    shape      -  1.000      -      -      - 
+CMS_zllhinv_stat_topwwwjetsdata_8TeV_Bin24    shape      -      -      -      -  1.000 
+       CMS_zllhinv_sys_zlldata_8TeV        lnN      -      -      - 2.000000      - 
