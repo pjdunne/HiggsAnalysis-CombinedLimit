@@ -242,7 +242,7 @@ class ShapeBuilder(ModelBuilder):
         elif self.DC.shapeMap["*"].has_key("*"):     names = self.DC.shapeMap["*"]["*"]
         else: raise KeyError, "Shape map has no entry for process '%s', channel '%s'" % (process,channel)
         if len(names) == 1 and names[0] == "FAKE": return None
-        if syst != "": 
+        if syst != "":
             if len(names) == 2:
                 if allowNoSyst: return None
                 raise RuntimeError, "Can't find systematic "+syst+" for process '%s', channel '%s'" % (process,channel)
@@ -267,7 +267,9 @@ class ShapeBuilder(ModelBuilder):
             if self.wsp.ClassName() == "RooWorkspace":
                 ret = self.wsp.data(oname)
                 if not ret: ret = self.wsp.pdf(oname)
-                if not ret: raise RuntimeError, "Object %s in workspace %s in file %s does not exist or it's neither a data nor a pdf" % (oname, wname, finalNames[0])
+                if not ret:
+                    if allowNoSyst: return None
+                    raise RuntimeError, "Object %s in workspace %s in file %s does not exist or it's neither a data nor a pdf" % (oname, wname, finalNames[0])
                 # Fix the fact that more than one entry can refer to the same object
                 ret = ret.Clone()
                 ret.SetName("shape%s_%s_%s%s" % (postFix,process,channel, "_"+syst if syst else ""))
