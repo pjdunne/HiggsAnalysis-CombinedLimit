@@ -11,7 +11,7 @@ def makePlot():
   leg.SetFillColor(0)
   leg.SetBorderSize(0)
 
-  dummyHist = r.TH1D("dummy","",1,100,410)
+  dummyHist = r.TH1D("dummy","",1,104,146)
   dummyHist.GetXaxis().SetTitle('m_{H} [GeV]')
   dummyHist.GetYaxis().SetTitle('#sigma x BR(H#rightarrow inv) [pb]')
   dummyHist.SetTitleSize(.05,"X")
@@ -110,7 +110,7 @@ def makePlot():
   # draw dummy hist and multigraph
   mg.Draw("A")
   dummyHist.SetMinimum(0.)
-  dummyHist.SetMaximum(2.5)
+  dummyHist.SetMaximum(1.5)
   #dummyHist.SetMinimum(mg.GetYaxis().GetXmin())
   #dummyHist.SetMaximum(mg.GetYaxis().GetXmax())
   dummyHist.SetLineColor(0)
