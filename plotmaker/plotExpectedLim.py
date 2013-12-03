@@ -12,7 +12,7 @@ def makePlot():
 
   dummyHist = r.TH1D("dummy","",1,114,146)
   dummyHist.GetXaxis().SetTitle('m_{H} (GeV)')
-  dummyHist.GetYaxis().SetTitle('#sigma x BR(H#rightarrow inv)/#sigma_{VBF}(SM)')
+  dummyHist.GetYaxis().SetTitle('#sigma x BR(H#rightarrow inv)/#sigma_{SM}')
   dummyHist.SetTitleSize(.05,"X")
   dummyHist.SetTitleOffset(0.75,"X")
   dummyHist.SetTitleSize(.05,"Y")
@@ -122,7 +122,7 @@ def makePlot():
 
   # print canvas
   canv.Update()
-  canv.Print('limit.pdf')
+  canv.Print('combinedlimit.pdf')
   outf.cd()
   canv.SetName("limit_cavas")
   canv.Write()
