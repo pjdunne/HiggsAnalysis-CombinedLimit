@@ -1,0 +1,60 @@
+imax 1 number of channels
+jmax * number of background
+kmax * number of nuisance parameters
+Observation 1
+shapes *   *   zllhinvee1j_input_7TeV.root  histo_$PROCESS histo_$PROCESS_$SYSTEMATIC
+shapes data_obs * zllhinvee1j_input_7TeV.root  histo_Data 
+bin hinvee1j7TeV hinvee1j7TeV hinvee1j7TeV hinvee1j7TeV hinvee1j7TeV hinvee1j7TeV hinvee1j7TeV
+process ZH_hinv Zjets VVV WZ ZZ EM Wjets
+process 0 1 2 3 4 5 6
+rate  0.198  0.191   0.000   0.791   1.100   0.480   0.000
+lumi_7TeV                               lnN  1.022   -   1.022 1.022 1.022   -     -  
+CMS_eff_e                                   shape  1.000   -   1.000 1.000 1.000   -	  -  
+CMS_p_scale_e                                   shape  1.000   -   1.000 1.000 1.000   -	  -  
+CMS_scale_met                        shape  1.000   -   1.000 1.000 1.000   -	  -  
+CMS_scale_j                          shape  1.000   -   1.000 1.000 1.000   -	  -  
+UEPS			               lnN  1.030   -     -     -     -     -     -  
+CMS_eff_b                              lnN  1.027   -   1.027 1.027 1.027   -     -  
+pdf_qqbar                              lnN  1.043   -     -   1.048 1.057   -     -  
+QCDscale_VH		               lnN  1.105   -     -     -     -     -     -  
+QCDscale_VV		               lnN    -     -     -   1.107 1.065   -     -  
+CMS_zllhinv_WZ3l                       lnN    -     -     -   1.013   -     -     -  
+QCDscale_VVV		               lnN    -     -   1.500   -     -     -     -  
+CMS_zllhinv_ZLL_7TeV                    lnN    -   2.000   -	-     -     -	  -  
+CMS_zllhinv_EM_7TeV                     lnN    -     -	  -	-     -   2.018   -  
+CMS_zllhinvee1j_MVAZHStatBounding_7TeV_Bin0	       shape  1.000   -       -     -	  -	-     -  
+CMS_zllhinvee1j_MVAWZStatBounding_7TeV_Bin0	      shape    -     -       -   1.000   -     -     -  
+CMS_zllhinvee1j_MVAZZStatBounding_7TeV_Bin0	      shape    -     -       -     -   1.000   -     -  
+CMS_zllhinvee1j_MVAEMStatBounding_7TeV_Bin0	      shape    -     -       -     -	 -   1.000   -  
+CMS_zllhinvee1j_MVAZHStatBounding_7TeV_Bin1	       shape  1.000   -       -     -	  -	-     -  
+CMS_zllhinvee1j_MVAWZStatBounding_7TeV_Bin1	      shape    -     -       -   1.000   -     -     -  
+CMS_zllhinvee1j_MVAZZStatBounding_7TeV_Bin1	      shape    -     -       -     -   1.000   -     -  
+CMS_zllhinvee1j_MVAEMStatBounding_7TeV_Bin1	      shape    -     -       -     -	 -   1.000   -  
+CMS_zllhinvee1j_MVAZHStatBounding_7TeV_Bin2	       shape  1.000   -       -     -	  -	-     -  
+CMS_zllhinvee1j_MVAWZStatBounding_7TeV_Bin2	      shape    -     -       -   1.000   -     -     -  
+CMS_zllhinvee1j_MVAZZStatBounding_7TeV_Bin2	      shape    -     -       -     -   1.000   -     -  
+CMS_zllhinvee1j_MVAEMStatBounding_7TeV_Bin2	      shape    -     -       -     -	 -   1.000   -  
+CMS_zllhinvee1j_MVAZHStatBounding_7TeV_Bin3	       shape  1.000   -       -     -	  -	-     -  
+CMS_zllhinvee1j_MVAWZStatBounding_7TeV_Bin3	      shape    -     -       -   1.000   -     -     -  
+CMS_zllhinvee1j_MVAZZStatBounding_7TeV_Bin3	      shape    -     -       -     -   1.000   -     -  
+CMS_zllhinvee1j_MVAZHStatBounding_7TeV_Bin4	       shape  1.000   -       -     -	  -	-     -  
+CMS_zllhinvee1j_MVAWZStatBounding_7TeV_Bin4	      shape    -     -       -   1.000   -     -     -  
+CMS_zllhinvee1j_MVAZZStatBounding_7TeV_Bin4	      shape    -     -       -     -   1.000   -     -  
+CMS_zllhinvee1j_MVAZHStatBounding_7TeV_Bin5	       shape  1.000   -       -     -	  -	-     -  
+CMS_zllhinvee1j_MVAWZStatBounding_7TeV_Bin5	      shape    -     -       -   1.000   -     -     -  
+CMS_zllhinvee1j_MVAZZStatBounding_7TeV_Bin5	      shape    -     -       -     -   1.000   -     -  
+CMS_zllhinvee1j_MVAZHStatBounding_7TeV_Bin6	       shape  1.000   -       -     -	  -	-     -  
+CMS_zllhinvee1j_MVAWZStatBounding_7TeV_Bin6	      shape    -     -       -   1.000   -     -     -  
+CMS_zllhinvee1j_MVAZZStatBounding_7TeV_Bin6	      shape    -     -       -     -   1.000   -     -  
+CMS_zllhinvee1j_MVAZHStatBounding_7TeV_Bin7	       shape  1.000   -       -     -	  -	-     -  
+CMS_zllhinvee1j_MVAWZStatBounding_7TeV_Bin7	      shape    -     -       -   1.000   -     -     -  
+CMS_zllhinvee1j_MVAZZStatBounding_7TeV_Bin7	      shape    -     -       -     -   1.000   -     -  
+CMS_zllhinvee1j_MVAZHStatBounding_7TeV_Bin8	       shape  1.000   -       -     -	  -	-     -  
+CMS_zllhinvee1j_MVAWZStatBounding_7TeV_Bin8	      shape    -     -       -   1.000   -     -     -  
+CMS_zllhinvee1j_MVAZZStatBounding_7TeV_Bin8	      shape    -     -       -     -   1.000   -     -  
+CMS_zllhinvee1j_MVAZHStatBounding_7TeV_Bin9	       shape  1.000   -       -     -	  -	-     -  
+CMS_zllhinvee1j_MVAWZStatBounding_7TeV_Bin9	      shape    -     -       -   1.000   -     -     -  
+CMS_zllhinvee1j_MVAZZStatBounding_7TeV_Bin9	      shape    -     -       -     -   1.000   -     -  
+CMS_zllhinvee1j_MVAZHStatBounding_7TeV_Bin10	       shape  1.000   -       -     -	  -	-     -  
+CMS_zllhinvee1j_MVAWZStatBounding_7TeV_Bin10	      shape    -     -       -   1.000   -     -     -  
+CMS_zllhinvee1j_MVAZZStatBounding_7TeV_Bin10	      shape    -     -       -     -   1.000   -     -  
