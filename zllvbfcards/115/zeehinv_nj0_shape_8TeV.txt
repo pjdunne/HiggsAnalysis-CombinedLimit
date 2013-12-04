@@ -1,0 +1,48 @@
+imax 1
+jmax *
+kmax *
+-------------------------------
+shapes * * zllhinv_115_8TeV.root eeeq0jets/$PROCESS eeeq0jets/$PROCESS_$SYSTEMATIC
+-------------------------------
+bin 1
+Observation 36.000000
+-------------------------------
+                                          bin      1      1      1      1      1 
+                                      process ZH_hinv     ZZ     WZ  Zjets     EM 
+                                      process      0      1      2      3      4 
+                                         rate 12.376811 26.413207 10.364566 0.220166 0.432652 
+-------------------------------
+                          lumi_8TeV        lnN 1.026000 1.026000 1.026000      -      - 
+                        accept_8TeV        lnN 1.000000 1.000000 1.000000 1.000000 1.000000 
+                          CMS_eff_e        lnN 1.030000 1.030000 1.030000      -      - 
+                CMS_zllhinv_EM_8TeV        lnN      -      -      -      - 2.109000 
+                   CMS_zllhinv_WZ3l        lnN      -      - 1.010000      -      - 
+                               UEPS        lnN 1.030000      -      -      -      - 
+                          pdf_qqbar        lnN 1.055000 1.057000 1.048000      -      - 
+                        QCDscale_VV        lnN      - 1.067000 1.077000      -      - 
+                        QCDscale_VH        lnN 1.072000      -      -      -      - 
+                          CMS_eff_b      shape  1.000  1.000  1.000      -      - 
+                      CMS_p_scale_e      shape  1.000  1.000  1.000      -      - 
+                          CMS_res_j      shape  1.000  1.000  1.000      -      - 
+                        CMS_scale_j      shape  1.000  1.000  1.000      -      - 
+                      CMS_scale_met      shape  1.000  1.000  1.000      -      - 
+                     CMS_zllhinv_pu      shape  1.000  1.000  1.000      -      - 
+     CMS_zllhinv_stat_EM_8TeV_Bin24      shape      -      -      -      -  1.000 
+CMS_zllhinv_stat_eeeq0jets_WZ_8TeV_Bin12      shape      -      -  1.000      -      - 
+CMS_zllhinv_stat_eeeq0jets_WZ_8TeV_Bin13      shape      -      -  1.000      -      - 
+CMS_zllhinv_stat_eeeq0jets_WZ_8TeV_Bin14      shape      -      -  1.000      -      - 
+CMS_zllhinv_stat_eeeq0jets_WZ_8TeV_Bin15      shape      -      -  1.000      -      - 
+CMS_zllhinv_stat_eeeq0jets_WZ_8TeV_Bin2      shape      -      -  1.000      -      - 
+CMS_zllhinv_stat_eeeq0jets_ZH_hinv_8TeV_Bin12      shape  1.000      -      -      -      - 
+CMS_zllhinv_stat_eeeq0jets_ZH_hinv_8TeV_Bin13      shape  1.000      -      -      -      - 
+CMS_zllhinv_stat_eeeq0jets_ZH_hinv_8TeV_Bin14      shape  1.000      -      -      -      - 
+CMS_zllhinv_stat_eeeq0jets_ZH_hinv_8TeV_Bin15      shape  1.000      -      -      -      - 
+CMS_zllhinv_stat_eeeq0jets_ZH_hinv_8TeV_Bin16      shape  1.000      -      -      -      - 
+CMS_zllhinv_stat_eeeq0jets_ZH_hinv_8TeV_Bin2      shape  1.000      -      -      -      - 
+CMS_zllhinv_stat_eeeq0jets_ZH_hinv_8TeV_Bin23      shape  1.000      -      -      -      - 
+CMS_zllhinv_stat_eeeq0jets_ZH_hinv_8TeV_Bin3      shape  1.000      -      -      -      - 
+CMS_zllhinv_stat_eeeq0jets_ZH_hinv_8TeV_Bin4      shape  1.000      -      -      -      - 
+CMS_zllhinv_stat_eeeq0jets_ZZ_8TeV_Bin13      shape      -  1.000      -      -      - 
+CMS_zllhinv_stat_eeeq0jets_ZZ_8TeV_Bin14      shape      -  1.000      -      -      - 
+CMS_zllhinv_stat_eq0jets_Zjets_8TeV      shape      -      -      -  1.000      - 
+         CMS_zllhinv_sys_Zjets_8TeV        lnN      -      -      - 2.000000      - 
