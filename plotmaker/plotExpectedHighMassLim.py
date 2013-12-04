@@ -1,19 +1,18 @@
 import ROOT as r
 import sys
-import subprocess
 outf = r.TFile('PlotCanvas.root','RECREATE')
 def makePlot():
   canv = r.TCanvas()
   canv.Clear()
   canv.SetLogy(False)
   mg = r.TMultiGraph()
-  leg = r.TLegend(0.6, 0.7, 0.89, 0.89)
+  leg = r.TLegend(0.6,0.7,0.89,0.89)
   leg.SetFillColor(0)
   leg.SetBorderSize(0)
 
-  dummyHist = r.TH1D("dummy","",1,104,146)
-  dummyHist.GetXaxis().SetTitle('m_{H} [GeV]')
-  dummyHist.GetYaxis().SetTitle('#sigma x BR(H#rightarrow inv) [pb]')
+  dummyHist = r.TH1D("dummy","",1,114,301)
+  dummyHist.GetXaxis().SetTitle('m_{H} (GeV)')
+  dummyHist.GetYaxis().SetTitle('#sigma x BR(H#rightarrow inv)/#sigma_{SM}')
   dummyHist.SetTitleSize(.05,"X")
   dummyHist.SetTitleOffset(0.75,"X")
   dummyHist.SetTitleSize(.05,"Y")
@@ -40,7 +39,6 @@ def makePlot():
   values.sort(key=lambda x: x[0])
   # make graph from values
   graph = r.TGraphAsymmErrors()
-  graphxs = r.TGraphAsymmErrors()
   exp = r.TGraphAsymmErrors()
   oneSigma = r.TGraphAsymmErrors()
   twoSigma = r.TGraphAsymmErrors()
@@ -56,24 +54,13 @@ def makePlot():
       up95 = values[j+4][1]
       obs = values[j+5][1]
 
-      #FILL XS*BF graph
-      #!!NEED TO MULTIPLY BY XS_SM
-      command="root"
-      args1="-l"
-      args2="-q"
-      args3="-b"
-      args4="xs.cpp(\"zhxsinfo.txt\","+repr(mh)+")"
-      cmd=subprocess.Popen([command,args1,args2,args3,args4],stdout=subprocess.PIPE)
-      for line in cmd.stdout:
-        if "double" in line:
-          xs=float(line[8:])
-      graphxs.SetPoint(point_counter,mh,xs)
-      graph.SetPoint(point_counter,mh,obs*xs)
-      exp.SetPoint(point_counter,mh,median*xs)
-      oneSigma.SetPoint(point_counter,mh,median*xs)
-      oneSigma.SetPointError(point_counter,0,0,abs(median-down68)*xs,abs(up68-median)*xs)
-      twoSigma.SetPoint(point_counter,mh,median*xs)
-      twoSigma.SetPointError(point_counter,0,0,abs(median-down95)*xs,abs(up95-median)*xs)
+      #FILL XS*BF/XS_SM graph
+      graph.SetPoint(point_counter,mh,obs)
+      exp.SetPoint(point_counter,mh,median)
+      oneSigma.SetPoint(point_counter,mh,median)
+      oneSigma.SetPointError(point_counter,0,0,abs(median-down68),abs(up68-median))
+      twoSigma.SetPoint(point_counter,mh,median)
+      twoSigma.SetPointError(point_counter,0,0,abs(median-down95),abs(up95-median))
 
       point_counter+=1
     
@@ -87,32 +74,24 @@ def makePlot():
   twoSigma.SetLineColor(r.kYellow)
   oneSigma.SetFillColor(r.kGreen)
   twoSigma.SetFillColor(r.kYellow)
-  graphxs.SetLineColor(r.kBlue)
-  graphxs.SetLineWidth(1)
-  graphxs.SetMarkerSize(0.)
   exp.SetLineColor(1)
   exp.SetLineStyle(2)
   exp.SetLineWidth(2)
   leg.SetHeader('95% CL limits')
   leg.AddEntry(graph,'Observed limit','L')
   leg.AddEntry(exp,'Expected limit','L')
-  leg.AddEntry(oneSigma,'Expected (1#sigma)','f') 
-  leg.AddEntry(twoSigma,'Expected (2#sigma)','f')
-  leg.AddEntry(graphxs,'#sigma_{ZH} (SM)','L')
-  
+  leg.AddEntry(oneSigma,'Expected limit (1#sigma)','F') 
+  leg.AddEntry(twoSigma,'Expected limit (2#sigma)','F') 
   
   mg.Add(twoSigma)
   mg.Add(oneSigma)
   mg.Add(exp)
   mg.Add(graph)
-  mg.Add(graphxs)
   
   # draw dummy hist and multigraph
   mg.Draw("A")
-  dummyHist.SetMinimum(0.)
-  dummyHist.SetMaximum(1.5)
-  #dummyHist.SetMinimum(mg.GetYaxis().GetXmin())
-  #dummyHist.SetMaximum(mg.GetYaxis().GetXmax())
+  dummyHist.SetMinimum(0.1)
+  dummyHist.SetMaximum(3)
   dummyHist.SetLineColor(0)
   dummyHist.SetStats(0)
   dummyHist.Draw("AXIS")
@@ -120,19 +99,22 @@ def makePlot():
   mg.Draw("LPX")
   dummyHist.Draw("AXIGSAME")
  
-  # draw line at y=1 only for /xs_SM plot
-  #l = r.TLine(100.,1.,400.,1.)
-  #l.SetLineColor(r.kRed)
-  #l.SetLineWidth(2)
-  #l.Draw()
+  # draw line at y=1 
+  l = r.TLine(114.,1.,301.,1.)
+  l.SetLineColor(r.kBlue)
+  l.SetLineWidth(2)
+  l.Draw()
 
   # draw text
   lat.DrawLatex(0.14,0.85,"CMS")
-  lat.DrawLatex(0.14,0.78,"Combination of Z#rightarrow bb + H")
-  lat.DrawLatex(0.14,0.73,"& Z#rightarrow ll + H, H #rightarrow invisible")
+  lat.DrawLatex(0.14,0.78,"Combination of VBF and")
+  lat.DrawLatex(0.14,0.73,"ZH, H #rightarrow invisible")
 
-  lat2.DrawLatex(0.14,0.665,"#sqrt{s}=8 TeV L = 19.5 fb^{-1} (Both ZH channels)")
+  
+  lat2.DrawLatex(0.14,0.665,"#sqrt{s}=8 TeV L = 19.5 fb^{-1} (VBF + ZH)")
   lat2.DrawLatex(0.14,0.62,"#sqrt{s}=7 TeV L = 5.1 fb^{-1} (Z#rightarrow ll + H only)")
+
+    
   
   # draw legend
   leg.Draw()
@@ -140,7 +122,7 @@ def makePlot():
 
   # print canvas
   canv.Update()
-  canv.Print('zhxslimit.pdf')
+  canv.Print('highmasslimit.pdf')
   outf.cd()
   canv.SetName("limit_cavas")
   canv.Write()
