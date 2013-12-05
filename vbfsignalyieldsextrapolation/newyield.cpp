@@ -4,15 +4,6 @@
   std::vector<double> *inmass = new std::vector<double>();
   std::vector<double> *inxs = new std::vector<double>();
   std::vector<double> *inyield = new std::vector<double>();
-  std::vector<double> *inlumierr = new std::vector<double>();
-  std::vector<double> *inscalejerrdown = new std::vector<double>();
-  std::vector<double> *inscalejerrup = new std::vector<double>();
-  std::vector<double> *inresjerrdown = new std::vector<double>();
-  std::vector<double> *inresjerrup = new std::vector<double>();
-  std::vector<double> *inscalemeterrdown = new std::vector<double>();
-  std::vector<double> *inscalemeterrup = new std::vector<double>();
-  std::vector<double> *inqqbarpdferr = new std::vector<double>();
-  std::vector<double> *inqcdqqherr = new std::vector<double>();
 
   std::ifstream inputinfofile("inputinfo.txt");  
   std::string line;
@@ -50,7 +41,8 @@
 
   //MAKE TGRAPHS
   TGraph* yieldoverxs = new TGraph(inmass->size(),&(inmass->at(0)),&(inyieldoverxs->at(0)));
-    
+  
+  
   //GET VALUES FOR NEW MASS POINTS
   vector<double> *outyield= new vector<double>();
     
