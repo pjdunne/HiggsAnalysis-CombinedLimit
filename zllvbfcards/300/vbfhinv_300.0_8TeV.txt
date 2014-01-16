@@ -1,7 +1,7 @@
 # Invisible Higgs analysis for mH=300.0 GeV
 imax 1
 jmax 6  number of backgrounds
-kmax 15  number of nuisance parameters (sources of systematical uncertainties)
+kmax *  number of nuisance parameters (sources of systematical uncertainties)
 ------------
 # we have just one channel, in which we observe 0 events
 bin vbf

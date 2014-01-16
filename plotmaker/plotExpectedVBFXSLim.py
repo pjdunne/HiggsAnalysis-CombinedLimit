@@ -7,7 +7,7 @@ def makePlot():
   canv.Clear()
   canv.SetLogy(False)
   mg = r.TMultiGraph()
-  leg = r.TLegend(0.5, 0.58, 0.78, 0.88)
+  leg = r.TLegend(0.6, 0.66, 0.89, 0.89)
   leg.SetFillColor(0)
   leg.SetBorderSize(0)
 
@@ -128,7 +128,7 @@ def makePlot():
 
   # draw text
   lat.DrawLatex(0.14,0.85,"CMS VBF H #rightarrow invisible")
-  lat.DrawLatex(0.14,0.78,"#sqrt{s}=8 TeV L = 19.5 fb^{-1}")
+  lat.DrawLatex(0.14,0.78,"#sqrt{s} = 8 TeV, L = 19.5 fb^{-1}")
     
   
   # draw legend

@@ -6,12 +6,12 @@ def makePlot():
   canv.Clear()
   canv.SetLogy(False)
   mg = r.TMultiGraph()
-  leg = r.TLegend(0.15, 0.58, 0.43, 0.88)
+  leg = r.TLegend(0.15, 0.7, 0.44, 0.89)
   leg.SetFillColor(0)
   leg.SetBorderSize(0)
 
   dummyHist = r.TH1D("dummy","",1,100,410)
-  dummyHist.GetXaxis().SetTitle('m_{H} (GeV)')
+  dummyHist.GetXaxis().SetTitle('m_{H} [GeV]')
   dummyHist.GetYaxis().SetTitle('#sigma x BR(H#rightarrow inv)/#sigma_{VBF}(SM)')
   dummyHist.SetTitleSize(.05,"X")
   dummyHist.SetTitleOffset(0.75,"X")
@@ -107,7 +107,7 @@ def makePlot():
 
   # draw text
   lat.DrawLatex(0.52,0.85,"CMS VBF H #rightarrow invisible")
-  lat.DrawLatex(0.52,0.78,"#sqrt{s}=8 TeV L = 19.5 fb^{-1}")
+  lat.DrawLatex(0.52,0.78,"#sqrt{s} = 8 TeV, L = 19.5 fb^{-1}")
 
 
     

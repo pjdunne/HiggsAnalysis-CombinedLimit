@@ -7,7 +7,7 @@ def makePlot():
   canv.Clear()
   canv.SetLogy(False)
   mg = r.TMultiGraph()
-  leg = r.TLegend(0.6, 0.7, 0.89, 0.89)
+  leg = r.TLegend(0.6, 0.66, 0.89, 0.89)
   leg.SetFillColor(0)
   leg.SetBorderSize(0)
 
@@ -128,11 +128,11 @@ def makePlot():
 
   # draw text
   lat.DrawLatex(0.14,0.85,"CMS")
-  lat.DrawLatex(0.14,0.78,"Combination of Z#rightarrow bb + H")
-  lat.DrawLatex(0.14,0.73,"& Z#rightarrow ll + H, H #rightarrow invisible")
+  lat.DrawLatex(0.14,0.78,"Combination of Z(b#bar{b})H")
+  lat.DrawLatex(0.14,0.73,"and Z(ll)H")
 
-  lat2.DrawLatex(0.14,0.665,"#sqrt{s}=8 TeV L = 19.5 fb^{-1} (Both ZH channels)")
-  lat2.DrawLatex(0.14,0.62,"#sqrt{s}=7 TeV L = 5.1 fb^{-1} (Z#rightarrow ll + H only)")
+  lat2.DrawLatex(0.14,0.665,"#sqrt{s} = 8 TeV, L = 19.5 fb^{-1} (Both ZH channels)")
+  lat2.DrawLatex(0.14,0.62,"#sqrt{s} = 7 TeV, L = 5.1 fb^{-1} (Z(ll)H only)")
   
   # draw legend
   leg.Draw()
