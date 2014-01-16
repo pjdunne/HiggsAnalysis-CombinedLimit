@@ -1,7 +1,7 @@
 Combination of zeehinv_nj0_shape_7TeV.txt  zeehinv_nj0_shape_8TeV.txt  zeehinv_nj1_shape_7TeV.txt  zeehinv_nj1_shape_8TeV.txt  zmmhinv_nj0_shape_7TeV.txt  zmmhinv_nj0_shape_8TeV.txt  zmmhinv_nj1_shape_7TeV.txt  zmmhinv_nj1_shape_8TeV.txt  vbfhinv_300.0_8TeV.txt
 imax 9 number of bins
 jmax 13 number of processes minus 1
-kmax 189 number of nuisance parameters
+kmax * number of nuisance parameters
 ----------------------------------------------------------------------------------------------------------------------------------
 shapes *         ch1       zllhinvee0j_input_7TeV.root histo_$PROCESS histo_$PROCESS_$SYSTEMATIC
 shapes data_obs  ch1       zllhinvee0j_input_7TeV.root histo_Data
