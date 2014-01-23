@@ -13,7 +13,7 @@ def makePlot():
 
   dummyHist = r.TH1D("dummy","",1,100,410)
   dummyHist.GetXaxis().SetTitle('m_{H} [GeV]')
-  dummyHist.GetYaxis().SetTitle('#sigma x BR(H#rightarrow inv) [pb]')
+  dummyHist.GetYaxis().SetTitle('#sigma x B(H#rightarrow inv.) [pb]')
   dummyHist.SetTitleSize(.05,"X")
   dummyHist.SetTitleOffset(0.75,"X")
   dummyHist.SetTitleSize(.05,"Y")
@@ -63,11 +63,23 @@ def makePlot():
       args2="-q"
       args3="-b"
       args4="xs.cpp(\"vbfxsinfo.txt\","+repr(mh)+")"
+      args5="xserrors.cpp(\"vbfxsinfowitherrors.txt\","+repr(mh)+",true)"
+      args6="xserrors.cpp(\"vbfxsinfowitherrors.txt\","+repr(mh)+",false)"
       cmd=subprocess.Popen([command,args1,args2,args3,args4],stdout=subprocess.PIPE)
       for line in cmd.stdout:
         if "double" in line:
           xs=float(line[8:])
+      cmd2=subprocess.Popen([command,args1,args2,args3,args5],stdout=subprocess.PIPE)
+      for line in cmd2.stdout:
+        if "double" in line:
+          uperr=float(line[8:])
+      cmd3=subprocess.Popen([command,args1,args2,args3,args6],stdout=subprocess.PIPE)
+      for line in cmd3.stdout:
+        if "double" in line:
+          downerr=float(line[8:])
+          
       graphxs.SetPoint(point_counter,mh,xs)
+      graphxs.SetPointError(point_counter,0,0,abs(downerr*0.01*xs),abs(uperr*0.01*xs))
       graph.SetPoint(point_counter,mh,obs*xs)
       exp.SetPoint(point_counter,mh,median*xs)
       oneSigma.SetPoint(point_counter,mh,median*xs)
@@ -90,15 +102,17 @@ def makePlot():
   graphxs.SetLineColor(r.kBlue)
   graphxs.SetLineWidth(1)
   graphxs.SetMarkerSize(0.)
+  graphxs.SetFillStyle(3254)
+  graphxs.SetFillColor(r.kRed)
   exp.SetLineColor(1)
   exp.SetLineStyle(2)
   exp.SetLineWidth(2)
   leg.SetHeader('95% CL limits')
   leg.AddEntry(graph,'Observed limit','L')
   leg.AddEntry(exp,'Expected limit','L')
-  leg.AddEntry(oneSigma,'Expected (1#sigma)','f') 
-  leg.AddEntry(twoSigma,'Expected (2#sigma)','f')
-  leg.AddEntry(graphxs,'#sigma_{VBF} (SM)','L')
+  leg.AddEntry(oneSigma,'Expected limit (1#sigma)','f') 
+  leg.AddEntry(twoSigma,'Expected limit (2#sigma)','f')
+  leg.AddEntry(graphxs,'#sigma_{VBF} (SM)','Lf')
   
   
   mg.Add(twoSigma)

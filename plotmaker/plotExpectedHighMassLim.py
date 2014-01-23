@@ -12,7 +12,7 @@ def makePlot():
 
   dummyHist = r.TH1D("dummy","",1,114,301)
   dummyHist.GetXaxis().SetTitle('m_{H} [GeV]')
-  dummyHist.GetYaxis().SetTitle('#sigma x BR(H#rightarrow inv)/#sigma_{SM}')
+  dummyHist.GetYaxis().SetTitle('#sigma x B(H#rightarrow inv.)/#sigma_{SM}')
   dummyHist.SetTitleSize(.05,"X")
   dummyHist.SetTitleOffset(0.75,"X")
   dummyHist.SetTitleSize(.05,"Y")
@@ -108,11 +108,11 @@ def makePlot():
   # draw text
   lat.DrawLatex(0.14,0.85,"CMS")
   lat.DrawLatex(0.14,0.78,"Combination of VBF and")
-  lat.DrawLatex(0.14,0.73,"ZH, H #rightarrow invisible")
+  lat.DrawLatex(0.14,0.73,"Z(ll)H, H #rightarrow invisible")
 
   
-  lat2.DrawLatex(0.14,0.665,"#sqrt{s} = 8 TeV, L = 19.5 fb^{-1} (VBF + ZH)")
-  lat2.DrawLatex(0.14,0.62,"#sqrt{s} = 7 TeV, L = 5.1 fb^{-1} (Z#rightarrow ll + H only)")
+  lat2.DrawLatex(0.14,0.665,"#sqrt{s} = 8 TeV, L = 19.5 fb^{-1} (VBF + Z(ll)H)")
+  lat2.DrawLatex(0.14,0.62,"#sqrt{s} = 7 TeV, L = 5.1 fb^{-1} (Z(ll)H only)")
 
     
   
