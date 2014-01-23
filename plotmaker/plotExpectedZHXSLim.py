@@ -7,13 +7,13 @@ def makePlot():
   canv.Clear()
   canv.SetLogy(False)
   mg = r.TMultiGraph()
-  leg = r.TLegend(0.6, 0.66, 0.89, 0.89)
+  leg = r.TLegend(0.66, 0.66, 0.89, 0.89)
   leg.SetFillColor(0)
   leg.SetBorderSize(0)
 
   dummyHist = r.TH1D("dummy","",1,104,146)
   dummyHist.GetXaxis().SetTitle('m_{H} [GeV]')
-  dummyHist.GetYaxis().SetTitle('#sigma x BR(H#rightarrow inv) [pb]')
+  dummyHist.GetYaxis().SetTitle('#sigma x B(H#rightarrow inv.) [pb]')
   dummyHist.SetTitleSize(.05,"X")
   dummyHist.SetTitleOffset(0.75,"X")
   dummyHist.SetTitleSize(.05,"Y")
@@ -63,11 +63,22 @@ def makePlot():
       args2="-q"
       args3="-b"
       args4="xs.cpp(\"zhxsinfo.txt\","+repr(mh)+")"
+      args5="xserrors.cpp(\"zhxsinfowitherrors.txt\","+repr(mh)+",true)"
+      args6="xserrors.cpp(\"zhxsinfowitherrors.txt\","+repr(mh)+",false)"      
       cmd=subprocess.Popen([command,args1,args2,args3,args4],stdout=subprocess.PIPE)
       for line in cmd.stdout:
         if "double" in line:
           xs=float(line[8:])
+      cmd2=subprocess.Popen([command,args1,args2,args3,args5],stdout=subprocess.PIPE)
+      for line in cmd2.stdout:
+        if "double" in line:
+          uperr=float(line[8:])
+      cmd3=subprocess.Popen([command,args1,args2,args3,args6],stdout=subprocess.PIPE)
+      for line in cmd3.stdout:
+        if "double" in line:
+          downerr=float(line[8:])
       graphxs.SetPoint(point_counter,mh,xs)
+      graphxs.SetPointError(point_counter,0,0,abs(downerr*0.01*xs),abs(uperr*0.01*xs))
       graph.SetPoint(point_counter,mh,obs*xs)
       exp.SetPoint(point_counter,mh,median*xs)
       oneSigma.SetPoint(point_counter,mh,median*xs)
@@ -90,15 +101,17 @@ def makePlot():
   graphxs.SetLineColor(r.kBlue)
   graphxs.SetLineWidth(1)
   graphxs.SetMarkerSize(0.)
+  graphxs.SetFillColor(r.kRed)
+  graphxs.SetFillStyle(3254)
   exp.SetLineColor(1)
   exp.SetLineStyle(2)
   exp.SetLineWidth(2)
   leg.SetHeader('95% CL limits')
   leg.AddEntry(graph,'Observed limit','L')
   leg.AddEntry(exp,'Expected limit','L')
-  leg.AddEntry(oneSigma,'Expected (1#sigma)','f') 
-  leg.AddEntry(twoSigma,'Expected (2#sigma)','f')
-  leg.AddEntry(graphxs,'#sigma_{ZH} (SM)','L')
+  leg.AddEntry(oneSigma,'Expected limit (1#sigma)','f') 
+  leg.AddEntry(twoSigma,'Expected limit (2#sigma)','f')
+  leg.AddEntry(graphxs,'#sigma_{ZH} (SM)','Lf')
   
   
   mg.Add(twoSigma)
@@ -129,7 +142,7 @@ def makePlot():
   # draw text
   lat.DrawLatex(0.14,0.85,"CMS")
   lat.DrawLatex(0.14,0.78,"Combination of Z(b#bar{b})H")
-  lat.DrawLatex(0.14,0.73,"and Z(ll)H")
+  lat.DrawLatex(0.14,0.73,"and Z(ll)H, H #rightarrow invisible")
 
   lat2.DrawLatex(0.14,0.665,"#sqrt{s} = 8 TeV, L = 19.5 fb^{-1} (Both ZH channels)")
   lat2.DrawLatex(0.14,0.62,"#sqrt{s} = 7 TeV, L = 5.1 fb^{-1} (Z(ll)H only)")

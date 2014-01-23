@@ -12,7 +12,7 @@ def makePlot():
 
   dummyHist = r.TH1D("dummy","",1,114,146)
   dummyHist.GetXaxis().SetTitle('m_{H} [GeV]')
-  dummyHist.GetYaxis().SetTitle('#sigma x BR(H#rightarrow inv)/#sigma_{SM}')
+  dummyHist.GetYaxis().SetTitle('#sigma x B(H#rightarrow inv.)/#sigma_{SM}')
   dummyHist.SetTitleSize(.05,"X")
   dummyHist.SetTitleOffset(0.75,"X")
   dummyHist.SetTitleSize(.05,"Y")
@@ -91,7 +91,7 @@ def makePlot():
   # draw dummy hist and multigraph
   mg.Draw("A")
   dummyHist.SetMinimum(0.1)
-  dummyHist.SetMaximum(1.5)
+  dummyHist.SetMaximum(1.6)
   dummyHist.SetLineColor(0)
   dummyHist.SetStats(0)
   dummyHist.Draw("AXIS")

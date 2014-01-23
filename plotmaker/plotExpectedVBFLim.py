@@ -12,7 +12,7 @@ def makePlot():
 
   dummyHist = r.TH1D("dummy","",1,100,410)
   dummyHist.GetXaxis().SetTitle('m_{H} [GeV]')
-  dummyHist.GetYaxis().SetTitle('#sigma x BR(H#rightarrow inv)/#sigma_{VBF}(SM)')
+  dummyHist.GetYaxis().SetTitle('#sigma x B(H#rightarrow inv.)/#sigma_{VBF}(SM)')
   dummyHist.SetTitleSize(.05,"X")
   dummyHist.SetTitleOffset(0.75,"X")
   dummyHist.SetTitleSize(.05,"Y")
