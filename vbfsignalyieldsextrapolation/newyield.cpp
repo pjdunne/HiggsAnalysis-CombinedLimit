@@ -1,3 +1,4 @@
+int newyield(string inputfile){
 {
 
   //GET XS AND YIELD INFO ABOUT INPUT MASS POINTS
