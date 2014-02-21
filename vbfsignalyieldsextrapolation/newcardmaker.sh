@@ -1,10 +1,10 @@
 #!/bin/bash
 echo Datacard Interpolator for VBF Higgs to Invisible Analysis
 CARDDIR="../vbfcards/PromptPaperCards/cardsfromchayanit/"
-TARGETDIR=../extracard #"../vbfcards/PromptPaperCards/searches/"
+TARGETDIR=../test/ #"../vbfcards/PromptPaperCards/searches/"
 VBFXSDATFILE="../data/lhc-hxswg/sm/xs/8TeV/8TeV-vbfH.txt"
 GGHXSDATFILE="../data/lhc-hxswg/sm/xs/8TeV/8TeV-ggH.txt"
-DOGGH=1
+DOGGH=0
 mkdir sourceuncs
 
 cat $VBFXSDATFILE | awk '{print $1, $2}' >vbfxsinfo.txt
@@ -46,8 +46,6 @@ do
 
         
 
-    #!!DONE UP TO HERE
-
 
     #GET FIRST ERROR IN CARDS
     grep -A 1 -e "----------" $card > linetmp.txt
@@ -60,38 +58,69 @@ do
 	#CHECK SOURCE TYPE - CURRENTLY lnN and gmN DEALT WITH
 	if [ `grep "$sources" $card | awk '{print $2}'` = "lnN" ]
 	then
-	    rawerror=`grep "$sources" $card | awk '{print $3}'`
+	    if [ "$DOGGH" = "1" ]
+		then
+		rawggherror=`grep "$sources" $card | awk '{print $3}'`
+		rawvbferror=`grep "$sources" $card | awk '{print $4}'`
+	    else
+		rawvbferror=`grep "$sources" $card | awk '{print $3}'`
+	    fi
 	    
 	elif [ `grep "$sources" $card | awk '{print $2}'` = "gmN" ]
 	then
-	    rawerror=`grep "$sources" $card | awk '{print $4}'`
+	    if [ "$DOGGH" = "1" ]
+		then
+		rawggherror=`grep "$sources" $card | awk '{print $4}'`
+		rawvbferror=`grep "$sources" $card | awk '{print $5}'`
+	    else
+		rawvbferror=`grep "$sources" $card | awk '{print $4}'`
+	    fi
 	else
 	    echo ERROR: UNRECOGNISED ERROR TYPE
 	    exit 1
 	fi
 
-	if [ $rawerror = "-" ]
+	if [ $rawvbferror = "-" ]
 	then
 	#ERROR DOESN'T AFFECT SIGNAL
-	    echo $mass noeff >> sourceuncs/$sources.txt
+	    echo $mass noeff >> sourceuncs/vbf$sources.txt
 	else
 	    #CHECK FOR ASYMMETRIC ERROR ON SIGNAL
-	    echo $rawerror | grep "/" > /dev/null
+	    echo $rawvbferror | grep "/" > /dev/null
 	    if [ $? = 0 ]
 	    then
-		downerror=`echo $rawerror | sed "s/\// /" | awk '{print $1}'`
-		uperror=`echo $rawerror | sed "s/\// /" | awk '{print $2}'`
-		echo $mass asym $downerror $uperror >> sourceuncs/$sources.txt
+		downvbferror=`echo $rawvbferror | sed "s/\// /" | awk '{print $1}'`
+		upvbferror=`echo $rawvbferror | sed "s/\// /" | awk '{print $2}'`
+		echo $mass asym $downvbferror $upvbferror >> sourceuncs/vbf$sources.txt
 	    else
 	    #ERROR IS SYMMETRIC FOR SIGNAL
-		echo $mass sym $rawerror >> sourceuncs/$sources.txt
+		echo $mass sym $rawvbferror >> sourceuncs/vbf$sources.txt
+	    fi
+	fi
+
+	if [ "$DOGGH" = "1" ]
+	    then
+	    if [ $rawggherror = "-" ]
+		then
+	#ERROR DOESN'T AFFECT SIGNAL
+		echo $mass noeff >> sourceuncs/ggh$sources.txt
+	    else
+	    #CHECK FOR ASYMMETRIC ERROR ON SIGNAL
+		echo $rawggherror | grep "/" > /dev/null
+		if [ $? = 0 ]
+		    then
+		    downggherror=`echo $rawggherror | sed "s/\// /" | awk '{print $1}'`
+		    upggherror=`echo $rawggherror | sed "s/\// /" | awk '{print $2}'`
+		    echo $mass asym $downggherror $upggherror >> sourceuncs/ggh$sources.txt
+		else
+	    #ERROR IS SYMMETRIC FOR SIGNAL
+		    echo $mass sym $rawggherror >> sourceuncs/ggh$sources.txt
+		fi
 	    fi
 	fi
 
     done
 done
-
-#!!ABOVE NOT DONE, BELOW OK TO NEXT MARK
 
 #GET INFO AT MASSES WE WANT CARDS FOR
 
@@ -99,7 +128,7 @@ rm -r $TARGETDIR
 mkdir $TARGETDIR
 
 echo Making new cards for:
-newmasses="110 125 150 200 300 400" #`cat masses.txt`
+newmasses=`cat masses.txt` #"110 125 150 200 300 400" #
 for newmass in $newmasses
 do
   mkdir $TARGETDIR/$newmass
@@ -124,13 +153,13 @@ do
   sed -i "s:# Invisible Higgs analysis for mH=125 GeV:# Invisible Higgs analysis for mH=$newmass GeV:" $TARGETDIR/$newmass/vbfhinv_${newmass}_8TeV.txt
   
   #PUT NEW RATE IN
-  root -l -b -q newyield.cpp"("'"'vbfinputinfo.txt'"'")" >vbfyieldtmp.txt
+  root -l -b -q newyield.cpp"("'"'vbf'"'")" > vbfyieldtmp.txt
   vbfrate=`cat vbfyieldtmp.txt | grep "rate" | awk '{print $2}'`
   rm vbfyieldtmp.txt
-  
+
   if [ "$DOGGH" = "1" ]
       then
-      root -l -b -q newyield.cpp"("'"'gghinputinfo.txt'"'")" >gghyieldtmp.txt
+      root -l -q newyield.cpp"("'"'ggh'"'")" >gghyieldtmp.txt
       gghrate=`cat gghyieldtmp.txt | grep "rate" | awk '{print $2}'`
       rm gghyieldtmp.txt
   fi
@@ -158,39 +187,89 @@ do
   echo $newmass>>newerrors.txt
   for sources in `grep -A 10000 "$firsterr" $CARDDIR/vbfhinv_125_8TeV.txt | awk '{print $1}'`
     do
-    if [ `grep -m 1 "" sourceuncs/$sources.txt | awk '{print $2}'` = "noeff" ]
+    if [ `grep -m 1 "" sourceuncs/vbf$sources.txt | awk '{print $2}'` = "noeff" ]
         then
         #ERROR DOESN'T AFFECT SIGNAL                                                                                                                   
-	type=noeff
-    elif [ `grep -m 1 "" sourceuncs/$sources.txt | awk '{print $2}'` = "asym" ]
+	vbftype=noeff
+    elif [ `grep -m 1 "" sourceuncs/vbf$sources.txt | awk '{print $2}'` = "asym" ]
         then
             #ERROR IS ASYMMETRIC FOR SIGNAL                                                                                                            
-	type=asym
-    elif [ `grep -m 1 "" sourceuncs/$sources.txt | awk '{print $2}'` = "sym" ]
+	vbftype=asym
+    elif [ `grep -m 1 "" sourceuncs/vbf$sources.txt | awk '{print $2}'` = "sym" ]
 	then
             #ERROR IS SYMMETRIC FOR SIGNAL                                                                                                              
-	type=sym
+	vbftype=sym
+    fi
+
+    if [ "$DOGGH" = "1" ]
+	then
+	if [ `grep -m 1 "" sourceuncs/ggh$sources.txt | awk '{print $2}'` = "noeff" ]
+	    then
+        #ERROR DOESN'T AFFECT SIGNAL                                                                                                                   
+	    gghtype=noeff
+	elif [ `grep -m 1 "" sourceuncs/ggh$sources.txt | awk '{print $2}'` = "asym" ]
+	    then
+            #ERROR IS ASYMMETRIC FOR SIGNAL                                                                                                            
+	    gghtype=asym
+	elif [ `grep -m 1 "" sourceuncs/ggh$sources.txt | awk '{print $2}'` = "sym" ]
+	    then
+            #ERROR IS SYMMETRIC FOR SIGNAL                                                                                                              
+	    gghtype=sym
+    fi
+    fi
+
+
+    
+    fileforrootmacro=sourceuncs/vbf$sources.txt
+    root -l -b -q newunc.cpp"("'"'$fileforrootmacro'"','"'$vbftype'"',$newmass")" > vbfunctmp.txt
+    vbferr=`cat vbfunctmp.txt | grep "newerror" |awk '{print $2}'` #SET ERR EQUAL TO APPROPRIATE BIT OF CPP OUTPUT
+    rm vbfunctmp.txt
+
+    if [ "$DOGGH" = "1" ]
+	then
+	fileforrootmacro=sourceuncs/ggh$sources.txt
+	root -l -b -q newunc.cpp"("'"'$fileforrootmacro'"','"'$gghtype'"',$newmass")" > gghunctmp.txt
+	ggherr=`cat gghunctmp.txt | grep "newerror" |awk '{print $2}'` #SET ERR EQUAL TO APPROPRIATE BIT OF CPP OUTPUT
+	rm gghunctmp.txt
     fi
     
-    fileforrootmacro=sourceuncs/$sources.txt
-    root -l -b -q newunc.cpp"("'"'$fileforrootmacro'"','"'$type'"',$newmass")" > unctmp.txt
-    err=`cat unctmp.txt | grep "newerror" |awk '{print $2}'` #SET ERR EQUAL TO APPROPRIATE BIT OF CPP OUTPUT
-    rm unctmp.txt
-    
-    if [ `grep "$sources" $CARDDIR/vbfhinv_125_8TeV.txt | awk '{print $2}'` = "lnN" ]
-        then
-	olderr=`grep "$sources" $CARDDIR/vbfhinv_125_8TeV.txt | awk '{print $3}'`
-	
+    if [ "$DOGGH" = "1" ]
+	then
+	if [ `grep "$sources" $CARDDIR/vbfhinv_125_8TeV.txt | awk '{print $2}'` = "lnN" ]
+	    then
+	    oldvbferr=`grep "$sources" $CARDDIR/vbfhinv_125_8TeV.txt | awk '{print $4}'`
+	    oldggherr=`grep "$sources" $CARDDIR/vbfhinv_125_8TeV.txt | awk '{print $3}'`
         elif [ `grep "$sources" $CARDDIR/vbfhinv_125_8TeV.txt | awk '{print $2}'` = "gmN" ]
-        then
-	olderr=`grep "$sources" $CARDDIR/vbfhinv_125_8TeV.txt | awk '{print $4}'`
+	    then
+	    oldvbferr=`grep "$sources" $CARDDIR/vbfhinv_125_8TeV.txt | awk '{print $5}'`
+	    oldggherr=`grep "$sources" $CARDDIR/vbfhinv_125_8TeV.txt | awk '{print $4}'`
+	else
+	    echo ERROR: UNRECOGNISED ERROR TYPE SHOULDN"'"T HAVE GOT THIS FAR
+	    exit 1
+	fi
+	grep "$sources" ${CARDDIR}vbfhinv_125_8TeV.txt | sed "s:$oldggherr:$ggherr:" >>sourcetmp.txt
+	grep "$sources" sourcetmp.txt | sed "s:$oldvbferr:$vbferr:" >>${TARGETDIR}/$newmass/vbfhinv_${newmass}_8TeV.txt
+	rm sourcetmp.txt
     else
-	echo ERROR: UNRECOGNISED ERROR TYPE SHOULDN"'"T HAVE GOT THIS FAR
-	exit 1
-        fi
+	if [ `grep "$sources" $CARDDIR/vbfhinv_125_8TeV.txt | awk '{print $2}'` = "lnN" ]
+	    then
+	    oldvbferr=`grep "$sources" $CARDDIR/vbfhinv_125_8TeV.txt | awk '{print $3}'`
+	    
+        elif [ `grep "$sources" $CARDDIR/vbfhinv_125_8TeV.txt | awk '{print $2}'` = "gmN" ]
+	    then
+	    oldvbferr=`grep "$sources" $CARDDIR/vbfhinv_125_8TeV.txt | awk '{print $4}'`
+	else
+	    echo ERROR: UNRECOGNISED ERROR TYPE SHOULDN"'"T HAVE GOT THIS FAR
+	    exit 1
+	fi
+	if [ "$newmass" = "125" ]
+	    then
+	    echo $oldvbferr $vbferr
+	fi
+	grep "$sources" ${CARDDIR}vbfhinv_125_8TeV.txt | sed "s:$oldvbferr:$vbferr:" >>${TARGETDIR}/$newmass/vbfhinv_${newmass}_8TeV.txt
+    fi
     
-    grep "$sources" ${CARDDIR}vbfhinv_125_8TeV.txt | sed "s:$olderr:$err:" >>${TARGETDIR}/$newmass/vbfhinv_${newmass}_8TeV.txt
-    echo $err >>newerrors.txt
+    echo $vbferr >>newvbferrors.txt
   done
   
   
