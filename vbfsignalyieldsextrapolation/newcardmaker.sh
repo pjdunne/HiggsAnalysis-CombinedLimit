@@ -1,11 +1,17 @@
 #!/bin/bash
 echo Datacard Interpolator for VBF Higgs to Invisible Analysis
 CARDDIR="../vbfcards/PromptPaperCards/cardsfromchayanit/"
-TARGETDIR="../vbfcards/PromptPaperCards/searches/"
-XSDATFILE="../data/lhc-hxswg/sm/xs/8TeV/8TeV-vbfH.txt"
+TARGETDIR=../extracard #"../vbfcards/PromptPaperCards/searches/"
+VBFXSDATFILE="../data/lhc-hxswg/sm/xs/8TeV/8TeV-vbfH.txt"
+GGHXSDATFILE="../data/lhc-hxswg/sm/xs/8TeV/8TeV-ggH.txt"
+DOGGH=1
 mkdir sourceuncs
 
-cat $XSDATFILE | awk '{print $1, $2}' >xsinfo.txt
+cat $VBFXSDATFILE | awk '{print $1, $2}' >vbfxsinfo.txt
+if [ "$DOGGH" = "1" ]
+    then
+    cat $GGHXSDATFILE | awk '{print $1, $2}' >gghxsinfo.txt
+fi
 
 #GET INFO AT MASSES WE HAVE CARDS FOR
 echo Processing input cards:
@@ -15,13 +21,33 @@ do
     #GET MASS FROM CARD NAME
     mass=`echo $card | sed "s:${CARDDIR}vbfhinv_::" | sed "s/_8TeV.txt/.0/"`
     #GET XS INFO FROM LHC-HXSWG FILE
-    root -l -b -q xs.cpp"("'"'xsinfo.txt'"',$mass")" > xstmp.txt
-    xs=`cat xstmp.txt | grep "newxs" | awk '{print $2}'`
-    rm xstmp.txt
+    root -l -b -q xs.cpp"("'"'vbfxsinfo.txt'"',$mass")" > vbfxstmp.txt
+    vbfxs=`cat vbfxstmp.txt | grep "newxs" | awk '{print $2}'`
+    rm vbfxstmp.txt
+    
+    if [ "$DOGGH" = "1" ]
+	then
+	root -l -b -q xs.cpp"("'"'gghxsinfo.txt'"',$mass")" > gghxstmp.txt
+	gghxs=`cat gghxstmp.txt | grep "newxs" | awk '{print $2}'`
+	rm gghxstmp.txt
+    fi
 
     #GET SIGNAL YIELD INFO FROM CARDS
-    yield=`grep "rate" $card | awk '{print $2}'`
-    echo $mass $xs $yield >>inputinfo.txt
+    if [ "$DOGGH" = "1" ]
+	then
+	vbfyield=`grep "rate" $card | awk '{print $3}'`
+	gghyield=`grep "rate" $card | awk '{print $2}'`
+	echo $mass $gghxs $gghyield >>gghinputinfo.txt
+    else
+	vbfyield=`grep "rate" $card | awk '{print $2}'`
+    
+    fi
+    echo $mass $vbfxs $vbfyield >>vbfinputinfo.txt
+
+        
+
+    #!!DONE UP TO HERE
+
 
     #GET FIRST ERROR IN CARDS
     grep -A 1 -e "----------" $card > linetmp.txt
@@ -65,6 +91,7 @@ do
     done
 done
 
+#!!ABOVE NOT DONE, BELOW OK TO NEXT MARK
 
 #GET INFO AT MASSES WE WANT CARDS FOR
 
@@ -72,16 +99,24 @@ rm -r $TARGETDIR
 mkdir $TARGETDIR
 
 echo Making new cards for:
-newmasses=`cat masses.txt`
+newmasses="110 125 150 200 300 400" #`cat masses.txt`
 for newmass in $newmasses
 do
   mkdir $TARGETDIR/$newmass
   echo "   mH =" $newmass GeV
   #GET NEW XS 
-  root -l -b -q xs.cpp"("'"'xsinfo.txt'"',$newmass")" >xstmp.txt
-  xs=`cat xstmp.txt | grep "newxs" |awk '{print $2}'`
-  echo $newmass $xs > outputxsinfo.txt
-  rm xstmp.txt
+  root -l -b -q xs.cpp"("'"'vbfxsinfo.txt'"',$newmass")" >vbfxstmp.txt
+  vbfxs=`cat vbfxstmp.txt | grep "newxs" |awk '{print $2}'`
+  echo $newmass $vbfxs > outputvbfxsinfo.txt
+  rm vbfxstmp.txt
+  if [ "$DOGGH" = "1" ]
+      then
+      root -l -b -q xs.cpp"("'"'gghxsinfo.txt'"',$newmass")" >gghxstmp.txt
+      gghxs=`cat gghxstmp.txt | grep "newxs" |awk '{print $2}'`
+      echo $newmass $gghxs > outputvbfxsinfo.txt
+      rm gghxstmp.txt
+  fi
+  
   
 #MAKE NEW CARDS
   #FIRST 12 LINES ARE UNCHANGED
@@ -89,16 +124,38 @@ do
   sed -i "s:# Invisible Higgs analysis for mH=125 GeV:# Invisible Higgs analysis for mH=$newmass GeV:" $TARGETDIR/$newmass/vbfhinv_${newmass}_8TeV.txt
   
   #PUT NEW RATE IN
-  root -l -q newyield.cpp >yieldtmp.txt
-  rate=`cat yieldtmp.txt | grep "rate" | awk '{print $2}'`
-  rm yieldtmp.txt
-  oldrate=`grep "rate" ${CARDDIR}vbfhinv_125_8TeV.txt | awk '{print $2}'`                                                                                
-  grep "rate" ${CARDDIR}vbfhinv_125_8TeV.txt | sed "s:$oldrate:$rate:" >>$TARGETDIR/$newmass/vbfhinv_${newmass}_8TeV.txt
+  root -l -b -q newyield.cpp"("'"'vbfinputinfo.txt'"'")" >vbfyieldtmp.txt
+  vbfrate=`cat vbfyieldtmp.txt | grep "rate" | awk '{print $2}'`
+  rm vbfyieldtmp.txt
   
+  if [ "$DOGGH" = "1" ]
+      then
+      root -l -b -q newyield.cpp"("'"'gghinputinfo.txt'"'")" >gghyieldtmp.txt
+      gghrate=`cat gghyieldtmp.txt | grep "rate" | awk '{print $2}'`
+      rm gghyieldtmp.txt
+  fi
+  
+  if [ "$DOGGH" = "1" ]
+      then
+      oldvbfrate=`grep "rate" ${CARDDIR}vbfhinv_125_8TeV.txt | awk '{print $3}'`                                                                                
+      grep "rate" ${CARDDIR}vbfhinv_125_8TeV.txt | sed "s:$oldvbfrate:$vbfrate:" >ratetmp.txt
+      oldgghrate=`grep "rate" ${CARDDIR}vbfhinv_125_8TeV.txt | awk '{print $2}'`                                                                                
+      grep "rate" ratetmp.txt | sed "s:$oldgghrate:$gghrate:" >>$TARGETDIR/$newmass/vbfhinv_${newmass}_8TeV.tx
+      echo $gghrate >>newgghrates.txt
+  else
+      oldvbfrate=`grep "rate" ${CARDDIR}vbfhinv_125_8TeV.txt | awk '{print $2}'`                                                                                
+      grep "rate" ${CARDDIR}vbfhinv_125_8TeV.txt | sed "s:$oldvbfrate:$vbfrate:" >>$TARGETDIR/$newmass/vbfhinv_${newmass}_8TeV.txt
+  fi
+
+  echo $vbfrate >> newvbfrates.txt
+
   #LINE 14 UNCHANGED
   echo ------------ >>${TARGETDIR}/$newmass/vbfhinv_${newmass}_8TeV.txt 
-  
+ 
+    #!!DONE UP TO HERE 
+
   #PUT NEW ERRORS IN
+  echo $newmass>>newerrors.txt
   for sources in `grep -A 10000 "$firsterr" $CARDDIR/vbfhinv_125_8TeV.txt | awk '{print $1}'`
     do
     if [ `grep -m 1 "" sourceuncs/$sources.txt | awk '{print $2}'` = "noeff" ]
@@ -133,12 +190,13 @@ do
         fi
     
     grep "$sources" ${CARDDIR}vbfhinv_125_8TeV.txt | sed "s:$olderr:$err:" >>${TARGETDIR}/$newmass/vbfhinv_${newmass}_8TeV.txt
+    echo $err >>newerrors.txt
   done
   
   
-  rm outputxsinfo.txt
+  rm outputvbfxsinfo.txt
 done
-rm xsinfo.txt
-rm inputinfo.txt
+rm vbfxsinfo.txt
+rm vbfinputinfo.txt
 rm -r sourceuncs
 echo Interpolated datacards successfully created at: $TARGETDIR
