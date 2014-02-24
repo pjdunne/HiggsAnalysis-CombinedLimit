@@ -1,10 +1,10 @@
 #!/bin/bash
 echo Datacard Interpolator for VBF Higgs to Invisible Analysis
-CARDDIR="../vbfcards/PromptPaperCards/cardsfromchayanit/"
-TARGETDIR=../test/ #"../vbfcards/PromptPaperCards/searches/"
+CARDDIR="../vbfcards/ggHAndNewZbkgPromptPaperCards/cardsfromchayanit/"
+TARGETDIR="../vbfcards/ggHAndNewZbkgPromptPaperCards/couplings/" #"../vbfcards/PromptPaperCards/searches/"
 VBFXSDATFILE="../data/lhc-hxswg/sm/xs/8TeV/8TeV-vbfH.txt"
 GGHXSDATFILE="../data/lhc-hxswg/sm/xs/8TeV/8TeV-ggH.txt"
-DOGGH=0
+DOGGH=1
 mkdir sourceuncs
 
 cat $VBFXSDATFILE | awk '{print $1, $2}' >vbfxsinfo.txt
@@ -128,7 +128,7 @@ rm -r $TARGETDIR
 mkdir $TARGETDIR
 
 echo Making new cards for:
-newmasses=`cat masses.txt` #"110 125 150 200 300 400" #
+newmasses=`cat couplingsmasses.txt` #"110 125 150 200 300 400" #
 for newmass in $newmasses
 do
   mkdir $TARGETDIR/$newmass
@@ -142,7 +142,7 @@ do
       then
       root -l -b -q xs.cpp"("'"'gghxsinfo.txt'"',$newmass")" >gghxstmp.txt
       gghxs=`cat gghxstmp.txt | grep "newxs" |awk '{print $2}'`
-      echo $newmass $gghxs > outputvbfxsinfo.txt
+      echo $newmass $gghxs > outputgghxsinfo.txt
       rm gghxstmp.txt
   fi
   
@@ -159,17 +159,17 @@ do
 
   if [ "$DOGGH" = "1" ]
       then
-      root -l -q newyield.cpp"("'"'ggh'"'")" >gghyieldtmp.txt
+      root -l -q newyield.cpp"("'"'ggh'"'")" > gghyieldtmp.txt
       gghrate=`cat gghyieldtmp.txt | grep "rate" | awk '{print $2}'`
       rm gghyieldtmp.txt
   fi
   
   if [ "$DOGGH" = "1" ]
       then
-      oldvbfrate=`grep "rate" ${CARDDIR}vbfhinv_125_8TeV.txt | awk '{print $3}'`                                                                                
+      oldvbfrate=`grep "rate" ${CARDDIR}vbfhinv_125_8TeV.txt | awk '{print $3}'`                                                                      
       grep "rate" ${CARDDIR}vbfhinv_125_8TeV.txt | sed "s:$oldvbfrate:$vbfrate:" >ratetmp.txt
       oldgghrate=`grep "rate" ${CARDDIR}vbfhinv_125_8TeV.txt | awk '{print $2}'`                                                                                
-      grep "rate" ratetmp.txt | sed "s:$oldgghrate:$gghrate:" >>$TARGETDIR/$newmass/vbfhinv_${newmass}_8TeV.tx
+      grep "rate" ratetmp.txt | sed "s:$oldgghrate:$gghrate:" >>$TARGETDIR/$newmass/vbfhinv_${newmass}_8TeV.txt
       echo $gghrate >>newgghrates.txt
   else
       oldvbfrate=`grep "rate" ${CARDDIR}vbfhinv_125_8TeV.txt | awk '{print $2}'`                                                                                
@@ -277,5 +277,7 @@ do
 done
 rm vbfxsinfo.txt
 rm vbfinputinfo.txt
+rm gghinputinfo.txt
+rm gghxsinfo.txt
 rm -r sourceuncs
 echo Interpolated datacards successfully created at: $TARGETDIR

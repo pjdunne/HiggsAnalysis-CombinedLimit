@@ -1,0 +1,33 @@
+# Invisible Higgs analysis for mH=151 GeV
+imax 1
+jmax 7  number of backgrounds
+kmax 19  number of nuisance parameters (sources of systematical uncertainties)
+------------
+# we have just one channel, in which we observe 0 events
+bin 1
+observation 390
+------------
+bin              1 	 1  	 1   	 1   	 1  	 1    	 1   	 1     
+process          ggH	 qqH 	 zvv 	 wmu 	 wel 	 wtau 	 qcd 	 others
+process          -1 	 0  	 1   	 2   	 3  	 4    	 5   	 6     
+rate            11.9171	195.92	91.4758	66.7633	62.7291	53.3091	32.4563	20.045
+------------
+lumi_8TeV     lnN   1.026	1.026	 - 	 - 	 - 	 - 	 - 	1.026
+CMS_eff_e     lnN   1/1	1/1	1/1	1/1	1.028/0.971	0.99/1.011	0.985/1.039	1.01/0.989
+CMS_eff_m     lnN   1/1	1/1	1.049/0.961	1.029/0.985	1/1	1.0001/0.9998	0.998/0.9991	1.0019/0.9986
+CMS_scale_j   lnN   0.99524/1.1302	0.90566/1.08376	0.95/1.0026	1.001/0.971	1.033/0.872	1.074/1.019	1.499/0.447	0.683/1.09
+CMS_res_j     lnN   0.99642/1.01414	0.98086/1.01902	0.973/1.023	0.94/1.01	1.149/0.968	0.976/0.964	1.155/0.827	0.974/0.88
+CMS_scale_met lnN   0.99896/1.10976	0.99496/1.00197	0.985/0.9977	0.998/0.996	1.018/0.976	1.007/1.004	1.028/0.982	0.9996/1.003
+pdf_qqbar                 lnN    - 	1.04308	 - 	 - 	 - 	 - 	 - 	 - 	
+QCDscale_qqH              lnN    - 	1.04	 - 	 - 	 - 	 - 	 - 	 - 	
+pdf_gg                    lnN   1.113	 - 	 - 	 - 	 - 	 - 	 - 	 - 	
+QCDscale_ggH              lnN   1.807	 - 	 - 	 - 	 - 	 - 	 - 	 - 	
+CMS_VBFHinv_zvv_stat      gmN 12 -	 -	7.62298	 - 	 - 	 - 	 - 	 - 
+CMS_VBFHinv_zvv_norm      lnN     - 	 - 	1.24682	 - 	 - 	 - 	 - 	 - 
+CMS_VBFHinv_wmu_norm      lnN     - 	 - 	 - 	1.23864	 - 	 - 	 - 	 - 
+CMS_VBFHinv_wel_norm      lnN     - 	 - 	 - 	 - 	1.27968	 - 	 - 	 - 
+CMS_VBFHinv_wtau_norm     lnN     - 	 - 	 - 	 - 	 - 	1.47097	 - 	 - 
+CMS_VBFHinv_qcd_norm      lnN     - 	 - 	 - 	 - 	 - 	 - 	1.43617	 - 
+CMS_VBFHinv_other_norm    lnN     - 	 - 	 - 	 - 	 - 	 - 	 - 	1.27997
+CMS_VBFHinv_ggH_norm      lnN    1.33164 	 - 	 - 	 - 	 - 	 - 	 - 	 - 	
+CMS_VBFHinv_qqH_norm      lnN     - 	 1.03823	 - 	 - 	 - 	 - 	 - 	 - 	
