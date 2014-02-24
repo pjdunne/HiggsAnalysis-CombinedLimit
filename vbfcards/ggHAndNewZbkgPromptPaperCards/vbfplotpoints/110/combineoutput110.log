@@ -1,0 +1,37 @@
+>>> including systematics
+>>> method used to compute upper limit is Asymptotic
+>>> random number generator seed is 123456
+Computing limit starting from observation
+Will compute both limit(s) using minimizer Minuit2 with strategy 0 and tolerance 0.01
+[#0] ERROR:Eval -- RooAbsReal::logEvalError(model_s) evaluation error, 
+ origin       : RooProdPdf::model_s[ modelObs_s * nuisancePdf ]
+ message      : getLogVal() top-level p.d.f evaluates to zero
+ server values: !pdfs=(modelObs_s = 0/1,nuisancePdf = 0.105234)
+Median for expected limits: 0.462891
+Sigma  for expected limits: 0.236173
+Restricting r to positive values.
+
+Make global fit of real data
+NLL at global minimum of data: 22.6115 (r = 0.266122)
+
+Make global fit of asimov data
+NLL at global minimum of asimov: 22.6856 (r = 0.00101921)
+At r = 1.466122:	q_mu = 32.80815	q_A  = 43.21609	CLsb = 0.00000	CLb  = 0.80124	CLs  = 0.00000
+At r = 0.866122:	q_mu = 8.94275	q_A  = 15.70932	CLsb = 0.00139	CLb  = 0.83474	CLs  = 0.00167
+At r = 0.566122:	q_mu = 2.02085	q_A  = 6.37014	CLsb = 0.07758	CLb  = 0.86484	CLs  = 0.08970
+At r = 0.716122:	q_mu = 4.92972	q_A  = 10.53905	CLsb = 0.01320	CLb  = 0.84758	CLs  = 0.01557
+At r = 0.636177:	q_mu = 3.20796	q_A  = 8.18490	CLsb = 0.03664	CLb  = 0.85766	CLs  = 0.04272
+At r = 0.610279:	q_mu = 2.73410	q_A  = 7.48665	CLsb = 0.04911	CLb  = 0.86052	CLs  = 0.05707
+At r = 0.624924:	q_mu = 2.99701	q_A  = 7.87758	CLsb = 0.04171	CLb  = 0.85893	CLs  = 0.04856
+At r = 0.619875:	q_mu = 2.90488	q_A  = 7.74165	CLsb = 0.04416	CLb  = 0.85949	CLs  = 0.05137
+At r = 0.622829:	q_mu = 2.95858	q_A  = 7.82103	CLsb = 0.04271	CLb  = 0.85916	CLs  = 0.04971
+
+ -- Asymptotic -- 
+Observed Limit: r < 0.6228
+Expected  2.5%: r < 0.2667
+Expected 16.0%: r < 0.3449
+Expected 50.0%: r < 0.4629
+Expected 84.0%: r < 0.6123
+Expected 97.5%: r < 0.7956
+
+Done in 0.01 min (cpu), 0.01 min (real)
