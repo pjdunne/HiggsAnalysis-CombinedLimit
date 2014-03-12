@@ -1,10 +1,16 @@
 #!/bin/bash
 echo Datacard Interpolator for VBF Higgs to Invisible Analysis
-CARDDIR="../vbfcards/ggHAndNewZbkgPromptPaperCards/cardsfromchayanit/"
-TARGETDIR="../vbfcards/ggHAndNewZbkgPromptPaperCards/couplings/" #"../vbfcards/PromptPaperCards/searches/"
+CARDDIR="../vbfcards/PromptPaper120314Cards/cardsfromchayanit/"
+TARGETDIR="trialfornewcards/" #../vbfcards/ggHAndNewZbkgPromptPaperCards/couplings/" #"../vbfcards/PromptPaperCards/searches/"
 VBFXSDATFILE="../data/lhc-hxswg/sm/xs/8TeV/8TeV-vbfH.txt"
 GGHXSDATFILE="../data/lhc-hxswg/sm/xs/8TeV/8TeV-ggH.txt"
 DOGGH=1
+rm vbfxsinfo.txt
+rm vbfinputinfo.txt
+rm gghinputinfo.txt
+rm gghxsinfo.txt
+rm gghnmcs.txt
+rm -r sourceuncs
 mkdir sourceuncs
 
 cat $VBFXSDATFILE | awk '{print $1, $2}' >vbfxsinfo.txt
@@ -72,6 +78,11 @@ do
 		then
 		rawggherror=`grep "$sources" $card | awk '{print $4}'`
 		rawvbferror=`grep "$sources" $card | awk '{print $5}'`
+		if [ "$sources" = "CMS_VBFHinv_ggH_norm" ]
+		    then
+		    gghnmc=`grep "$sources" $card | awk '{print $3}'`
+		    echo $mass sym $gghnmc >>gghnmcs.txt
+		fi
 	    else
 		rawvbferror=`grep "$sources" $card | awk '{print $4}'`
 	    fi
@@ -128,7 +139,7 @@ rm -r $TARGETDIR
 mkdir $TARGETDIR
 
 echo Making new cards for:
-newmasses=`cat couplingsmasses.txt` #"110 125 150 200 300 400" #
+newmasses="110 125 150 200 300 400" #`cat couplingsmasses.txt` #"110 125 150 200 300 400" #
 for newmass in $newmasses
 do
   mkdir $TARGETDIR/$newmass
@@ -231,6 +242,14 @@ do
 	root -l -b -q newunc.cpp"("'"'$fileforrootmacro'"','"'$gghtype'"',$newmass")" > gghunctmp.txt
 	ggherr=`cat gghunctmp.txt | grep "newerror" |awk '{print $2}'` #SET ERR EQUAL TO APPROPRIATE BIT OF CPP OUTPUT
 	rm gghunctmp.txt
+	if [ "$sources" = "CMS_VBFHinv_ggH_norm" ]
+	    then
+	    fileforrootmacro=gghnmcs.txt
+	    root -l -b -q newunc.cpp"("'"'$fileforrootmacro'"','"'"sym"'"',$newmass")" | tee gghnmctmp.txt
+	    gghnmc=`cat gghnmctmp.txt | grep "newerror" |awk '{print $2}'` #SET ERR EQUAL TO APPROPRIATE BIT OF CPP OUTPUT
+	    rm gghnmctmp.txt
+	fi
+	
     fi
     
     if [ "$DOGGH" = "1" ]
@@ -243,13 +262,24 @@ do
 	    then
 	    oldvbferr=`grep "$sources" $CARDDIR/vbfhinv_125_8TeV.txt | awk '{print $5}'`
 	    oldggherr=`grep "$sources" $CARDDIR/vbfhinv_125_8TeV.txt | awk '{print $4}'`
+	    if [ "$sources" = "CMS_VBFHinv_ggH_norm" ]
+		then
+		oldgghnmc=`grep "$sources" $CARDDIR/vbfhinv_125_8TeV.txt | awk '{print $3}'`
+	    fi
 	else
 	    echo ERROR: UNRECOGNISED ERROR TYPE SHOULDN"'"T HAVE GOT THIS FAR
 	    exit 1
 	fi
-	grep "$sources" ${CARDDIR}vbfhinv_125_8TeV.txt | sed "s:$oldggherr:$ggherr:" >>sourcetmp.txt
-	grep "$sources" sourcetmp.txt | sed "s:$oldvbferr:$vbferr:" >>${TARGETDIR}/$newmass/vbfhinv_${newmass}_8TeV.txt
-	rm sourcetmp.txt
+	if [ "$sources" = "CMS_VBFHinv_ggH_norm" ]
+	    then
+	    grep "$sources" ${CARDDIR}vbfhinv_125_8TeV.txt | sed "s:$oldggherr:$ggherr:" >>sourcetmp.txt
+	    grep "$sources" sourcetmp.txt | sed "s:$oldgghnmc:$gghnmc:" >>sourcetmp2.txt
+	    rm sourcetmp.txt
+	else
+	    grep "$sources" ${CARDDIR}vbfhinv_125_8TeV.txt | sed "s:$oldggherr:$ggherr:" >>sourcetmp2.txt
+	fi
+	grep "$sources" sourcetmp2.txt | sed "s:$oldvbferr:$vbferr:" >>${TARGETDIR}/$newmass/vbfhinv_${newmass}_8TeV.txt
+	rm sourcetmp2.txt
     else
 	if [ `grep "$sources" $CARDDIR/vbfhinv_125_8TeV.txt | awk '{print $2}'` = "lnN" ]
 	    then
@@ -279,5 +309,6 @@ rm vbfxsinfo.txt
 rm vbfinputinfo.txt
 rm gghinputinfo.txt
 rm gghxsinfo.txt
+rm gghnmcs.txt
 rm -r sourceuncs
 echo Interpolated datacards successfully created at: $TARGETDIR
