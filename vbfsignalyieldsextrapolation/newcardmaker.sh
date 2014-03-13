@@ -1,7 +1,7 @@
 #!/bin/bash
 echo Datacard Interpolator for VBF Higgs to Invisible Analysis
 CARDDIR="../vbfcards/PromptPaper120314Cards/cardsfromchayanit/"
-TARGETDIR="trialfornewcards/" #../vbfcards/ggHAndNewZbkgPromptPaperCards/couplings/" #"../vbfcards/PromptPaperCards/searches/"
+TARGETDIR="../vbfcards/PromptPaper120314Cards/searches/"
 VBFXSDATFILE="../data/lhc-hxswg/sm/xs/8TeV/8TeV-vbfH.txt"
 GGHXSDATFILE="../data/lhc-hxswg/sm/xs/8TeV/8TeV-ggH.txt"
 DOGGH=1
@@ -139,7 +139,7 @@ rm -r $TARGETDIR
 mkdir $TARGETDIR
 
 echo Making new cards for:
-newmasses="110 125 150 200 300 400" #`cat couplingsmasses.txt` #"110 125 150 200 300 400" #
+newmasses=`cat searchesmasses.txt` #"110 125 150 200 300 400" #
 for newmass in $newmasses
 do
   mkdir $TARGETDIR/$newmass
@@ -245,8 +245,9 @@ do
 	if [ "$sources" = "CMS_VBFHinv_ggH_norm" ]
 	    then
 	    fileforrootmacro=gghnmcs.txt
-	    root -l -b -q newunc.cpp"("'"'$fileforrootmacro'"','"'"sym"'"',$newmass")" | tee gghnmctmp.txt
-	    gghnmc=`cat gghnmctmp.txt | grep "newerror" |awk '{print $2}'` #SET ERR EQUAL TO APPROPRIATE BIT OF CPP OUTPUT
+	    root -l -b -q newunc.cpp"("'"'$fileforrootmacro'"','"'"sym"'"',$newmass")" > gghnmctmp.txt
+	    gghnmctmp=`cat gghnmctmp.txt | grep "newerror" |awk '{print $2}'` #SET ERR EQUAL TO APPROPRIATE BIT OF CPP OUTPUT
+	    gghnmc=`printf "%.0f" $gghnmctmp`
 	    rm gghnmctmp.txt
 	fi
 	
