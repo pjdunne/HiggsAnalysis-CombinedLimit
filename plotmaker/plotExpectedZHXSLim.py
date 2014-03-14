@@ -145,7 +145,7 @@ def makePlot():
   lat.DrawLatex(0.14,0.73,"and Z(ll)H, H #rightarrow invisible")
 
   lat2.DrawLatex(0.14,0.665,"#sqrt{s} = 8 TeV, L = 19.5 fb^{-1} (Both ZH channels)")
-  lat2.DrawLatex(0.14,0.62,"#sqrt{s} = 7 TeV, L = 5.1 fb^{-1} (Z(ll)H only)")
+  lat2.DrawLatex(0.14,0.62,"#sqrt{s} = 7 TeV, L = 4.9 fb^{-1} (Z(ll)H only)")
   
   # draw legend
   leg.Draw()
