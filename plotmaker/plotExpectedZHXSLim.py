@@ -7,13 +7,13 @@ def makePlot():
   canv.Clear()
   canv.SetLogy(False)
   mg = r.TMultiGraph()
-  leg = r.TLegend(0.66, 0.66, 0.89, 0.89)
+  leg = r.TLegend(0.5, 0.49, 0.87, 0.89)
   leg.SetFillColor(0)
   leg.SetBorderSize(0)
 
   dummyHist = r.TH1D("dummy","",1,104,146)
   dummyHist.GetXaxis().SetTitle('m_{H} [GeV]')
-  dummyHist.GetYaxis().SetTitle('#sigma x B(H#rightarrow inv.) [pb]')
+  dummyHist.GetYaxis().SetTitle('#sigma x B(H#rightarrow inv) [pb]')
   dummyHist.SetTitleSize(.05,"X")
   dummyHist.SetTitleOffset(0.75,"X")
   dummyHist.SetTitleSize(.05,"Y")
@@ -123,7 +123,7 @@ def makePlot():
   # draw dummy hist and multigraph
   mg.Draw("A")
   dummyHist.SetMinimum(0.)
-  dummyHist.SetMaximum(1.5)
+  dummyHist.SetMaximum(1.8)
   #dummyHist.SetMinimum(mg.GetYaxis().GetXmin())
   #dummyHist.SetMaximum(mg.GetYaxis().GetXmax())
   dummyHist.SetLineColor(0)
@@ -144,8 +144,11 @@ def makePlot():
   lat.DrawLatex(0.14,0.78,"Combination of Z(b#bar{b})H")
   lat.DrawLatex(0.14,0.73,"and Z(ll)H, H #rightarrow invisible")
 
-  lat2.DrawLatex(0.14,0.665,"#sqrt{s} = 8 TeV, L = 19.5 fb^{-1} (Both ZH channels)")
-  lat2.DrawLatex(0.14,0.62,"#sqrt{s} = 7 TeV, L = 4.9 fb^{-1} (Z(ll)H only)")
+  lat2.DrawLatex(0.14,0.665,"#sqrt{s} = 8 TeV (Both ZH channels)")
+  lat2.DrawLatex(0.14,0.62,"L = 18.9-19.7 fb^{-1}")
+  
+  lat2.DrawLatex(0.14,0.555,"#sqrt{s} = 7 TeV (Z(ll)H only)")
+  lat2.DrawLatex(0.14,0.515,"L = 4.9 fb^{-1}")
   
   # draw legend
   leg.Draw()
