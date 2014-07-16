@@ -6,13 +6,13 @@ def makePlot():
   canv.Clear()
   canv.SetLogy(False)
   mg = r.TMultiGraph()
-  leg = r.TLegend(0.6,0.7,0.89,0.89)
+  leg = r.TLegend(0.5,0.55,0.89,0.89)
   leg.SetFillColor(0)
   leg.SetBorderSize(0)
 
   dummyHist = r.TH1D("dummy","",1,114,301)
   dummyHist.GetXaxis().SetTitle('m_{H} [GeV]')
-  dummyHist.GetYaxis().SetTitle('#sigma x B(H#rightarrow inv.)/#sigma_{SM}')
+  dummyHist.GetYaxis().SetTitle('#sigma x B(H#rightarrow inv)/#sigma_{SM}')
   dummyHist.SetTitleSize(.05,"X")
   dummyHist.SetTitleOffset(0.75,"X")
   dummyHist.SetTitleSize(.05,"Y")
@@ -106,14 +106,15 @@ def makePlot():
   l.Draw()
 
   # draw text
-  lat.DrawLatex(0.14,0.85,"CMS")
+  lat.DrawLatex(0.14,0.85,"CMS Unpublished")
   lat.DrawLatex(0.14,0.78,"Combination of VBF and")
   lat.DrawLatex(0.14,0.73,"Z(ll)H, H #rightarrow invisible")
 
+  lat2.DrawLatex(0.14,0.665,"#sqrt{s} = 8 TeV (VBF + Z(ll)H)")
+  lat2.DrawLatex(0.14,0.62,"L = 18.9-19.7 fb^{-1}")
   
-  lat2.DrawLatex(0.14,0.665,"#sqrt{s} = 8 TeV, L = 19.5 fb^{-1} (VBF + Z(ll)H)")
-  lat2.DrawLatex(0.14,0.62,"#sqrt{s} = 7 TeV, L = 5.1 fb^{-1} (Z(ll)H only)")
-
+  lat2.DrawLatex(0.14,0.555,"#sqrt{s} = 7 TeV (Z(ll)H only)")
+  lat2.DrawLatex(0.14,0.515,"L = 4.9 fb^{-1}")
     
   
   # draw legend
