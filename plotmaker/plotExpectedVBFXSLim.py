@@ -62,7 +62,7 @@ def makePlot():
       args1="-l"
       args2="-q"
       args3="-b"
-      args4="xs.cpp(\"xsinfo.txt\","+repr(mh)+")"
+      args4="xs.cpp(\"vbfxsinfo.txt\","+repr(mh)+")"
       cmd=subprocess.Popen([command,args1,args2,args3,args4],stdout=subprocess.PIPE)
       for line in cmd.stdout:
         if "double" in line:
@@ -137,7 +137,7 @@ def makePlot():
 
   # print canvas
   canv.Update()
-  canv.Print('xslimit.pdf')
+  canv.Print('vbfxslimit.pdf')
   outf.cd()
   canv.SetName("limit_cavas")
   canv.Write()

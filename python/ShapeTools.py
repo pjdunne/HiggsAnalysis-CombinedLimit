@@ -455,7 +455,7 @@ class ShapeBuilder(ModelBuilder):
             _cache[(channel,process)] = ROOT.VerticalInterpPdf("shape%s_%s_%s_morph" % (postFix,channel,process), "", pdfs, coeffs, qrange, qalgo)
         return _cache[(channel,process)]
     def isShapeSystematic(self,channel,process,syst):
-        shapeUp = self.getShape(channel,process,syst+"Up",allowNoSyst=True)    
+        shapeUp = self.getShape(channel,process,syst+"Up",allowNoSyst=True)
         return shapeUp != None
     def getExtraNorm(self,channel,process):
         postFix="Sig" if (process in self.DC.isSignal and self.DC.isSignal[process]) else "Bkg"

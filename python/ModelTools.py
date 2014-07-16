@@ -268,7 +268,11 @@ class ModelBuilder(ModelBuilderBase):
                 else:
                     raise RuntimeError, "Physics model returned something which is neither a name, nor 0, nor 1."
                 for (n,nofloat,pdf,args,errline) in self.DC.systs:
+<<<<<<< HEAD
                     if pdf == "param":continue
+=======
+                    if pdf == "param": continue # or (pdf.startswith("shape") and not pdf.endswith("?")): continue
+>>>>>>> fixing plots and bug in combine for shape? errors
                     if not errline[b].has_key(p): continue
                     if errline[b][p] == 0.0: continue
                     if pdf.startswith("shape") and pdf.endswith("?"): # might be a lnN in disguise

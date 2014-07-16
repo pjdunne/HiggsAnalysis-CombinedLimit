@@ -10,9 +10,9 @@ def makePlot():
   leg.SetFillColor(0)
   leg.SetBorderSize(0)
 
-  dummyHist = r.TH1D("dummy","",1,114,146)
+  dummyHist = r.TH1D("dummy","",1,104,146)
   dummyHist.GetXaxis().SetTitle('m_{H} (GeV)')
-  dummyHist.GetYaxis().SetTitle('#sigma x BR(H#rightarrow inv)/#sigma_{VBF}(SM)')
+  dummyHist.GetYaxis().SetTitle('#sigma x BR(H#rightarrow inv)/#sigma_{ZH}(SM)')
   dummyHist.SetTitleSize(.05,"X")
   dummyHist.SetTitleOffset(0.75,"X")
   dummyHist.SetTitleSize(.05,"Y")
@@ -90,8 +90,8 @@ def makePlot():
   
   # draw dummy hist and multigraph
   mg.Draw("A")
-  dummyHist.SetMinimum(0.1)
-  dummyHist.SetMaximum(1.5)
+  dummyHist.SetMinimum(0.2)
+  dummyHist.SetMaximum(2.5)
   dummyHist.SetLineColor(0)
   dummyHist.SetStats(0)
   dummyHist.Draw("AXIS")
@@ -100,18 +100,18 @@ def makePlot():
   dummyHist.Draw("AXIGSAME")
  
   # draw line at y=1 
-  l = r.TLine(114.,1.,146.,1.)
+  l = r.TLine(104.,1.,146.,1.)
   l.SetLineColor(r.kBlue)
   l.SetLineWidth(2)
   l.Draw()
 
   # draw text
   lat.DrawLatex(0.14,0.85,"CMS")
-  lat.DrawLatex(0.14,0.78,"Combination of VBF and")
-  lat.DrawLatex(0.14,0.73,"ZH, H #rightarrow invisible")
+  lat.DrawLatex(0.14,0.78,"Combination of Z#rightarrow bb + H")
+  lat.DrawLatex(0.14,0.73,"& Z#rightarrow ll + H, H #rightarrow invisible")
 
   
-  lat2.DrawLatex(0.14,0.665,"#sqrt{s}=8 TeV L = 19.5 fb^{-1} (VBF + ZH)")
+  lat2.DrawLatex(0.14,0.665,"#sqrt{s}=8 TeV L = 19.5 fb^{-1} (Both ZH channels)")
   lat2.DrawLatex(0.14,0.62,"#sqrt{s}=7 TeV L = 5.1 fb^{-1} (Z#rightarrow ll + H only)")
 
     
@@ -122,7 +122,7 @@ def makePlot():
 
   # print canvas
   canv.Update()
-  canv.Print('limit.pdf')
+  canv.Print('zhlimit.pdf')
   outf.cd()
   canv.SetName("limit_cavas")
   canv.Write()
