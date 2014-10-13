@@ -1,7 +1,9 @@
 #!/bin/bash
-carddir=../vbfcards/PostPASCards/
+#carddir=../vbfcards/PostPASCards/
+carddir=../
 mass=125
-card=vbfhinv_${mass}_8TeV.txt
+#card=vbfhinv_${mass}_8TeV.txt
+card=vbfhinv_125alljets25metsig4cjvmjj1000.txt
 
 thisdir=`pwd`
 cd $carddir/
@@ -20,14 +22,17 @@ allnuismedexp=`grep "Expected 50.0%" tmpcombresult.txt | awk '{print $5}'`
 rm tmpcombresult.txt
 
 #GET CARD WITH NO NUISANCES
-numofnuis=`grep "number of nuisance parameters" $card | awk '{print $2}'`
-newnumofnuis=0
-cat $card | sed s:"kmax $numofnuis ":"kmax $newnumofnuis ": >nonuiscard.txt
+#numofnuis=`grep "number of nuisance parameters" $card | awk '{print $2}'`
+#newnumofnuis=0
+#cat $card | sed s:"kmax $numofnuis ":"kmax $newnumofnuis ": >nonuiscard.txt
+cat $card >nonuiscard.txt
+#echo "kmax *" >nonuiscard.txt
 
 for sources in `grep -A 10000 "$firsterr" $card | awk '{print $1}'`
 do
+  echo $sources
     cat nonuiscard.txt > tmpcard1.txt
-    cat tmpcard1.txt | sed s:$sources" ":'#'$sources" ": > nonuiscard.txt
+    cat tmpcard1.txt | sed s:$sources:'#'$sources: > nonuiscard.txt
     rm tmpcard1.txt
 done
 
@@ -50,10 +55,11 @@ do
     sourceout=${sources}":"
     printf "%-30s" "$sourceout"
     #GET CARD WITHOUT NUISANCE
-    numofnuis=`grep "number of nuisance parameters" $card | awk '{print $2}'`
-    newnumofnuis=$[$numofnuis-1]
-    cat $card | sed s:"kmax $numofnuis ":"kmax $newnumofnuis ": >tmpcard1.txt
-    cat tmpcard1.txt | sed s:$sources" ":'#'$sources" ": > tmpcard.txt
+    #numofnuis=`grep "number of nuisance parameters" $card | awk '{print $2}'`
+    #newnumofnuis=$[$numofnuis-1]
+    #cat $card | sed s:"kmax $numofnuis ":"kmax $newnumofnuis ": >tmpcard1.txt
+    cat $card >tmpcard1.txt
+    cat tmpcard1.txt | sed s:$sources:'#'$sources: > tmpcard.txt
 
     #RUN ON CARD WITHOUT NUISANCE
     combine -M Asymptotic -m $mass tmpcard.txt &> tmpcombresult.txt
@@ -64,7 +70,7 @@ do
 
     #GET CARD WITH ONLY THIS NUISANCE
     cat nonuiscard.txt | sed s:"kmax 0 ":"kmax 1 ": >tmpcard1.txt
-    cat tmpcard1.txt | sed s:'#'$sources" ":$sources" ": > tmpcard.txt
+    cat tmpcard1.txt | sed s:'#'$sources:$sources: > tmpcard.txt
 
     #RUN ON CARD WITH ONLY THIS NUISANCE
     combine -M Asymptotic -m $mass tmpcard.txt &> tmpcombresult.txt
