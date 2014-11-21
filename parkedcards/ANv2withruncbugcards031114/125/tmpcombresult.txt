@@ -1,0 +1,1 @@
+./uncertaintyimpact.sh: line 77: combine: command not found

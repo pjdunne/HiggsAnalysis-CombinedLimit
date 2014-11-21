@@ -1,0 +1,39 @@
+>>> including systematics
+>>> method used to compute upper limit is Asymptotic
+>>> random number generator seed is 123456
+Computing limit starting from observation
+Will compute both limit(s) using minimizer Minuit2 with strategy 0 and tolerance 0.01
+Median for expected limits: 0.380859
+Sigma  for expected limits: 0.19432
+Restricting r to positive values.
+
+Make global fit of real data
+NLL at global minimum of data: -2020.9 (r = 0.000208693)
+
+Make global fit of asimov data
+NLL at global minimum of asimov: -2020.9 (r = 0.000178532)
+At r = 43.701187:	q_mu = 3255.28702	q_A  = 3255.28855	CLsb = 0.00000	CLb  = 0.50001	CLs  = 0.00000
+At r = 21.850698:	q_mu = 1351.71147	q_A  = 1351.71111	CLsb = 0.00000	CLb  = 0.50000	CLs  = 0.00000
+At r = 10.925453:	q_mu = 576.92807	q_A  = 576.92781	CLsb = 0.00000	CLb  = 0.50000	CLs  = 0.00000
+At r = 5.462831:	q_mu = 259.96412	q_A  = 259.96393	CLsb = 0.00000	CLb  = 0.50000	CLs  = 0.00000
+At r = 2.731520:	q_mu = 109.62237	q_A  = 109.62267	CLsb = 0.00000	CLb  = 0.50001	CLs  = 0.00000
+At r = 1.365864:	q_mu = 41.76729	q_A  = 41.76719	CLsb = 0.00000	CLb  = 0.50000	CLs  = 0.00000
+At r = 0.683036:	q_mu = 12.41924	q_A  = 12.41918	CLsb = 0.00021	CLb  = 0.50000	CLs  = 0.00042
+At r = 0.341623:	q_mu = 3.06455	q_A  = 3.06452	CLsb = 0.04001	CLb  = 0.50000	CLs  = 0.08002
+At r = 0.512330:	q_mu = 7.04880	q_A  = 7.04876	CLsb = 0.00397	CLb  = 0.50000	CLs  = 0.00793
+At r = 0.426976:	q_mu = 4.86238	q_A  = 4.86234	CLsb = 0.01372	CLb  = 0.50000	CLs  = 0.02745
+At r = 0.388703:	q_mu = 4.00625	q_A  = 4.00622	CLsb = 0.02267	CLb  = 0.50000	CLs  = 0.04533
+At r = 0.372791:	q_mu = 3.67403	q_A  = 3.67400	CLsb = 0.02763	CLb  = 0.50000	CLs  = 0.05527
+At r = 0.379224:	q_mu = 3.80665	q_A  = 3.80662	CLsb = 0.02552	CLb  = 0.50000	CLs  = 0.05105
+At r = 0.382446:	q_mu = 3.87394	q_A  = 3.87391	CLsb = 0.02452	CLb  = 0.50000	CLs  = 0.04904
+At r = 0.380559:	q_mu = 3.83446	q_A  = 3.83443	CLsb = 0.02510	CLb  = 0.50000	CLs  = 0.05021
+
+ -- Asymptotic -- 
+Observed Limit: r < 0.3806
+Expected  2.5%: r < 0.2120
+Expected 16.0%: r < 0.2793
+Expected 50.0%: r < 0.3809
+Expected 84.0%: r < 0.5251
+Expected 97.5%: r < 0.7007
+
+Done in 0.01 min (cpu), 0.01 min (real)
