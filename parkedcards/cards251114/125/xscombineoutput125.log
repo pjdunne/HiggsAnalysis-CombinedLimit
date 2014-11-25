@@ -1,0 +1,37 @@
+>>> including systematics
+>>> method used to compute upper limit is Asymptotic
+>>> random number generator seed is 123456
+Computing limit starting from observation
+Will compute both limit(s) using minimizer Minuit2 with strategy 0 and tolerance 0.01
+Median for expected limits: 0.37793
+Sigma  for expected limits: 0.192825
+Restricting r to positive values.
+
+Make global fit of real data
+NLL at global minimum of data: -2236.49 (r = 0.00056889)
+
+Make global fit of asimov data
+NLL at global minimum of asimov: -2236.5 (r = 0.000499661)
+At r = 11.008323:	q_mu = 517.44382	q_A  = 517.44463	CLsb = 0.00000	CLb  = 0.50001	CLs  = 0.00000
+At r = 5.504446:	q_mu = 229.05903	q_A  = 229.05832	CLsb = 0.00000	CLb  = 0.49999	CLs  = 0.00000
+At r = 2.752508:	q_mu = 96.49736	q_A  = 96.49689	CLsb = 0.00000	CLb  = 0.49999	CLs  = 0.00000
+At r = 1.376538:	q_mu = 38.75736	q_A  = 38.75732	CLsb = 0.00000	CLb  = 0.50000	CLs  = 0.00000
+At r = 0.688554:	q_mu = 12.24780	q_A  = 12.24779	CLsb = 0.00023	CLb  = 0.50000	CLs  = 0.00047
+At r = 0.344561:	q_mu = 3.17111	q_A  = 3.17113	CLsb = 0.03748	CLb  = 0.50000	CLs  = 0.07495
+At r = 0.516557:	q_mu = 7.11406	q_A  = 7.11406	CLsb = 0.00382	CLb  = 0.50000	CLs  = 0.00765
+At r = 0.430559:	q_mu = 4.97019	q_A  = 4.97020	CLsb = 0.01289	CLb  = 0.50000	CLs  = 0.02579
+At r = 0.387864:	q_mu = 4.03107	q_A  = 4.03108	CLsb = 0.02233	CLb  = 0.50000	CLs  = 0.04467
+At r = 0.371658:	q_mu = 3.69802	q_A  = 3.69803	CLsb = 0.02724	CLb  = 0.50000	CLs  = 0.05448
+At r = 0.380500:	q_mu = 3.87811	q_A  = 3.87812	CLsb = 0.02446	CLb  = 0.50000	CLs  = 0.04892
+At r = 0.377296:	q_mu = 3.81238	q_A  = 3.81239	CLsb = 0.02544	CLb  = 0.50000	CLs  = 0.05087
+At r = 0.379071:	q_mu = 3.84874	q_A  = 3.84875	CLsb = 0.02489	CLb  = 0.50000	CLs  = 0.04978
+
+ -- Asymptotic -- 
+Observed Limit: r < 0.3791
+Expected  2.5%: r < 0.2104
+Expected 16.0%: r < 0.2745
+Expected 50.0%: r < 0.3779
+Expected 84.0%: r < 0.5271
+Expected 97.5%: r < 0.7142
+
+Done in 0.01 min (cpu), 0.01 min (real)

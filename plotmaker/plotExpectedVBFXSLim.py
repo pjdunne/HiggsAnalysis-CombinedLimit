@@ -108,7 +108,7 @@ def makePlot():
   exp.SetLineStyle(2)
   exp.SetLineWidth(2)
   leg.SetHeader('95% CL limits')
-  leg.AddEntry(graph,'Observed limit','L')
+#!!  leg.AddEntry(graph,'Observed limit','L')
   leg.AddEntry(exp,'Expected limit','L')
   leg.AddEntry(oneSigma,'Expected limit (1#sigma)','f') 
   leg.AddEntry(twoSigma,'Expected limit (2#sigma)','f')
@@ -118,7 +118,7 @@ def makePlot():
   mg.Add(twoSigma)
   mg.Add(oneSigma)
   mg.Add(exp)
-  mg.Add(graph)
+  #!! mg.Add(graph)
   mg.Add(graphxs)
   
   # draw dummy hist and multigraph
@@ -142,7 +142,7 @@ def makePlot():
 
   # draw text
   lat.DrawLatex(0.14,0.85,"CMS VBF H #rightarrow invisible")
-  lat.DrawLatex(0.14,0.78,"#sqrt{s} = 8 TeV, L = 19.5 fb^{-1}")
+  lat.DrawLatex(0.14,0.78,"#sqrt{s} = 8 TeV, L = 19.2 fb^{-1}")
     
   
   # draw legend
