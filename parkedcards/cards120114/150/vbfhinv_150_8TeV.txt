@@ -1,0 +1,43 @@
+# Invisible Higgs analysis for mH=150 GeV
+imax 1
+jmax *  number of backgrounds
+kmax *  number of nuisance parameters (sources of systematical uncertainties)
+shapes *    ch1  FAKE
+bin ch1
+observation 508
+------------
+bin			ch1	ch1	ch1	ch1	ch1	ch1	ch1	ch1	ch1
+process			qqH	ggH	zvv	wmu	wel	wtau	top	vv	qcd
+process			-1	0	1	2	3	4	5	6	7
+rate			268.226	19.7829	157.315	101.755	57.434	97.9526	4.43021	3.83666	17
+------------
+lumi_8TeV	lnN	1.026	1.026	-	-	-	-	-	1.026	-
+CMS_eff_e	lnN	1/1	1/1	1/1	0.999572/0.999861	0.995682/0.941445	1.0032/1.00851	1.07956/0.921836	1.00775/0.992021	-
+CMS_eff_m	lnN	1/1	1/1	1.05274/0.964341	1.02865/0.986789	0.968227/0.969545	1.00311/1.00831	1.0161/0.985811	1/1	-
+CMS_scale_j	lnN	0.904716/1.09883	0.932919/1.15495	1.04488/1.05326	0.940975/1.08485	0.972635/1.04382	0.952005/1.03132	1.0011/0.85171	0.875787/1.08698	-
+CMS_res_j	lnN	1.02957/0.980232	1.00459/1.01008	1.01247/1.04947	1.05125/0.980921	1.00254/0.966669	0.964858/1.02225	1.0129/0.988402	1.04349/0.918211	-
+CMS_scale_met	lnN	0.99828/1.01988	1.06573/1.07365	1.02403/1.01152	0.988793/1.01001	0.969137/0.975929	1.05045/1.04143	0.996703/0.995747	0.977201/0.986909	-
+CMS_VBFHinv_puweight	lnN	1.00888/0.989064	1.00868/1.00697	1.01752/0.986215	1.00386/0.996735	0.990353/1.00869	0.994506/1.00513	0.943786/1.08359	1.00035/1.00751	-
+CMS_VBFHinv_zvv_norm	lnN	-	-	1.11552	-	-	-	-	-	-
+CMS_VBFHinv_zvv_stat	gmN	18	-	-	8.73972	-	-	-	-	-	-
+CMS_VBFHinv_wmu_norm	lnN	-	-	-	1.08204	-	-	-	-	-
+CMS_VBFHinv_wmu_stat	lnN	-	-	-	1.0603	-	-	-	-	-
+CMS_VBFHinv_wel_norm	lnN	-	-	-	-	1.10241	-	-	-	-
+CMS_VBFHinv_wel_stat	lnN	-	-	-	-	1.12703	-	-	-	-
+CMS_VBFHinv_tau_eff	lnN	-	-	-	-	-	1.08	-	-	-
+CMS_VBFHinv_tau_extrapfacunc	lnN	-	-	-	-	-	1.2	-	-	-
+CMS_VBFHinv_wtau_norm	lnN	-	-	-	-	-	1.12814	-	-	-
+CMS_VBFHinv_wtau_stat	lnN	-	-	-	-	-	1.13475	-	-	-
+CMS_VBFHinv_zvv_extrapfacunc	lnN	-	-	1.2	-	-	-	-	-	-
+CMS_VBFHinv_top_norm	lnN	-	-	-	-	-	-	1.29354	-	-
+CMS_VBFHinv_top_stat	lnN	-	-	-	-	-	-	1.2213	-	-
+CMS_VBFHinv_qcd_norm	lnN	-	-	-	-	-	-	-	-	1.82353
+CMS_VBFHinv_vv_norm	lnN	-	-	-	-	-	-	-	1.1314	-
+CMS_VBFHinv_vv_xsunc	lnN	-	-	-	-	-	-	-	1.007	-
+CMS_VBFHinv_qqH_norm	lnN	1.03075	-	-	-	-	-	-	-	-
+QCDscale_qqH	lnN	1.0025	-	-	-	-	-	-	-	-
+pdf_qqbar	lnN	1.026	-	-	-	-	-	-	-	-
+CMS_VBFHinv_ggH_norm	lnN	-	1.25474	-	-	-	-	-	-	-
+QCDscale_ggH2in	lnN	-	1.553	-	-	-	-	-	-	-
+pdf_gg	lnN	-	1.113	-	-	-	-	-	-	-
+UEPS	lnN	-	1.168	-	-	-	-	-	-	-

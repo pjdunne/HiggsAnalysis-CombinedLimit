@@ -1,0 +1,38 @@
+>>> including systematics
+>>> method used to compute upper limit is Asymptotic
+>>> random number generator seed is 123456
+Computing limit starting from observation
+Will compute both limit(s) using minimizer Minuit2 with strategy 0 and tolerance 0.01
+Median for expected limits: 0.716797
+Sigma  for expected limits: 0.365719
+Restricting r to positive values.
+
+Make global fit of real data
+NLL at global minimum of data: -2234.13 (r = 0.00139661)
+
+Make global fit of asimov data
+NLL at global minimum of asimov: -2234.28 (r = 0.00123334)
+At r = 37.094789:	q_mu = 930.05512	q_A  = 930.03283	CLsb = 0.00000	CLb  = 0.49985	CLs  = 0.00000
+At r = 18.548093:	q_mu = 418.21346	q_A  = 418.19655	CLsb = 0.00000	CLb  = 0.49984	CLs  = 0.00000
+At r = 9.274745:	q_mu = 183.83094	q_A  = 183.83182	CLsb = 0.00000	CLb  = 0.50001	CLs  = 0.00000
+At r = 4.638071:	q_mu = 80.80127	q_A  = 80.80601	CLsb = 0.00000	CLb  = 0.50011	CLs  = 0.00000
+At r = 2.319734:	q_mu = 31.91083	q_A  = 31.91300	CLsb = 0.00000	CLb  = 0.50008	CLs  = 0.00000
+At r = 1.160565:	q_mu = 9.85084	q_A  = 9.85145	CLsb = 0.00085	CLb  = 0.50004	CLs  = 0.00170
+At r = 0.580981:	q_mu = 2.51391	q_A  = 2.51398	CLsb = 0.05642	CLb  = 0.50001	CLs  = 0.11284
+At r = 0.870773:	q_mu = 5.67659	q_A  = 5.67691	CLsb = 0.00860	CLb  = 0.50003	CLs  = 0.01719
+At r = 0.739232:	q_mu = 4.09894	q_A  = 4.09912	CLsb = 0.02146	CLb  = 0.50002	CLs  = 0.04291
+At r = 0.687556:	q_mu = 3.54199	q_A  = 3.54213	CLsb = 0.02992	CLb  = 0.50002	CLs  = 0.05983
+At r = 0.709878:	q_mu = 3.77803	q_A  = 3.77819	CLsb = 0.02596	CLb  = 0.50002	CLs  = 0.05193
+At r = 0.720406:	q_mu = 3.89176	q_A  = 3.89193	CLsb = 0.02426	CLb  = 0.50002	CLs  = 0.04852
+At r = 0.714575:	q_mu = 3.82857	q_A  = 3.82874	CLsb = 0.02519	CLb  = 0.50002	CLs  = 0.05038
+At r = 0.716689:	q_mu = 3.85143	q_A  = 3.85159	CLsb = 0.02485	CLb  = 0.50002	CLs  = 0.04970
+
+ -- Asymptotic -- 
+Observed Limit: r < 0.7167
+Expected  2.5%: r < 0.3962
+Expected 16.0%: r < 0.5189
+Expected 50.0%: r < 0.7168
+Expected 84.0%: r < 0.9997
+Expected 97.5%: r < 1.3546
+
+Done in 0.01 min (cpu), 0.01 min (real)
