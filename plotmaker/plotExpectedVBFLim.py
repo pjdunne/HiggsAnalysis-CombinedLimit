@@ -1,7 +1,14 @@
 import ROOT as r
 import sys
+import CMS_lumi
 outf = r.TFile('PlotCanvas.root','RECREATE')
 def makePlot():
+
+  CMS_lumi.lumi_8TeV = "19.2 fb^{-1}"
+  CMS_lumi.writeExtraText = 1
+  CMS_lumi.extraText = "Preliminary"
+  iPos=33
+  
   canv = r.TCanvas()
   canv.Clear()
   canv.SetLogy(False)
@@ -9,6 +16,7 @@ def makePlot():
   leg = r.TLegend(0.15, 0.55, 0.52, 0.89)
   leg.SetFillColor(0)
   leg.SetBorderSize(0)
+  leg.SetTextFont(62)
 
   dummyHist = r.TH1D("dummy","",1,100,410)
   dummyHist.GetXaxis().SetTitle('m_{H} [GeV]')
@@ -78,7 +86,7 @@ def makePlot():
   exp.SetLineStyle(2)
   exp.SetLineWidth(2)
   leg.SetHeader('95% CL limits')
-  #!! leg.AddEntry(graph,'Observed limit','L')
+  leg.AddEntry(graph,'Observed limit','L')
   leg.AddEntry(exp,'Expected limit','L')
   leg.AddEntry(oneSigma,'Expected limit (1#sigma)','F') 
   leg.AddEntry(twoSigma,'Expected limit (2#sigma)','F')
@@ -86,12 +94,12 @@ def makePlot():
   mg.Add(twoSigma)
   mg.Add(oneSigma)
   mg.Add(exp)
-  #!! mg.Add(graph)
+  mg.Add(graph)
   
   # draw dummy hist and multigraph
   mg.Draw("A")
   dummyHist.SetMinimum(mg.GetYaxis().GetXmin())
-  dummyHist.SetMaximum(2.0)#mg.GetYaxis().GetXmax())
+  dummyHist.SetMaximum(2.5)#mg.GetYaxis().GetXmax())
   dummyHist.SetLineColor(0)
   dummyHist.SetStats(0)
   dummyHist.Draw("AXIS")
@@ -106,10 +114,11 @@ def makePlot():
   l.Draw()
 
   # draw text
-  lat.DrawLatex(0.52,0.85,"CMS VBF H #rightarrow invisible")
-  lat.DrawLatex(0.52,0.78,"#sqrt{s} = 8 TeV, L = 19.2 fb^{-1}")
+  #lat.DrawLatex(0.52,0.85,"CMS VBF H #rightarrow invisible")
+  #lat.DrawLatex(0.52,0.78,"#sqrt{s} = 8 TeV, L = 19.2 fb^{-1}")
+  lat.DrawLatex(0.61,0.68,"VBF H #rightarrow invisible")
 
-
+  CMS_lumi.CMS_lumi(canv, 2, iPos)
     
   
   # draw legend

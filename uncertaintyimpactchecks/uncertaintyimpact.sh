@@ -1,9 +1,11 @@
 #!/bin/bash
 #carddir=../vbfcards/PostPASCards/
+#carddir=../parkedcards/cards031114/125
 carddir=../
 mass=125
 #card=vbfhinv_${mass}_8TeV.txt
-card=vbfhinv_125alljets25metsig4cjvmjj1000.txt
+card=/vols/cms04/pjd12/invcmssws/CMSSW_6_1_1/src/HiggsAnalysis/CombinedLimit/parkedcards/cards230215/125/vbfhinv_125_8TeV.txt
+#vbfhinv_125alljets25metsig4cjvmjj1000.txt
 
 thisdir=`pwd`
 cd $carddir/
@@ -45,15 +47,14 @@ rm tmpcombresult.txt
 allnuislimit=`echo "100*$allnuismedexp"|bc -l`
 nonuislimit=`echo "100*$nonuismedexp"|bc -l`
 
-echo Median expected limit with:
-printf "   All Nuisances: %.1f%%, No Nuisances: %.1f%%\n" "$allnuislimit" "$nonuislimit"
+printf "Median expected limit with: & All Nuisances: %.1f\\%% & No Nuisances: %.1f\\%% \\\\\\\\ \n" "$allnuislimit" "$nonuislimit"
 
-printf "Nuisance                      Effect of removing nuisance   Effect of adding nuisance to empty card \n"
+printf "Nuisance      &                Removal effect &  Addition effect \\\\\\\\ \n"
 #LOOP OVER NUISANCES
 for sources in `grep -A 10000 "$firsterr" $card | awk '{print $1}'`
 do
-    sourceout=${sources}":"
-    printf "%-30s" "$sourceout"
+    sourceout=`echo ${sources}|sed s:_:'\\\\'_:g`":"
+    printf "%-30s &" "$sourceout"
     #GET CARD WITHOUT NUISANCE
     #numofnuis=`grep "number of nuisance parameters" $card | awk '{print $2}'`
     #newnumofnuis=$[$numofnuis-1]
@@ -83,7 +84,7 @@ do
     
     outpercdiffsubt=`printf "%.1f%%" "$percdiffsubt"`
     #printf "%-29s %.1f%% \n" "$outpercdiffsubt" "$percdiffonly"
-    printf "%5.1f%%                        %5.1f%% \n" "$percdiffsubt" "$percdiffonly"
+    printf "%5.1f\\%%                &        %5.1f\\%% \\\\\\\\ \n" "$percdiffsubt" "$percdiffonly"
 done
 
 rm nonuiscard.txt

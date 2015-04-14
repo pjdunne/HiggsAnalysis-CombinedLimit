@@ -1,8 +1,15 @@
 import ROOT as r
 import sys
 import subprocess
+import CMS_lumi
 outf = r.TFile('PlotCanvas.root','RECREATE')
 def makePlot():
+
+  CMS_lumi.lumi_8TeV = "19.2 fb^{-1}"
+  CMS_lumi.writeExtraText = 1
+  CMS_lumi.extraText = "Preliminary"
+  iPos=11
+
   canv = r.TCanvas()
   canv.Clear()
   canv.SetLogy(False)
@@ -10,6 +17,7 @@ def makePlot():
   leg = r.TLegend(0.5, 0.49, 0.87, 0.89)
   leg.SetFillColor(0)
   leg.SetBorderSize(0)
+  leg.SetTextFont(62)
 
   dummyHist = r.TH1D("dummy","",1,100,410)
   dummyHist.GetXaxis().SetTitle('m_{H} [GeV]')
@@ -108,7 +116,7 @@ def makePlot():
   exp.SetLineStyle(2)
   exp.SetLineWidth(2)
   leg.SetHeader('95% CL limits')
-#!!  leg.AddEntry(graph,'Observed limit','L')
+  leg.AddEntry(graph,'Observed limit','L')
   leg.AddEntry(exp,'Expected limit','L')
   leg.AddEntry(oneSigma,'Expected limit (1#sigma)','f') 
   leg.AddEntry(twoSigma,'Expected limit (2#sigma)','f')
@@ -118,7 +126,7 @@ def makePlot():
   mg.Add(twoSigma)
   mg.Add(oneSigma)
   mg.Add(exp)
-  #!! mg.Add(graph)
+  mg.Add(graph)
   mg.Add(graphxs)
   
   # draw dummy hist and multigraph
@@ -140,9 +148,12 @@ def makePlot():
   #l.SetLineWidth(2)
   #l.Draw()
 
+  CMS_lumi.CMS_lumi(canv, 2, iPos)
+
   # draw text
-  lat.DrawLatex(0.14,0.85,"CMS VBF H #rightarrow invisible")
-  lat.DrawLatex(0.14,0.78,"#sqrt{s} = 8 TeV, L = 19.2 fb^{-1}")
+  #lat.DrawLatex(0.14,0.85,"CMS VBF H #rightarrow invisible")
+  #lat.DrawLatex(0.14,0.78,"#sqrt{s} = 8 TeV, L = 19.2 fb^{-1}")
+  lat.DrawLatex(0.14,0.68,"VBF H #rightarrow invisible")
     
   
   # draw legend
