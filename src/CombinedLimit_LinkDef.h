@@ -20,8 +20,14 @@
 #include "../interface/RooScaleLOSM.h"
 #include "../interface/rVrFLikelihood.h"
 #include "../interface/RooMultiPdf.h"
+#include "../interface/RooParametricHist.h"
 #include "../interface/RooBernsteinFast.h"
 #include "../interface/SimpleGaussianConstraint.h"
+#include "../interface/AtlasPdfs.h"
+#include "../interface/HZZ4L_RooSpinZeroPdf.h"
+#include "../interface/HZZ4L_RooSpinZeroPdf_phase.h"
+#include "../interface/HZZ4L_RooSpinZeroPdf_2D.h"
+#include "../interface/HWWLVJJRooPdfs.h"
 
 #ifdef __CINT__
 #pragma link off all globals;
@@ -34,13 +40,18 @@
 #pragma link C++ class FastTemplate+;
 #pragma link C++ class FastHisto+;
 #pragma link C++ class FastHisto2D+;
+#pragma link C++ class FastHisto3D+;
 #pragma link C++ class FastVerticalInterpHistPdfBase+;
 #pragma link C++ class FastVerticalInterpHistPdfBase::Morph+;
 #pragma link C++ class FastVerticalInterpHistPdf+;
 #pragma link C++ class FastVerticalInterpHistPdf2D+;
+#pragma link C++ class FastVerticalInterpHistPdf3D+;
 #pragma link C++ class FastVerticalInterpHistPdf2Base+;
 #pragma link C++ class FastVerticalInterpHistPdf2+;
 #pragma link C++ class FastVerticalInterpHistPdf2D2+;
+#pragma link C++ class HZZ4L_RooSpinZeroPdf+;
+#pragma link C++ class HZZ4L_RooSpinZeroPdf_phase+;
+#pragma link C++ class HZZ4L_RooSpinZeroPdf_2D+;
 #pragma link C++ class AsymPow+;
 #pragma link C++ class CombDataSetFactory+;
 #pragma link C++ class TH1Keys+;
@@ -104,6 +115,7 @@
 #pragma link C++ class RooGaussStepBernstein+;
 #pragma link C++ class rVrFLikelihood+;
 #pragma link C++ class RooMultiPdf+;
+#pragma link C++ class RooParametricHist+;
 #pragma link C++ class RooBernsteinFast<1>+;
 #pragma link C++ class RooBernsteinFast<2>+;
 #pragma link C++ class RooBernsteinFast<3>+;
@@ -122,4 +134,25 @@
 #pragma link C++ class RooGausExpPdf+;
 #pragma link C++ class RooDoubleCrystalBall+;
 
-#endif
+#pragma link C++ class RooStats::HistFactory::RooBSplineBases+;
+#pragma link C++ class RooStats::HistFactory::RooBSpline+;
+#pragma link C++ class RooParamKeysPdf+;
+#pragma link C++ class RooStarMomentMorph+;
+
+#pragma link C++ class RooSigPlusInt+;
+#pragma link C++ class RooBWHighMassGGH+;
+#pragma link C++ class RooCPSHighMassGGH+;
+#pragma link C++ class RooCPSHighMassGGHNoInterf+;
+#pragma link C++ class RooCPSHighMassVBF+;
+#pragma link C++ class RooCPSHighMassVBFNoInterf+;
+#pragma link C++ class RooVBFZZPdf+;
+#pragma link C++ class RooVBFZZPdf_v2+;
+#pragma link C++ class RooExpPoly+;
+#pragma link C++ class RooPowerLaw+;
+#pragma link C++ class RooPowerFunction+;
+#pragma link C++ class RooTH1DPdf+;
+#pragma link C++ class RooPowerExpPdf+;
+#pragma link C++ class RooErfPdf+;
+#pragma link C++ class RooChebyshevPDF+;
+
+#endif 

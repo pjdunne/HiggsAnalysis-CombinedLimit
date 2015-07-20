@@ -72,25 +72,12 @@ class MepsHiggs(SMLikeHiggsModel):
 
             if name in ('W','Z'):
 #                # Ellis cv == v (mv^(2 e)/M^(1 + 2 e))
-#                self.modelBuilder.factory_(
-#                    'expr::C%(name)s("@0 * TMath::Power(@3,2*@2) / TMath::Power(@1,1+2*@2)", SM_VEV, M, eps, M%(name)s_MSbar)' % locals() )
-#                # AD k = (M/v) eps m^(N(eps-1))
-#                self.modelBuilder.factory_(
-#                    'expr::C%(name)s("@1 * @2 * TMath::Power(@3,2*(@2-1)) / @0", SM_VEV, M, eps, M%(name)s_MSbar)' % locals() )
-#               # GP k = (v/M)^2 (m/M)^(2eps) <-- This is somehow inconsistent: see below.
-                # AD fixing to match the definition of Ellis et at in 1303.3879. This is also consistent with ATLAS-CONF-2014-010. Perhaps 1207.1693 was bugged?
-                self.modelBuilder.factory_(
-                     'expr::C%(name)s("(@0/@1) * TMath::Power(@3/@1,2*@2)", SM_VEV, M, eps, M%(name)s_MSbar)' % locals() )
+		 self.modelBuilder.factory_(
+                    	'expr::C%(name)s("@0 * TMath::Power(@3,2*@2) / TMath::Power(@1,1+2*@2)", SM_VEV, M, eps, M%(name)s_MSbar)' % locals() )
             else:
 #                # Ellis cf == v (mf^e/M^(1 + e))
-#                self.modelBuilder.factory_(
-#                    'expr::C%(name)s("@0 * TMath::Power(@3,@2) / TMath::Power(@1,1+@2)", SM_VEV, M, eps, M%(name)s_MSbar)' % locals() )
-                # AD k = (M/v) eps m^(N(eps-1))
-#                self.modelBuilder.factory_(
-#                    'expr::C%(name)s("@1 * @2 * TMath::Power(@3,@2-1) / @0", SM_VEV, M, eps, M%(name)s_MSbar)' % locals() )
-                # GP k = (v/M) (m/M)^eps
-                self.modelBuilder.factory_(
-                    'expr::C%(name)s("(@0/@1) * TMath::Power(@3/@1,@2)", SM_VEV, M, eps, M%(name)s_MSbar)' % locals() )
+		self.modelBuilder.factory_(
+			'expr::C%(name)s("@0 * TMath::Power(@3,@2) / TMath::Power(@1,1+@2)", SM_VEV, M, eps, M%(name)s_MSbar)' % locals() )
 
         self.productionScaling = {
             'ttH':'Ctop',
@@ -127,6 +114,9 @@ class MepsHiggs(SMLikeHiggsModel):
         self.modelBuilder.factory_('expr::Meps_BRscal_hmm("@0*@0/@1", Cmu, Meps_Gscal_tot)')
         self.modelBuilder.factory_('expr::Meps_BRscal_hgg("@0/@1", Scaling_hgg, Meps_Gscal_tot)')
         self.modelBuilder.factory_('expr::Meps_BRscal_hzg("@0/@1", Scaling_hzg, Meps_Gscal_tot)')
+        self.modelBuilder.factory_('expr::Meps_BRscal_hcc("@0*@0/@1", Ctau, Meps_Gscal_tot)')
+        self.modelBuilder.factory_('expr::Meps_BRscal_hss("@0*@0/@1", Cb, Meps_Gscal_tot)')
+        self.modelBuilder.factory_('expr::Meps_BRscal_hgluglu("@0/@1", Scaling_hgluglu, Meps_Gscal_tot)')
         
         self.modelBuilder.out.Print()
 
@@ -236,10 +226,13 @@ class ResolvedC6(SMLikeHiggsModel):
         self.modelBuilder.factory_('expr::wztbtm_BRscal_hww("@0*@0/@1", CW, wztbtm_Gscal_tot)')
         self.modelBuilder.factory_('expr::wztbtm_BRscal_hzz("@0*@0/@1", CZ, wztbtm_Gscal_tot)')
         self.modelBuilder.factory_('expr::wztbtm_BRscal_hbb("@0*@0/@1", Cb, wztbtm_Gscal_tot)')
+        self.modelBuilder.factory_('expr::wztbtm_BRscal_hss("@0*@0/@1", Cb, wztbtm_Gscal_tot)')
         self.modelBuilder.factory_('expr::wztbtm_BRscal_htt("@0*@0/@1", Ctau, wztbtm_Gscal_tot)')
+        self.modelBuilder.factory_('expr::wztbtm_BRscal_hcc("@0*@0/@1", Ctop, wztbtm_Gscal_tot)')
         self.modelBuilder.factory_('expr::wztbtm_BRscal_hmm("@0*@0/@1", Cmu, wztbtm_Gscal_tot)')
         self.modelBuilder.factory_('expr::wztbtm_BRscal_hgg("@0/@1", Scaling_hgg, wztbtm_Gscal_tot)')
         self.modelBuilder.factory_('expr::wztbtm_BRscal_hzg("@0/@1", Scaling_hzg, wztbtm_Gscal_tot)')
+        self.modelBuilder.factory_('expr::wztbtm_BRscal_hgluglu("@0/@1", Scaling_hgluglu, wztbtm_Gscal_tot)')
         
         self.modelBuilder.out.Print()
 

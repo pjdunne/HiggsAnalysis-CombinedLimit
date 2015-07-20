@@ -40,6 +40,7 @@ bool        MaxLikelihoodFit::oldNormNames_ = false;
 bool        MaxLikelihoodFit::saveShapes_ = false;
 bool        MaxLikelihoodFit::saveWithUncertainties_ = false;
 bool        MaxLikelihoodFit::justFit_ = false;
+bool        MaxLikelihoodFit::skipBOnlyFit_ = false;
 bool        MaxLikelihoodFit::noErrors_ = false;
 bool        MaxLikelihoodFit::reuseParams_ = false;
 bool        MaxLikelihoodFit::customStartingPoint_ = false;
@@ -61,13 +62,14 @@ MaxLikelihoodFit::MaxLikelihoodFit() :
         ("saveShapes",  "Save post-fit binned shapes")
         ("saveWithUncertainties",  "Save also post-fit uncertainties on the shapes and normalizations (from resampling the covariance matrix)")
         ("justFit",  "Just do the S+B fit, don't do the B-only one, don't save output file")
+        ("skipBOnlyFit",  "Skip the B-only fit (do only the S+B fit)")
         ("noErrors",  "Don't compute uncertainties on the best fit value")
         ("initFromBonly",  "Use the values of the nuisance parameters from the background only fit as the starting point for the s+b fit")
         ("customStartingPoint",  "Don't set the signal model parameters to zero before the fit")
    ;
 
     // setup a few defaults
-    nToys=0; fitStatus_=0; mu_=0;numbadnll_=-1;nll_nll0_=-1; nll_bonly_=-1;nll_sb_=-1;
+    nToys=0; fitStatus_=0; mu_=0; muLoErr_=0; muHiErr_=0; numbadnll_=-1; nll_nll0_=-1; nll_bonly_=-1; nll_sb_=-1;
 }
 
 MaxLikelihoodFit::~MaxLikelihoodFit(){
@@ -94,6 +96,7 @@ void MaxLikelihoodFit::applyOptions(const boost::program_options::variables_map 
     saveWithUncertainties_  = vm.count("saveWithUncertainties");
     saveWorkspace_ = vm.count("saveWorkspace");
     justFit_  = vm.count("justFit");
+    skipBOnlyFit_ = vm.count("skipBOnlyFit");
     noErrors_ = vm.count("noErrors");
     reuseParams_ = vm.count("initFromBonly");
     customStartingPoint_ = vm.count("customStartingPoint");
@@ -186,7 +189,7 @@ bool MaxLikelihoodFit::runSpecific(RooWorkspace *w, RooStats::ModelConfig *mc_s,
   // Get the nll value on the prefit
   double nll0 = nll->getVal();
 
-  if (justFit_) { 
+  if (justFit_ || skipBOnlyFit_ ) { 
     // skip b-only fit
   } else if (minos_ != "all") {
     RooArgList minos; 
@@ -329,7 +332,6 @@ bool MaxLikelihoodFit::runSpecific(RooWorkspace *w, RooStats::ModelConfig *mc_s,
   	nll_nll0_ = -1;
   }
   mu_=r->getVal();
-  if (t_fit_sb_) t_fit_sb_->Fill();
 
   if (res_s) {
       RooRealVar *rf = dynamic_cast<RooRealVar*>(res_s->floatParsFinal().find(r->GetName()));
@@ -341,6 +343,9 @@ bool MaxLikelihoodFit::runSpecific(RooWorkspace *w, RooStats::ModelConfig *mc_s,
 
       if (fabs(hiErr) < 0.001*maxError) hiErr = -bestFitVal + rf->getMax();
       if (fabs(loErr) < 0.001*maxError) loErr = +bestFitVal - rf->getMin();
+
+      muLoErr_=loErr;
+      muHiErr_=hiErr;
 
       double hiErr95 = +(do95_ && rf->hasRange("err95") ? rf->getMax("err95") - bestFitVal : 0);
       double loErr95 = -(do95_ && rf->hasRange("err95") ? rf->getMin("err95") - bestFitVal : 0);
@@ -367,6 +372,7 @@ bool MaxLikelihoodFit::runSpecific(RooWorkspace *w, RooStats::ModelConfig *mc_s,
       std::cout << "\n --- MaxLikelihoodFit ---" << std::endl;
       std::cout << "Fit failed."  << std::endl;
   }
+  if (t_fit_sb_) t_fit_sb_->Fill();
 
   if (currentToy_==nToys-1 || nToys==0 ) {
         
@@ -672,6 +678,12 @@ void MaxLikelihoodFit::createFitResultTrees(const RooStats::ModelConfig &mc, boo
 
 	 t_fit_b_->Branch("mu",&mu_,"mu/Double_t");
 	 t_fit_sb_->Branch("mu",&mu_,"mu/Double_t");
+
+	 t_fit_b_->Branch("muLoErr",&muLoErr_,"muLoErr/Double_t");
+	 t_fit_sb_->Branch("muLoErr",&muLoErr_,"muLoErr/Double_t");
+
+	 t_fit_b_->Branch("muHiErr",&muHiErr_,"muHiErr/Double_t");
+	 t_fit_sb_->Branch("muHiErr",&muHiErr_,"muHiErr/Double_t");
 
 	 t_fit_b_->Branch("numbadnll",&numbadnll_,"numbadnll/Int_t");
 	 t_fit_sb_->Branch("numbadnll",&numbadnll_,"numbadnll/Int_t");

@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <string>
+#include <unordered_map>
 struct RooDataHist;
 struct RooAbsData;
 struct RooAbsPdf;
@@ -14,6 +15,7 @@ struct RooSimultaneous;
 struct RooAbsCollection;
 struct RooWorkspace;
 struct RooPlot;
+struct RooRealVar;
 namespace RooStats { class ModelConfig; }
 namespace utils {
     void printRDH(RooAbsData *data) ;
@@ -91,6 +93,9 @@ namespace utils {
     void setModelParameters( const std::string & setPhysicsModelParameterExpression, const RooArgSet & params);
     // Set range of physics model parameters
     void setModelParameterRanges( const std::string & setPhysicsModelParameterRangeExpression, const RooArgSet & params);
+
+    bool isParameterAtBoundary( const RooRealVar &);
+    bool anyParameterAtBoundaries( const RooArgSet &, int verbosity);
 
     void reorderCombinations(std::vector<std::vector<int> > &, const std::vector<int> &, const std::vector<int> &);
     std::vector<std::vector<int> > generateCombinations(const std::vector<int> &vec);

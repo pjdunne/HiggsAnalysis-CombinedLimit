@@ -6,6 +6,7 @@
 #include <sstream>
 #include <cmath>
 #include <vector>
+#include <unordered_map>
 #include <string>
 #include <memory>
 #include <typeinfo>
@@ -30,6 +31,8 @@
 
 #include <boost/algorithm/string/split.hpp>
 #include <boost/algorithm/string/classification.hpp>
+
+#include "../interface/CloseCoutSentry.h"
 
 using namespace std;
 
@@ -100,7 +103,7 @@ RooAbsPdf *utils::factorizePdf(const RooArgSet &observables, RooAbsPdf &pdf, Roo
             if (newpdf != pdfi) { needNew = true; newOwned.add(*newpdf); }
             newFactors.add(*newpdf);
         }
-        if (!needNew) { copyAttributes(pdf, *prod); return prod; }
+        if (!needNew && newFactors.getSize() > 1) { copyAttributes(pdf, *prod); return prod; }
         else if (newFactors.getSize() == 0) return 0;
         else if (newFactors.getSize() == 1) {
             RooAbsPdf *ret = (RooAbsPdf *) newFactors.first()->Clone(TString::Format("%s_obsOnly", pdf.GetName()));
@@ -207,7 +210,7 @@ void utils::factorizeFunc(const RooArgSet &observables, RooAbsReal &func, RooArg
         //std::cout << "Function " << func.GetName() << " is a RooProduct with " << components.getSize() << " components." << std::endl;
         std::auto_ptr<TIterator> iter(components.createIterator());
         for (RooAbsReal *funci = (RooAbsReal *) iter->Next(); funci != 0; funci = (RooAbsReal *) iter->Next()) {
-            //std::cout << "  component " << funci->GetName() << " of type " << funci->ClassName() << std::endl;
+            //std::cout << "  component " << funci->GetName() << " of type " << funci->ClassName() << "(dep obs? " << funci->dependsOn(observables) << ")" << std::endl;
             factorizeFunc(observables, *funci, obsTerms, constraints);
         }
     } else if (func.dependsOn(observables)) {
@@ -412,9 +415,11 @@ void utils::copyAttributes(const RooAbsArg &from, RooAbsArg &to) {
     if (!attribs.empty()) {
         for (std::set<std::string>::const_iterator it = attribs.begin(), ed = attribs.end(); it != ed; ++it) to.setAttribute(it->c_str());
     }
-    const std::map<std::string, std::string> strattribs = from.stringAttributes();
+    const std::map
+<std::string, std::string> strattribs = from.stringAttributes();
     if (!strattribs.empty()) {
-        for (std::map<std::string,std::string>::const_iterator it = strattribs.begin(), ed = strattribs.end(); it != ed; ++it) to.setStringAttribute(it->first.c_str(), it->second.c_str());
+        for (std::map
+        <std::string,std::string>::const_iterator it = strattribs.begin(), ed = strattribs.end(); it != ed; ++it) to.setStringAttribute(it->first.c_str(), it->second.c_str());
     }
 }
 
@@ -559,13 +564,27 @@ void utils::setModelParameters( const std::string & setPhysicsModelParameterExpr
     if (SetParameterExpression.size() != 2) {
       std::cout << "Error parsing physics model parameter expression : " << SetParameterExpressionList[p] << endl;
     } else {
-      double PhysicsParameterValue = atof(SetParameterExpression[1].c_str());
-      RooRealVar *tmpParameter = (RooRealVar*)params.find(SetParameterExpression[0].c_str());      
-      if (tmpParameter) {
-        cout << "Set Default Value of Parameter " << SetParameterExpression[0] 
-             << " To : " << PhysicsParameterValue << "\n";
-        tmpParameter->setVal(PhysicsParameterValue);
-      } else {
+      
+      RooAbsArg  *tmp = (RooAbsArg*)params.find(SetParameterExpression[0].c_str());     
+      if (tmp){
+
+        bool isrvar = tmp->IsA()->InheritsFrom(RooRealVar::Class());  // check its type
+
+        if (isrvar) {
+          RooRealVar *tmpParameter = dynamic_cast<RooRealVar*>(tmp);
+          double PhysicsParameterValue = atof(SetParameterExpression[1].c_str());
+          cout << "Set Default Value of Parameter " << SetParameterExpression[0] 
+               << " To : " << PhysicsParameterValue << "\n";
+          tmpParameter->setVal(PhysicsParameterValue);
+        } else {
+          RooCategory *tmpCategory  = dynamic_cast<RooCategory*>(tmp);
+          int PhysicsParameterValue = atoi(SetParameterExpression[1].c_str());
+          cout << "Set Default Index of Parameter " << SetParameterExpression[0] 
+               << " To : " << PhysicsParameterValue << "\n";
+          tmpCategory->setIndex(PhysicsParameterValue);
+	}
+      }
+        else {
         std::cout << "Warning: Did not find a parameter with name " << SetParameterExpression[0] << endl;
       }
     }
@@ -690,4 +709,57 @@ std::vector<std::vector<int> > utils::generateCombinations(const std::vector<int
     }
 
   return result;
+}
+
+
+bool utils::isParameterAtBoundary( const RooRealVar &param ){
+
+    double vMin = param.getMin();
+    double vMax = param.getMax();
+    double val = param.getVal();
+    double errLo = -1.0 * param.getErrorLo(); 
+    double errHi = param.getErrorHi(); 
+
+    double pullMin = (val-vMin) / (errLo);
+    double pullMax = (vMax-val) / (errHi);
+
+    float nSigma=1.0;
+
+    if(pullMin < nSigma || pullMax < nSigma){
+        return true;
+    }
+    
+    return false;
+}
+
+
+bool utils::anyParameterAtBoundaries( const RooArgSet &params, int verbosity ){
+
+    static std::unordered_map<std::string, unsigned char> timesFoundAtBoundary;
+    bool isAnyBad = false;
+
+    RooLinkedListIter iter = params.iterator(); int i = 0;
+    for (RooRealVar *a = (RooRealVar *) iter.Next(); a != 0; a = (RooRealVar *) iter.Next(), ++i) {
+
+        bool isBad = isParameterAtBoundary(*a);
+
+        if(isBad){
+            std::string varName((*a).GetName());
+
+            if( verbosity >= 9 || (timesFoundAtBoundary[varName] < 3 && verbosity > -1) ){
+                fprintf(CloseCoutSentry::trueStdOutGlobal(),"  [WARNING] Found [%s] at boundary. \n", (*a).GetName());
+                std::cout << "       "; (*a).Print();
+            }
+
+            timesFoundAtBoundary[varName]++;
+        }
+
+        isAnyBad |= isBad;
+    }
+
+    // for( std::unordered_map<std::string, unsigned char>::value_type e : timesFoundAtBoundary ){
+    //     printf("e %s -> %i\n", e.first.c_str(), e.second);
+    // }
+    
+    return isAnyBad;
 }

@@ -152,6 +152,7 @@ class ShapeBuilder(ModelBuilder):
                         self.doVar("CMS_fakeObs[0,1]");
                         self.out.var("CMS_fakeObs").setBins(1);
                         self.doSet("CMS_fakeObsSet","CMS_fakeObs");
+			self.doVar("CMS_fakeWeight[0,1]");self.out.var("CMS_fakeWeight").removeRange()
                         shapeObs["CMS_fakeObsSet"] = self.out.set("CMS_fakeObsSet")
                     if p == self.options.dataname:
                         self.pdfModes[b] = 'binned'
@@ -441,6 +442,7 @@ class ShapeBuilder(ModelBuilder):
                     pdflist.add(self.shape2Pdf(shapeUp,channel,process))
                     pdflist.add(self.shape2Pdf(shapeDown,channel,process))
                 pdfs = pdflist
+		
         if "2a" in shapeAlgo: # old shape2
             if not nominalPdf.InheritsFrom("RooHistPdf"):  raise RuntimeError, "Algorithms 'shape2', 'shapeL2', shapeN2' only work with histogram templates"
             if nominalPdf.dataHist().get().getSize() != 1: raise RuntimeError, "Algorithms 'shape2', 'shapeL2', shapeN2' only work in one dimension"
@@ -516,11 +518,10 @@ class ShapeBuilder(ModelBuilder):
                     rdh.set(obs, self.DC.obs[channel])
                     _cache[name] = rdh
                 else:
-                    rds = ROOT.RooDataSet(name, name, obs)
-                    if self.DC.obs[channel] == float(int(self.DC.obs[channel])):
-                        for i in range(int(self.DC.obs[channel])): rds.add(obs)
-                    else:
-                        rds.add(obs, self.DC.obs[channel])
+		    obs.add(self.out.var("CMS_fakeWeight"))
+                    rds = ROOT.RooDataSet(name, name, obs,"CMS_fakeWeight")
+		    obs.setRealValue("CMS_fakeWeight", self.DC.obs[channel])
+                    rds.add(obs, self.DC.obs[channel])
                     _cache[name] = rds
             return _cache[name]
         if not _cache.has_key(shape.GetName()):

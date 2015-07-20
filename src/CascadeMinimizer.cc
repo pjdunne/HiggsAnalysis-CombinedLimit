@@ -73,14 +73,20 @@ bool CascadeMinimizer::improve(int verbose, bool cascade)
 
 bool CascadeMinimizer::improveOnce(int verbose) 
 {
+    static int optConst = runtimedef::get("MINIMIZER_optimizeConst");
+    static int rooFitOffset = runtimedef::get("MINIMIZER_rooFitOffset");
     std::string myType(ROOT::Math::MinimizerOptions::DefaultMinimizerType());
     std::string myAlgo(ROOT::Math::MinimizerOptions::DefaultMinimizerAlgo());
     bool outcome = false;
     if (oldFallback_){
+        if (optConst) minimizer_->optimizeConst(std::max(0,optConst));
+        if (rooFitOffset) minimizer_->setOffsetting(std::max(0,rooFitOffset));
         outcome = nllutils::robustMinimize(nll_, *minimizer_, verbose, setZeroPoint_);
     } else {
         cacheutils::CachingSimNLL *simnll = setZeroPoint_ ? dynamic_cast<cacheutils::CachingSimNLL *>(&nll_) : 0;
         if (simnll) simnll->setZeroPoint();
+        if (optConst) minimizer_->optimizeConst(std::max(0,optConst));
+        if (rooFitOffset) minimizer_->setOffsetting(std::max(0,rooFitOffset));
         int status = minimizer_->minimize(myType.c_str(), myAlgo.c_str());
         if (simnll) simnll->clearZeroPoint();
         outcome = (status == 0);
@@ -155,22 +161,26 @@ are freely floating. We should cut them down to find which ones are
    bool ret=true;
    std::vector<std::vector<bool>> contIndex;
    // start from simplest scan, this is the full scan if runShortCombinations is off
-   bool discretesHaveChanged = multipleMinimize(reallyCleanParameters,ret,minimumNLL,verbose,cascade,0,contIndex); 
+   //bool discretesHaveChanged = 
+   multipleMinimize(reallyCleanParameters,ret,minimumNLL,verbose,cascade,0,contIndex); 
  
    if (simnll) simnll->clearZeroPoint();
 
    utils::setAllConstant(frozen,false);
 
-   if (discretesHaveChanged) { 
-        minimizer_.reset(new RooMinimizerOpt(nll_));
-   	improve(verbose, cascade); 
-   }
+   //if (discretesHaveChanged) { 
+   // Run one last fully floating fit to maintain RooFitResult
+   minimizer_.reset(new RooMinimizerOpt(nll_));
+   improve(verbose, cascade); 
+   //}
    minimumNLL = nll_.getVal();
    return ret;
 }
 
 bool CascadeMinimizer::minimize(int verbose, bool cascade) 
 {
+    static int optConst = runtimedef::get("MINIMIZER_optimizeConst");
+    static int rooFitOffset = runtimedef::get("MINIMIZER_rooFitOffset");
     if (runtimedef::get("CMIN_CENSURE")) {
         RooMsgService::instance().setStreamStatus(0,kFALSE);
         RooMsgService::instance().setStreamStatus(1,kFALSE);
@@ -198,6 +208,8 @@ bool CascadeMinimizer::minimize(int verbose, bool cascade)
         minimizer_->setStrategy(preFit_-1);
         cacheutils::CachingSimNLL *simnll = setZeroPoint_ ? dynamic_cast<cacheutils::CachingSimNLL *>(&nll_) : 0;
         if (simnll) simnll->setZeroPoint();
+        if (optConst) minimizer_->optimizeConst(std::max(0,optConst));
+        if (rooFitOffset) minimizer_->setOffsetting(std::max(0,rooFitOffset));
         minimizer_->minimize(ROOT::Math::MinimizerOptions::DefaultMinimizerType().c_str(), ROOT::Math::MinimizerOptions::DefaultMinimizerAlgo().c_str());
         if (simnll) simnll->clearZeroPoint();
         utils::setAllConstant(frozen,false);
@@ -226,48 +238,63 @@ bool CascadeMinimizer::minimize(int verbose, bool cascade)
     //}
  
     //bool doMultipleMini = (CascadeMinimizerGlobalConfigs::O().pdfCategories.getSize()>0);
+    bool ret = true;
     if (!doMultipleMini){
     	if (mode_ == Unconstrained && poiOnlyFit_) {
        	 trivialMinimize(nll_, *poi_, 200);
     	} 
 
-    	return improve(verbose, cascade);
-    }     
+      ret = improve(verbose, cascade);
 
-    // clean parameters before minimization but dont include the pdf indeces of course!
-    RooArgSet reallyCleanParameters;
-    RooArgSet *nllParams=nll_.getParameters((const RooArgSet*)0);
-    nllParams->remove(CascadeMinimizerGlobalConfigs::O().pdfCategories);
-    (nllParams)->snapshot(reallyCleanParameters); // should remove also the nuisance parameters from here!
-    // Before each step, reset the parameters back to their prefit state!
-    
-    bool ret = true;
+    }else{
+      // Do the discrete nuisance magic
 
-    if (runShortCombinations) {
-      // Initial fit under current index values
-      improve(verbose, cascade);
-      double minimumNLL  = 10+nll_.getVal();
-      double previousNLL = nll_.getVal();
-      int maxIterations = 15; int iterationCounter=0;
-      for (;iterationCounter<maxIterations;iterationCounter++){
-        iterativeMinimize(minimumNLL,verbose,cascade);
-        if ( fabs(previousNLL-minimumNLL) < discreteMinTol_ ) break; // should be minimizer tolerance
-	previousNLL = minimumNLL ;
+      // clean parameters before minimization but dont include the pdf indeces of course!
+      RooArgSet reallyCleanParameters;
+      RooArgSet *nllParams=nll_.getParameters((const RooArgSet*)0);
+      nllParams->remove(CascadeMinimizerGlobalConfigs::O().pdfCategories);
+      (nllParams)->snapshot(reallyCleanParameters); // should remove also the nuisance parameters from here!
+      // Before each step, reset the parameters back to their prefit state!
+      
+      if (runShortCombinations) {
+        // Initial fit under current index values
+        improve(verbose, cascade);
+        double minimumNLL  = 10+nll_.getVal();
+        double previousNLL = nll_.getVal();
+        int maxIterations = 15; int iterationCounter=0;
+        for (;iterationCounter<maxIterations;iterationCounter++){
+          iterativeMinimize(minimumNLL,verbose,cascade);
+          if ( fabs(previousNLL-minimumNLL) < discreteMinTol_ ) break; // should be minimizer tolerance
+          previousNLL = minimumNLL ;
+        }
+
+      } else {
+
+        double minimumNLL = 10+nll_.getVal();
+        std::vector<std::vector<bool>> contIndex;
+        multipleMinimize(reallyCleanParameters,ret,minimumNLL,verbose,cascade,0,contIndex);
+   
+        if (CascadeMinimizerGlobalConfigs::O().pdfCategories.getSize() > 1) {
+           multipleMinimize(reallyCleanParameters,ret,minimumNLL,verbose,cascade,1,contIndex);
+           multipleMinimize(reallyCleanParameters,ret,minimumNLL,verbose,cascade,2,contIndex);
+        }
+
       }
-
-    } else {
-
-      double minimumNLL = 10+nll_.getVal();
-      std::vector<std::vector<bool>> contIndex;
-      multipleMinimize(reallyCleanParameters,ret,minimumNLL,verbose,cascade,0,contIndex);
- 
-      if (CascadeMinimizerGlobalConfigs::O().pdfCategories.getSize() > 1) {
-         multipleMinimize(reallyCleanParameters,ret,minimumNLL,verbose,cascade,1,contIndex);
-         multipleMinimize(reallyCleanParameters,ret,minimumNLL,verbose,cascade,2,contIndex);
-      }
-
     }
-    // cheat 
+
+    // Check boundaries
+    RooArgSet *nllParams=nll_.getParameters((const RooArgSet*)0);
+    RooStats::RemoveConstantParameters(nllParams);
+    nllParams->remove(CascadeMinimizerGlobalConfigs::O().pdfCategories);
+    nllParams->remove(CascadeMinimizerGlobalConfigs::O().parametersOfInterest);
+
+    bool boundariesNotOk = utils::anyParameterAtBoundaries(*nllParams, verbose);
+    if(boundariesNotOk && verbose >= 1){
+      fprintf(CloseCoutSentry::trueStdOutGlobal(),
+        " [WARNING] After the fit some parameters are at their boundary.\n"
+        " [WARNING] Are you sure your model is correct?\n");
+    }
+
     return ret;
 }
 

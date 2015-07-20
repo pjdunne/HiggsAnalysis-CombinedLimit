@@ -50,7 +50,8 @@ bool        FitterAlgoBase::do95_ = false;
 bool        FitterAlgoBase::saveNLL_ = false;
 bool        FitterAlgoBase::keepFailures_ = false;
 bool        FitterAlgoBase::protectUnbinnedChannels_ = false;
-float       FitterAlgoBase::nllValue_ = std::numeric_limits<float>::quiet_NaN();
+double       FitterAlgoBase::nllValue_ = std::numeric_limits<double>::quiet_NaN();
+double       FitterAlgoBase::nll0Value_ = std::numeric_limits<double>::quiet_NaN();
 FitterAlgoBase::ProfilingMode FitterAlgoBase::profileMode_ = ProfileAll;
 
 FitterAlgoBase::FitterAlgoBase(const char *title) :
@@ -93,7 +94,7 @@ bool FitterAlgoBase::run(RooWorkspace *w, RooStats::ModelConfig *mc_s, RooStats:
   CloseCoutSentry sentry(verbose < 0);
 
   static bool shouldCreateNLLBranch = saveNLL_;
-  if (shouldCreateNLLBranch) { Combine::addBranch("nll", &nllValue_, "nll/F"); shouldCreateNLLBranch = false; }
+  if (shouldCreateNLLBranch) { Combine::addBranch("nll", &nllValue_, "nll/D"); Combine::addBranch("nll0", &nll0Value_, "nll0/D"); shouldCreateNLLBranch = false; }
 
   if (profileMode_ != ProfileAll && parametersToFreeze_.getSize() == 0) {
       switch (profileMode_) {
@@ -162,7 +163,7 @@ RooFitResult *FitterAlgoBase::doFit(RooAbsPdf &pdf, RooAbsData &data, RooRealVar
 RooFitResult *FitterAlgoBase::doFit(RooAbsPdf &pdf, RooAbsData &data, const RooArgList &rs, const RooCmdArg &constrain, bool doHesse, int ndim, bool reuseNLL, bool saveFitResult) {
     RooFitResult *ret = 0;
     if (reuseNLL && nll.get() != 0)((cacheutils::CachingSimNLL&)(*nll)).setData(data);	// reuse nll but swap out the data
-    else nll.reset(pdf.createNLL(data, constrain, RooFit::Extended(pdf.canBeExtended()))); // make a new nll
+    else nll.reset(pdf.createNLL(data, constrain, RooFit::Extended(pdf.canBeExtended()), RooFit::Offset(true))); // make a new nll
 
     double nll0 = nll->getVal();
     double delta68 = 0.5*ROOT::Math::chisquared_quantile_c(1-0.68,ndim);
@@ -178,6 +179,7 @@ RooFitResult *FitterAlgoBase::doFit(RooAbsPdf &pdf, RooAbsData &data, const RooA
     if (verbose>1) {
        std::cout << "Minimized in : " ; tw.Print();
     }
+    nll0Value_ =  nll0;
     nllValue_ =  nll->getVal() - nll0;
     if (!ok && !keepFailures_) { std::cout << "Initial minimization failed. Aborting." << std::endl; return 0; }
     if (doHesse) minim.minimizer().hesse();
