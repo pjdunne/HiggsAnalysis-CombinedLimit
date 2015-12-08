@@ -63,8 +63,10 @@ else:
     sig_syst=sig_syst_19_2fb
 
 #Open output file
-cardname='ext_vbfhinv_'+str(signalname)+'_'+str(signalroots)+'TeV_'+str(targetlumi)+'fb.txt'
-if(args.batchmode==False):
+cardname='ext_vbfhinv_'+str(signalname)+'_'+str(signalroots)+'Tev_'+str(targetlumi)+'fb.txt'
+if systlumiscale:
+    cardname='ext_vbfhinv_'+str(signalname)+'_'+str(signalroots)+'Tev_'+str(targetlumi)+'fb_scaleL.txt'
+if(args.batchmode==True):
     print cardname
 card=open(cardname,'w')
 
