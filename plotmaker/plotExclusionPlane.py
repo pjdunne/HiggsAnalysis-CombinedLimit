@@ -5,12 +5,43 @@ import math as m
 import numpy as np
 from array import array
 
+col_store=[]
+def CreateTransparentColor(color, alpha):
+  adapt   = r.gROOT.GetColor(color)
+  new_idx = r.gROOT.GetListOfColors().GetSize() + 1
+  trans = r.TColor(new_idx, adapt.GetRed(), adapt.GetGreen(), adapt.GetBlue(), '', alpha)
+  col_store.append(trans)
+  trans.SetName('userColor%i' % new_idx)
+  return new_idx
 
-def frameTH2D(hist, threshold, mult = 1.0):
+def fillTH2(hist2d, graph):
+    for x in xrange(1, hist2d.GetNbinsX()+1):
+        for y in xrange(1, hist2d.GetNbinsY()+1):
+            xc = hist2d.GetXaxis().GetBinCenter(x)
+            yc = hist2d.GetYaxis().GetBinCenter(y)
+            val = graph.Interpolate(xc, yc)
+            hist2d.SetBinContent(x, y, val)
+
+def makeHist(name, xbins, ybins, graph2d):
+    len_x = graph2d.GetXmax() - graph2d.GetXmin()
+    binw_x = (len_x * 0.5 / (float(xbins) - 1.)) - 1E-5
+    len_y = graph2d.GetYmax() - graph2d.GetYmin()
+    binw_y = (len_y * 0.5 / (float(ybins) - 1.)) - 1E-5
+    hist = r.TH2F(name, '', xbins, graph2d.GetXmin()-binw_x, graph2d.GetXmax()+binw_x, ybins, graph2d.GetYmin()-binw_y, graph2d.GetYmax()+binw_y)
+    return hist
+
+def OnePad():
+    pad = r.TPad('pad', 'pad', 0., 0., 1., 1.)
+    pad.Draw()
+    pad.cd()
+    result = [pad]
+    return result
+
+def frameTH2D(hist, threshold, mult = 1.0,frameValue=1000):
   # NEW LOGIC:
   #   - pretend that the center of the last bin is on the border if the frame
   #   - add one tiny frame with huge values
-  frameValue = 1000
+  #frameValue = 1000
   # if (TString(in->GetName()).Contains("bayes")) frameValue = -1000;
 
   xw = hist.GetXaxis().GetBinWidth(1)
@@ -47,7 +78,8 @@ def frameTH2D(hist, threshold, mult = 1.0):
   for ix in xrange(1, nx+1):
     for iy in xrange(1, ny+1):
       framed.SetBinContent(1 + ix, 1 + iy, hist.GetBinContent(ix, iy))
-  
+
+
   # Frame with huge values
   nx = framed.GetNbinsX()
   ny = framed.GetNbinsY()
@@ -70,7 +102,7 @@ def contourFromTH2(h2in, threshold, minPoints=10, mult = 1.0):
   if (h2in.GetNbinsX() * h2in.GetNbinsY()) > 10000: minPoints = 50
   if (h2in.GetNbinsX() * h2in.GetNbinsY()) <= 100: minPoints = 10
 
-  # h2 = h2in.Clone()
+  #h2 = h2in.Clone()
   h2 = frameTH2D(h2in, threshold, mult)
 
   h2.SetContour(1, contours)
@@ -117,7 +149,7 @@ def makePlot():
     thisline=filestoread[i].split()
     print thisline
     yvalues.append([thisline[0],thisline[1]])
-  yvalues.sort(key=lambda x: x[0])
+  yvalues.sort(key=lambda x: float(x[0]))
 
   down95values=[]
   down68values=[]
@@ -136,10 +168,12 @@ def makePlot():
     for j in range(tree.GetEntries()):
       tree.GetEntry(j)
       xvalues.append([tree.mh, tree.limit])
-    xvalues.sort(key=lambda x: x[0])
+    xvalues.sort(key=lambda x: float(x[0]))
 
     # get limits for all x values for this y value
     for j in range(len(xvalues)):
+      if i==0:
+        print xvalues[j]
       if (j%6==0):
         down95values.append([xvalues[j][0],yvalues[i][0],xvalues[j][1]])
         down68values.append([xvalues[j][0],yvalues[i][0],xvalues[j+1][1]])
@@ -149,68 +183,77 @@ def makePlot():
         obsvalues.append([xvalues[j][0],yvalues[i][0],xvalues[j+5][1]])
         if(i==0):
           xbincenters.append(xvalues[j][0])
-  
-  #Make TH2D out of values with variable binning and value at centre of bin
-  xbinedges=[]
-  for i in range(len(xbincenters)):
-    if(i==0):
-      xbinedges.append(xbincenters[i]-m.fabs(xbincenters[i+1]-xbincenters[i])/2)
-    if(i!=(len(xbincenters)-1)):
-      xbinedges.append(xbincenters[i]+m.fabs(xbincenters[i+1]-xbincenters[i])/2)
-    if(i==(len(xbincenters)-1)):
-      xbinedges.append(xbincenters[i]+m.fabs(xbincenters[i]-xbincenters[i-1])/2)
+            
+  print xbincenters
+  print ybincenters
 
-  ybinedges=[]
-  for i in range(len(ybincenters)):
-    if(i==0):
-      ybinedges.append(ybincenters[i]-m.fabs(ybincenters[i+1]-ybincenters[i])/2)
-    if(i!=(len(ybincenters)-1)):
-      ybinedges.append(ybincenters[i]+m.fabs(ybincenters[i+1]-ybincenters[i])/2)
-    if(i==(len(ybincenters)-1)):
-      ybinedges.append(ybincenters[i]+m.fabs(ybincenters[i]-ybincenters[i-1])/2)
+  graph_minus2sigma=r.TGraph2D()
+  graph_minus1sigma=r.TGraph2D()
+  graph_exp=r.TGraph2D()
+  graph_plus1sigma=r.TGraph2D()
+  graph_plus2sigma=r.TGraph2D()
+  graph_obs=r.TGraph2D()
 
-
-  down95valueth2=r.TH2D("down95values","down95values",len(xbincenters),np.asarray(xbinedges),len(ybincenters),np.asarray(ybinedges))
-  down68valueth2=r.TH2D("down68values","down68values",len(xbincenters),np.asarray(xbinedges),len(ybincenters),np.asarray(ybinedges))
-  medianvalueth2=r.TH2D("medianvalues","medianvalues",len(xbincenters),np.asarray(xbinedges),len(ybincenters),np.asarray(ybinedges))
-  up68valueth2=r.TH2D("up68values","up68values",len(xbincenters),np.asarray(xbinedges),len(ybincenters),np.asarray(ybinedges))
-  up95valueth2=r.TH2D("up95values","up95values",len(xbincenters),np.asarray(xbinedges),len(ybincenters),np.asarray(ybinedges))
-  obsvalueth2=r.TH2D("obsvalues","obsvalues",len(xbincenters),np.asarray(xbinedges),len(ybincenters),np.asarray(ybinedges))
-  print len(down95values)
+  #Populate TGraph with points
+  n=0
   for j in range(len(ybincenters)):
     for i in range(len(xbincenters)):
-      #print xbincenters
-      #print ybincenters
-      #print down95values
-      print j*len(xbincenters)+i
-      down95valueth2.SetBinContent(down95valueth2.GetBin(i+1,j+1),down95values[j*len(xbincenters)+i][2])
-      down68valueth2.SetBinContent(down68valueth2.GetBin(i+1,j+1),down68values[j*len(xbincenters)+i][2])
-      medianvalueth2.SetBinContent(medianvalueth2.GetBin(i+1,j+1),medianvalues[j*len(xbincenters)+i][2])
-      up68valueth2.SetBinContent(up68valueth2.GetBin(i+1,j+1),up68values[j*len(xbincenters)+i][2])
-      up95valueth2.SetBinContent(up95valueth2.GetBin(i+1,j+1),up95values[j*len(xbincenters)+i][2])
-      obsvalueth2.SetBinContent(obsvalueth2.GetBin(i+1,j+1),obsvalues[j*len(xbincenters)+i][2])
+      graph_minus2sigma.SetPoint(n,xbincenters[i],ybincenters[j],down95values[j*len(xbincenters)+i][2])
+      graph_minus1sigma.SetPoint(n,xbincenters[i],ybincenters[j],down68values[j*len(xbincenters)+i][2])
+      graph_exp.SetPoint(n,xbincenters[i],ybincenters[j],medianvalues[j*len(xbincenters)+i][2])
+      graph_plus1sigma.SetPoint(n,xbincenters[i],ybincenters[j],up68values[j*len(xbincenters)+i][2])
+      graph_plus2sigma.SetPoint(n,xbincenters[i],ybincenters[j],up95values[j*len(xbincenters)+i][2])
+      graph_obs.SetPoint(n,xbincenters[i],ybincenters[j],obsvalues[j*len(xbincenters)+i][2])
+      n=n+1
+
+  #Make histogram out of TGraph
+  #axis = makeHist('hist2d', 5*len(xbincenters), 5*len(ybincenters), graph_exp)
+  axis = r.TH2D('hist2d','', len(xbincenters), graph_exp.GetXmin(), graph_exp.GetXmax(), len(ybincenters), graph_exp.GetYmin(), graph_exp.GetYmax())
+
+  h_exp = makeHist("h_exp", len(xbincenters), len(ybincenters), graph_exp)
+  h_obs = makeHist("h_obs", len(xbincenters), len(ybincenters), graph_obs)
+  h_minus1sigma = makeHist("h_minus1sigma", len(xbincenters), len(ybincenters), graph_minus1sigma)
+  h_plus1sigma = makeHist("h_plus1sigma", len(xbincenters), len(ybincenters), graph_plus1sigma)
+  h_minus2sigma = makeHist("h_minus2sigma", len(xbincenters), len(ybincenters), graph_minus2sigma)
+  h_plus2sigma = makeHist("h_plus2sigma", len(xbincenters), len(ybincenters), graph_plus2sigma)
+
+  fillTH2(h_exp, graph_exp)
+  fillTH2(h_obs, graph_obs)
+  fillTH2(h_minus1sigma, graph_minus1sigma)
+  fillTH2(h_plus1sigma, graph_plus1sigma)
+  fillTH2(h_minus2sigma, graph_minus2sigma)
+  fillTH2(h_plus2sigma, graph_plus2sigma)
 
   #call getcontour function
-  cont_exp=contourFromTH2(medianvalueth2, 1, minPoints=10, mult = 1.0)
+  cont_minus2sigma=contourFromTH2(h_minus2sigma, 1, minPoints=1, mult = 1.0)
+  cont_minus1sigma=contourFromTH2(h_minus1sigma, 1, minPoints=1, mult = 1.0)
+  cont_exp=contourFromTH2(h_exp, 1, minPoints=1, mult = 1.0)
+  cont_plus1sigma=contourFromTH2(h_plus1sigma, 1, minPoints=1, mult = 1.0)
+  cont_plus2sigma=contourFromTH2(h_plus2sigma, 1, minPoints=1, mult = 1.0)
 
-  ipos=33
-  
+
   canv = r.TCanvas()
-  canv.Clear()
-  canv.SetLogy(False)
-  canv.SetLogx(True)
+  pads=OnePad()
+  pads[0].Draw()
+#  canv.Clear()
+#  canv.SetLogy(False)
+  pads[0].SetLogx(True)
   leg = r.TLegend(0.15, 0.55, 0.52, 0.89)
-  leg.SetFillColor(0)
+  leg.SetFillStyle(0)
   leg.SetBorderSize(0)
   leg.SetTextFont(62)
 
-  dummyHist = r.TH2D("dummy","dummy",len(xbincenters),np.asarray(xbinedges),len(ybincenters),np.asarray(ybinedges))
-  dummyHist.GetXaxis().SetTitle('m_{H} [GeV]')
-  dummyHist.GetYaxis().SetTitle('m_{DM} [GeV]')
-  dummyHist.SetTitleSize(.05,"X")
-  dummyHist.SetTitleOffset(0.75,"X")
-  dummyHist.SetTitleSize(.05,"Y")
-  dummyHist.SetTitleOffset(0.75,"Y")
+  axis.GetXaxis().SetTitle('m_{H} [GeV]')
+  axis.GetYaxis().SetTitle('m_{DM} [GeV]')
+  axis.SetTitleSize(.05,"X")
+  axis.SetTitleOffset(0.75,"X")
+  axis.SetTitleSize(.05,"Y")
+  axis.SetTitleOffset(0.75,"Y")
+  axis.SetStats(0)
+  axis.GetXaxis().SetRangeUser(xbincenters[0],xbincenters[len(xbincenters)-1])
+  axis.GetXaxis().SetRangeUser(xbincenters[0],xbincenters[len(xbincenters)-1])
+  axis.Draw()
+
   # make text box
   lat = r.TLatex()
   lat.SetNDC()
@@ -221,66 +264,75 @@ def makePlot():
   lat2.SetNDC()
   lat2.SetTextSize(0.04)
   lat2.SetTextFont(42);
-  dummyHist.Draw()
-  cont_exp.Draw("F same")
-      
-  #plot
-#   graph.SetMarkerStyle(21)
-#   graph.SetMarkerSize(0.5)
-#   graph.SetLineColor(1)
-#   graph.SetLineWidth(2)
-#   exp.SetLineColor(2)
-#   exp.SetLineStyle(1)
 
-#   oneSigma.SetLineColor(r.kGreen)
-#   twoSigma.SetLineColor(r.kYellow)
-#   oneSigma.SetFillColor(r.kGreen)
-#   twoSigma.SetFillColor(r.kYellow)
-#   exp.SetLineColor(2)
-#   exp.SetLineStyle(1)
-#   exp.SetLineWidth(2)
+  # for i, p in enumerate(cont_exp):
+  #   p.SetLineColor(0)
+  #   p.SetLineWidth(2)
+  #   p.SetLineStyle(1)
+  #   p.SetFillColor(r.kBlue)
+  #   p.Draw("F SAME")
 
-#   exp.SetLineWidth(2)
-  leg.SetHeader('95% CL limits')
-  leg.AddEntry(cont_exp,'Observed limit','L')
-#   leg.AddEntry(exp,'Constant syst expected limit','L')
-#  leg.AddEntry(oneSigma,'Expected limit (1#sigma)','F') 
-#  leg.AddEntry(twoSigma,'Expected limit (2#sigma)','F')
+
+  for i, p in enumerate(cont_minus2sigma):
+    p.SetLineColor(0)
+    p.SetFillColor(r.kGray+1)
+    p.SetFillStyle(1001)
+    p.Draw("F SAME")
+
+  for i, p in enumerate(cont_minus1sigma):
+    p.SetLineColor(0)
+    p.SetFillColor(r.kGray+2)
+    p.SetFillStyle(1001)
+    p.Draw("F SAME")
+
+  for i, p in enumerate(cont_plus1sigma):
+    p.SetLineColor(0)
+    p.SetFillColor(r.kGray+1)
+    p.SetFillStyle(1001)
+    p.Draw("F SAME")
+
+  for i, p in enumerate(cont_plus2sigma):
+    p.SetLineColor(0)
+    p.SetFillColor(r.kWhite)
+    p.SetFillStyle(1001)
+    p.Draw("F SAME")
+
+    #h_exp.Draw("colz")
+
+
+  for i, p in enumerate(cont_exp):
+    p.SetLineColor(r.kBlack)
+    p.SetLineWidth(2)
+    p.SetLineStyle(2)
+    p.SetFillStyle(1001)
+    p.SetFillColor(CreateTransparentColor(r.kAzure+6,0.5))
+    p.Draw("F SAME")
+    p.Draw("L SAME")
+
+
+  leg.SetHeader('95% CL exclusion limits')
   
-#  mg.Add(twoSigma)
-#  mg.Add(oneSigma)
-#  mg.Add(exp)
-#  mg.Add(graph)
-  
+  if cont_minus1sigma[0] : leg.AddEntry(cont_minus1sigma[0], "#pm 1#sigma Expected", "F")
+  if cont_exp[0] : leg.AddEntry(cont_exp[0],"Expected exclusion", "F")
+  if cont_minus2sigma[0] : leg.AddEntry(cont_minus2sigma[0], "#pm 2#sigma Expected", "F")
+
   # draw dummy hist and multigraph
-  #mg.Draw("A")
-  dummyHist.SetMinimum(ybinedges[0])
-  dummyHist.SetMaximum(ybinedges[len(ybinedges)-1])#mg.GetYaxis().GetXmax())
-  dummyHist.SetLineColor(0)
-  dummyHist.SetStats(0)
-#!!  dummyHist.Draw("AXIS")
-#  mg.Draw("3")
-#  mg.Draw("LPX")
-#!!  cont_exp.Draw("LPX")
-#!!  dummyHist.Draw("AXIGSAME")
- 
-  # draw line at y=1 
-  # l = r.TLine(110.,1.,400.,1.)
-  # l.SetLineColor(r.kBlue)
-  # l.SetLineWidth(2)
-  # l.Draw()
+  # dummyHist.SetMinimum(ybinedges[0])
+  # dummyHist.SetMaximum(ybinedges[len(ybinedges)-1])
+  # dummyHist.SetLineColor(0)
+  # 
 
   # draw text
-  #lat.DrawLatex(0.52,0.85,"CMS VBF H #rightarrow invisible")
-  #lat.DrawLatex(0.52,0.78,"#sqrt{s} = 8 TeV, L = 19.2 fb^{-1}")
   lat.DrawLatex(0.61,0.68,"VBF H #rightarrow invisible")
 
-  #CMS_lumi.CMS_lumi(canv, 2, iPos)
     
   
   # draw legend
   leg.Draw("same")
-  canv.RedrawAxis()
+  #canv.RedrawAxis()
+  
+  #r.gPad.GetFrame().Draw()
+  r.gPad.RedrawAxis()
 
   # print canvas
   canv.Update()
@@ -292,78 +344,3 @@ def makePlot():
 makePlot()
 
 
-
-# def getContour(inHistTemp,contourLine =1.):
-#     inHist = inHistTemp.Clone()
-#     tg2dExp = r.TGraph2D(inHist)
-#     contours = [1.0]
-#     contourExp = 0
-#     contourExpPlus = 0
-#     contourExpMinus = 0
-
-#     tg2dExp.GetHistogram().SetContour(1,array('d',contours))
-#     tg2dExp.Draw("cont list")
-#     contLevel = tg2dExp.GetContourList(contourLine)
-#     if contLevel.GetSize()>0:
-#         contourExp = contLevel.First()
-#     if type(contourExp) != int: contourExp.SetName(inHist.GetName()+"r1Contour")
-#     return contourExp
-
-# def interpolate(inHist):
-#     interpIn = inHist.Clone()
-#     interpIn.Reset()
-#     tg2dExpTemp = r.TGraph2D(inHist)
-#     for x in range(1,interpIn.GetNbinsX()+1):
-#         for y in range(1,interpIn.GetNbinsY()+1):
-#             interpIn.SetBinContent(x,y,tg2dExpTemp.Interpolate(inHist.GetXaxis().GetBinCenter(x),inHist.GetYaxis().GetBinCenter(y)))
-#     interpIn.SetName(interpIn.GetName()+"interp")
-#     return interpIn
-
-# def getContours(outHist,quants = ["central","up1","down1"],contourLine = 1.):
-#     contours = {}
-#     for quant in quants:
-#         contours[quant] = getContour(outHist[quant],contourLine)
-#         contours[quant].SetLineWidth(2)
-#     return contours
-
-# def drawContours(contourList,hist,name,outputDir,logz=True):
-#     if type(contourList) != list:
-#         contourList = [(contourList,None)]
-#     if name == "mu":
-#         hist.GetZaxis().SetTitle("95% C.L. upper limit on #sigma/#sigma_{theory}")
-#     elif name == "xs":
-#         hist.GetZaxis().SetTitle("95% C.L. upper limit on #sigma")
-#     elif name == "sigma":
-#         hist.GetZaxis().SetTitle("Expected sensitivity (#sigma)")
-
-#     leg = r.TLegend(0.2,0.76,0.49,0.90)
-#     leg.SetBorderSize(0)
-#     leg.SetFillStyle(0)
-#     leg.SetTextSize(0.04)
-#     leg.SetHeader("T1bbbb 3/fb")
-#     c2 = r.TCanvas("Contour","Contour")
-#     c2.SetRightMargin(0.16)
-#     if logz:
-#         c2.SetLogz()
-#     c2.cd()
-#     hist.Draw("colz")
-#     for i,(contours,detail) in enumerate(contourList):
-#         if name != "sigma":
-#             leg.AddEntry(contours["central"],"Expected limit",'l')
-#         else:
-#             leg.AddEntry(contours["central"],"Contour of {}#sigma".format(detail),'l')
-#         #outHistToWrite["central"].Draw("colz")
-#         contours["central"].Draw("same")
-#         contours["central"].SetLineStyle(i+1)
-#         if "up1" in contours:
-#             contours["up1"].SetLineStyle(2)
-#             leg.AddEntry(contours["up1"],"Expected limit #pm 1 #sigma",'l')
-#             contours["up1"].Draw("same")
-#         if "down1" in contours:
-#             contours["down1"].SetLineStyle(2)
-#             contours["down1"].Draw("same")
-#     leg.Draw("same")
-#     c2.Modified()
-#     c2.Update()
-#     c2.SaveAs(outputDir+"/"+name+"_contour_withHisto.pdf")
-#     c2.Close()
