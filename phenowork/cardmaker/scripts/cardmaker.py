@@ -4,65 +4,68 @@ import math as m
 import argparse as a
 
 #Estimates of backgrounds and uncertainties
-bkg_yield_13TeV_20fb=862
-bkg_stat_13TeV_20fb=0.062
-bkg_syst_13TeV_20fb=0.099
+bkg_yield_13TeV_19_2fb=741
+bkg_stat_13TeV_19_2fb=0.062
+bkg_syst_13TeV_19_2fb=0.099
 
-bkg_yield_8TeV_20fb=439.4
-bkg_stat_8TeV_20fb=0.093
-bkg_syst_8TeV_20fb=0.099
+bkg_yield_8TeV_19_2fb=439.4
+bkg_stat_8TeV_19_2fb=0.093
+bkg_syst_8TeV_19_2fb=0.099
 
-sig_syst_20fb=0.114
+sig_syst_19_2fb=0.114
 
 #Get options
 parser=a.ArgumentParser(description='Make cards for pheno studies')
-parser.add_argument('-s','--sig_yield_20fb',required=True)
+parser.add_argument('-s','--sig_yield_19_2fb',required=True)
 parser.add_argument('-l','--targetlumi',required=True)
 parser.add_argument('--systlumiscale',default=False)
 parser.add_argument('-n','--name',default='125')
 parser.add_argument('--sqrts',default=13)
+parser.add_argument('-b','--batchmode',default=False)
 args=parser.parse_args()
 
-sig_yield_20fb=args.sig_yield_20fb
+sig_yield_19_2fb=args.sig_yield_19_2fb
 targetlumi=args.targetlumi
 systlumiscale=args.systlumiscale
 signalname=args.name
 signalroots=args.sqrts
 
-print 'Model name is: '+str(signalname)
-if not systlumiscale:
-    print 'Not scaling systematics assuming constant'
-else:
-    print 'Scaling systematics with sqrt(L)'
-print 'Extrapolating signal yield '+str(sig_yield_20fb)+' at 20 fb^{-1} to ',targetlumi,' fb^{-1} for root s ',signalroots,' TeV'
+if(args.batchmode==False):
+    print 'Model name is: '+str(signalname)
+    if not systlumiscale:
+        print 'Not scaling systematics assuming constant'
+    else:
+        print 'Scaling systematics with sqrt(L)'
+        print 'Extrapolating signal yield '+str(sig_yield_19_2fb)+' at 19.2 fb^{-1} to ',targetlumi,' fb^{-1} for root s ',signalroots,' TeV'
 
-#Set correct background estimate and uncertainties for 20fb
+#Set correct background estimate and uncertainties for 19_2fb
 if signalroots==13:
-    bkg_yield_20fb=bkg_yield_13TeV_20fb
-    bkg_stat_20fb=bkg_stat_13TeV_20fb
-    bkg_syst_20fb=bkg_syst_13TeV_20fb
+    bkg_yield_19_2fb=bkg_yield_13TeV_19_2fb
+    bkg_stat_19_2fb=bkg_stat_13TeV_19_2fb
+    bkg_syst_19_2fb=bkg_syst_13TeV_19_2fb
 elif signalroots==8:
-    bkg_yield_20fb=bkg_yield_8TeV_20fb
-    bkg_stat_20fb=bkg_stat_8TeV_20fb
-    bkg_syst_20fb=bkg_syst_8TeV_20fb
+    bkg_yield_19_2fb=bkg_yield_8TeV_19_2fb
+    bkg_stat_19_2fb=bkg_stat_8TeV_19_2fb
+    bkg_syst_19_2fb=bkg_syst_8TeV_19_2fb
 else:
     print "Centre of mass energy ",signalroots," not supported"
     sys.exit()
 
 #!!scale to target lumi
-bkg_yield=float(targetlumi)/20*float(bkg_yield_20fb)
-sig_yield=float(targetlumi)/20*float(sig_yield_20fb)
-bkg_stat=m.sqrt(20/float(targetlumi))*float(bkg_stat_20fb)
+bkg_yield=float(targetlumi)/19.2*float(bkg_yield_19_2fb)
+sig_yield=float(targetlumi)/19.2*float(sig_yield_19_2fb)
+bkg_stat=m.sqrt(19.2/float(targetlumi))*float(bkg_stat_19_2fb)
 if systlumiscale:
-    bkg_syst=m.sqrt(20/float(targetlumi))*float(bkg_syst_20fb)
-    sig_syst=m.sqrt(20/float(targetlumi))*float(sig_syst_20fb)
+    bkg_syst=m.sqrt(19.2/float(targetlumi))*float(bkg_syst_19_2fb)
+    sig_syst=m.sqrt(19.2/float(targetlumi))*float(sig_syst_19_2fb)
 else:
-    bkg_syst=bkg_syst_20fb
-    sig_syst=sig_syst_20fb
+    bkg_syst=bkg_syst_19_2fb
+    sig_syst=sig_syst_19_2fb
 
 #Open output file
-cardname='ext_vbfhinv_'+str(signalname)+'_'+str(signalroots)+'Tev_'+str(targetlumi)+'fb.txt'
-print cardname
+cardname='ext_vbfhinv_'+str(signalname)+'_'+str(signalroots)+'TeV_'+str(targetlumi)+'fb.txt'
+if(args.batchmode==False):
+    print cardname
 card=open(cardname,'w')
 
 card.write('# Invisible Higgs analysis for '+str(signalname)+'\n')#Next few lines are admin stuff at beginning of card
