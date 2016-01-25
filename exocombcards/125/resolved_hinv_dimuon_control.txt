@@ -1,0 +1,37 @@
+Control Region Datacard -- resolved dimuon
+
+imax * number of bins
+jmax * number of processes minus 1
+kmax * number of nuisance parameters
+
+-------------------------------------------------------------------------------------------------
+
+shapes data_obs    resolved_dimuon_cr mono-x-backgrounds.root  mono-x-ws:resolved_dimuon_data 
+shapes zmm   	   resolved_dimuon_cr mono-x-backgrounds.root  mono-x-ws:resolved_dimuon_zjets_model
+shapes *   	   resolved_dimuon_cr mono-x-backgrounds.root  mono-x-ws:resolved_dimuon_$PROCESS
+
+-------------------------------------------------------------------------------------------------
+bin 	     resolved_dimuon_cr
+observation  -1 
+-------------------------------------------------------------------------------------------------
+bin          		resolved_dimuon_cr   	resolved_dimuon_cr     resolved_dimuon_cr     
+process      		zmm		     	top		       dibosons		
+process      		9       		2                      4  
+rate         		1      		 	-1                     -1 
+-------------------------------------------------------------------------------------------------
+
+top_Norm8TeV	 lnN	-			1.07		       -
+vv_Norm8TeV	 lnN	-			-		       1.1
+lumi_8TeV        lnN    -                       1.026                  1.026 
+
+--------------------------------------------------------------------------------------------------
+# Parametric uncertainties associated to control regions fits
+
+CMS_eff_m param 0.0 1
+resolved_stat_error_dimuonCR_bin0 param 0.0 1
+resolved_stat_error_dimuonCR_bin1 param 0.0 1
+resolved_stat_error_dimuonCR_bin2 param 0.0 1
+resolved_stat_error_dimuonCR_bin3 param 0.0 1
+resolved_stat_error_dimuonCR_bin4 param 0.0 1
+resolved_stat_error_dimuonCR_bin5 param 0.0 1
+

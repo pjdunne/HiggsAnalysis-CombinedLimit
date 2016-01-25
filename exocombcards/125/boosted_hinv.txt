@@ -1,0 +1,45 @@
+Signal Region Datacard -- boosted category
+
+imax * number of bins
+jmax * number of processes minus 1
+kmax * number of nuisance parameters
+
+--------------------------------------------------------------------------------------------------
+
+shapes data_obs  boosted   mono-x-backgrounds.root mono-x-ws:boosted_signal_data 
+shapes zjets     boosted   mono-x-backgrounds.root mono-x-ws:boosted_signal_zjets_model
+shapes wjets     boosted   mono-x-backgrounds.root mono-x-ws:boosted_signal_wjets_model
+shapes *         boosted   mono-x-backgrounds.root mono-x-ws:boosted_signal_$PROCESS mono-x-ws:boosted_signalSYS_$PROCESS_$SYSTEMATIC
+shapes ggH       boosted   signal_boosted.root signal_higgs_ws:boosted_signal_$PROCESS signal_higgs_ws:boosted_signalSYS_$PROCESS_$SYSTEMATIC
+shapes vbf       boosted   signal_boosted.root signal_higgs_ws:boosted_signal_$PROCESS signal_higgs_ws:boosted_signalSYS_$PROCESS_$SYSTEMATIC
+shapes wh        boosted   signal_boosted.root signal_higgs_ws:boosted_signal_$PROCESS signal_higgs_ws:boosted_signalSYS_$PROCESS_$SYSTEMATIC
+shapes zh        boosted   signal_boosted.root signal_higgs_ws:boosted_signal_$PROCESS signal_higgs_ws:boosted_signalSYS_$PROCESS_$SYSTEMATIC
+
+--------------------------------------------------------------------------------------------------
+bin 	     boosted
+observation  -1 
+----------------------------------------------------------------------------------------------------------------------------------------------
+bin          		 boosted      boosted      boosted      boosted      boosted      boosted      boosted  boosted     boosted     boosted 
+process      		 zll          top          qcd     	dibosons     zjets        wjets        ggH      vbf         wh          zh
+process      		 1            2            3       	4            5            6            -3       -2          -1          0 
+rate        		 -1           -1           -1      	-1           1            1            -1       -1          -1          -1 
+----------------------------------------------------------------------------------------------------------------------------------------------
+# Normal uncertainties in the signal region                                                                                                      
+                                                                                                                                                 
+lumi_8TeV         lnN    1.026        1.026        1.026        1.026        -           -             1.026    1.026       1.026       1.026
+QCD_Norm8TeV      lnN    -            -            1.5          -            -      	 -             -        -           -           - 
+VEff_Norm8TeV     lnN    -            1.06         -            1.1          -           -             -        -           1.1         1.1 
+top_Norm8TeV      lnN    -            1.07         -            -            -           -             -        -           -           -
+vv_Norm8TeV       lnN    -            -            -            1.1          -           -             -        -           -           -
+tauEff8TeV        lnN    -            -            -            -            -           1.033         -        -           -           - 
+CMS_mono_scale_j       lnN    -            0.974        -            1.003        -           -             1.01     1.08        1.005       1.003
+ZG_qgcontent      lnN    -            -            -            -            1.015       -             -        -           -           -
+Met               shape  1.0          1.0          1.0          1.0          -           -             1.0      1.0         1.0         1.0  
+hpt		  shape  -            -            -            -            -           -             1.0      -           -           -  
+                                                                                                                                                 
+QCDscale_VH       lnN    - 	      -		   -		-	     -		 -             -        -      0.990/1.010 0.970/1.031 
+QCDscale_ggH      lnN    - 	      -		   -		-	     -		 -        0.928/1.072   -           -           -
+QCDscale_qqH      lnN    -	      -		   -		-	     -		 -             -   0.998/1.002      -           - 
+pdf_gg            lnN    - 	      -		   -		-	     -		 -        0.935/1.075   -           -           - 
+pdf_qqbar         lnN    - 	      -		   -		-	     -		 -             -   0.973/1.026 0.978/1.023 0.976/1.025
+gg_njets_nlo	  lnN    -            -            -            -            -           -             1.05     -           -           - 

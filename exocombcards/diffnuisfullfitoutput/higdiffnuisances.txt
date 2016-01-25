@@ -1,0 +1,353 @@
+[?1034hname                                              b-only fit            s+b fit         rho
+CMS_VBFHinv_ggH_norm                             +0.00, 0.99        +0.00, 0.99       -0.01
+CMS_VBFHinv_puweight                             -0.01, 1.02        -0.00, 1.00       +0.02
+CMS_VBFHinv_qcd_norm                             +0.16, 1.03        +0.03, 1.00       -0.15
+CMS_VBFHinv_qqH_norm                             +0.00, 0.99        +0.00, 0.99       -0.01
+CMS_VBFHinv_tau_eff                              +0.12, 0.99        +0.03, 0.99       -0.11
+CMS_VBFHinv_tau_extrapfacunc                     +0.28, 0.98        +0.06, 0.99       -0.25
+CMS_VBFHinv_top_norm                             +0.01, 1.00        +0.00, 0.99       -0.01
+CMS_VBFHinv_vv_norm                              +0.01, 0.99        +0.00, 0.99       -0.01
+CMS_VBFHinv_vv_xsunc                             +0.00, 0.99        +0.00, 0.99       -0.00
+CMS_VBFHinv_wel_norm                             +0.09, 1.00        +0.02, 0.99       -0.08
+CMS_VBFHinv_wel_stat                             +0.11, 1.00        +0.02, 0.99       -0.10
+CMS_VBFHinv_wmu_norm                             +0.12, 0.99        +0.03, 0.99       -0.12
+CMS_VBFHinv_wmu_stat                             +0.09, 0.99        +0.02, 0.99       -0.09
+CMS_VBFHinv_wtau_norm                            +0.17, 0.99        +0.04, 0.99       -0.15
+CMS_VBFHinv_wtau_stat                            +0.20, 0.99        +0.04, 0.99       -0.18
+CMS_VBFHinv_zvv_norm                          * +0.31, 0.95*        +0.07, 0.99       -0.27
+CMS_VBFHinv_zvv_stat                          * +0.68, 0.85*        +0.15, 0.99       -0.58
+CMS_eff_b                                        +0.02, 0.97        +0.02, 0.97       -0.00
+CMS_eff_e                                        -0.06, 0.98        -0.05, 0.98       +0.02
+CMS_eff_m                                        -0.11, 0.94        -0.10, 0.95       -0.00
+CMS_p_scale_e                                    +0.09, 0.90        +0.06, 0.91       -0.04
+CMS_p_scale_m                                 * -0.06, 0.89*     * -0.05, 0.88*       -0.01
+CMS_res_j                                        +0.18, 1.05        +0.09, 0.95       -0.05
+CMS_scale_j                                   * +0.56, 0.85*     * +0.44, 0.89*       -0.25
+CMS_scale_met                                 * +0.08, 0.85*     * +0.03, 0.72*       -0.06
+CMS_vhbb_BR_Hbb                                  +0.01, 0.99        +0.01, 0.99       -0.00
+CMS_vhbb_QCD_SF_ZnunuHighPt_8TeV                 -0.02, 0.99        -0.02, 0.99       +0.00
+CMS_vhbb_QCD_SF_ZnunuLowPt_8TeV               * -0.59, 0.70*     * -0.59, 0.70*       +0.00
+CMS_vhbb_QCD_SF_ZnunuMedPt_8TeV               * +0.16, 0.82*     * +0.16, 0.82*       +0.00
+CMS_vhbb_TTModel_Znn_8TeV                     * +0.11, 0.63*     * +0.10, 0.63*       -0.01
+CMS_vhbb_TT_SF_ZnunuHighPt_8TeV               * -0.31, 0.88*     * -0.31, 0.88*       +0.01
+CMS_vhbb_TT_SF_ZnunuLowPt_8TeV                * +0.32, 0.92*     * +0.32, 0.92*       +0.00
+CMS_vhbb_TT_SF_ZnunuMedPt_8TeV                * +0.77, 0.89*     * +0.78, 0.89*       +0.01
+CMS_vhbb_WJSlope_Znn_8TeV                        +0.14, 0.99        +0.13, 0.99       -0.00
+CMS_vhbb_Wj0b_SF_ZnunuHighPt_8TeV                -0.00, 0.99        +0.00, 0.99       +0.00
+CMS_vhbb_Wj0b_SF_ZnunuLowPt_8TeV                 +0.08, 0.98        +0.08, 0.98       +0.00
+CMS_vhbb_Wj0b_SF_ZnunuMedPt_8TeV                 +0.16, 0.99        +0.16, 0.99       +0.00
+CMS_vhbb_Wj1b_SF_ZnunuHighPt_8TeV                -0.03, 0.98        -0.03, 0.98       +0.00
+CMS_vhbb_Wj1b_SF_ZnunuLowPt_8TeV                 +0.25, 1.00        +0.25, 1.00       +0.00
+CMS_vhbb_Wj1b_SF_ZnunuMedPt_8TeV                 +0.19, 0.99        +0.19, 0.99       +0.00
+CMS_vhbb_Wj2b_SF_ZnunuHighPt_8TeV                +0.04, 0.98        +0.03, 0.98       -0.01
+CMS_vhbb_Wj2b_SF_ZnunuLowPt_8TeV                 +0.10, 0.99        +0.10, 0.99       +0.00
+CMS_vhbb_Wj2b_SF_ZnunuMedPt_8TeV                 +0.04, 0.97        +0.04, 0.97       +0.00
+CMS_vhbb_ZJSlope_Znn_8TeV                     * -0.18, 0.76*     * -0.18, 0.75*       -0.01
+CMS_vhbb_Zj0b_SF_ZnunuHighPt_8TeV                -0.02, 0.98        -0.02, 0.98       +0.00
+CMS_vhbb_Zj0b_SF_ZnunuLowPt_8TeV                 +0.13, 0.99        +0.13, 0.99       +0.00
+CMS_vhbb_Zj0b_SF_ZnunuMedPt_8TeV                 +0.17, 0.99        +0.17, 0.99       +0.00
+CMS_vhbb_Zj1b_SF_ZnunuHighPt_8TeV             * -0.07, 0.88*     * -0.07, 0.88*       +0.01
+CMS_vhbb_Zj1b_SF_ZnunuLowPt_8TeV              * +0.41, 0.89*     * +0.41, 0.89*       +0.01
+CMS_vhbb_Zj1b_SF_ZnunuMedPt_8TeV              * +0.53, 0.92*     * +0.53, 0.92*       +0.00
+CMS_vhbb_Zj2bModel_Znn_8TeV                   * +0.19, 0.56*     * +0.20, 0.56*       +0.01
+CMS_vhbb_Zj2b_SF_ZnunuHighPt_8TeV             * -0.32, 0.82*     * -0.34, 0.82*       -0.03
+CMS_vhbb_Zj2b_SF_ZnunuLowPt_8TeV              * +0.04, 0.79*     * +0.04, 0.79*       +0.01
+CMS_vhbb_Zj2b_SF_ZnunuMedPt_8TeV              * +0.07, 0.84*     * +0.07, 0.84*       +0.00
+CMS_vhbb_Znn_res_j                            ! -0.41, 0.38!     ! -0.41, 0.39!       +0.01
+CMS_vhbb_Znn_scale_j                          ! -0.54, 0.25!     ! -0.53, 0.25!       +0.00
+CMS_vhbb_boost_EWK_8TeV                          +0.00, 0.99        +0.00, 0.99       -0.00
+CMS_vhbb_boost_QCD_8TeV                          +0.01, 0.99        +0.01, 0.99       -0.00
+CMS_vhbb_eff_b                                ! +0.13, 0.49!     ! +0.12, 0.50!       -0.01
+CMS_vhbb_fake_b_8TeV                          ! -0.80, 0.42!     ! -0.80, 0.42!       +0.00
+CMS_vhbb_s_Top                                   +0.20, 0.92        +0.21, 0.92       +0.01
+CMS_vhbb_statQCD_ZnunuHighPt_bin1_8TeV           -0.09, 1.01        -0.09, 1.01       +0.00
+CMS_vhbb_statQCD_ZnunuHighPt_bin2_8TeV           +0.01, 0.99        +0.01, 0.99       -0.00
+CMS_vhbb_statQCD_ZnunuHighPt_bin3_8TeV           +0.00, 0.99        +0.00, 0.99       +0.00
+CMS_vhbb_statQCD_ZnunuLowPt_bin1_8TeV         * -0.36, 0.64*     * -0.36, 0.64*       -0.00
+CMS_vhbb_statQCD_ZnunuLowPt_bin2_8TeV         * -0.02, 0.61*     * -0.02, 0.61*       +0.00
+CMS_vhbb_statQCD_ZnunuLowPt_bin3_8TeV            +0.22, 0.96        +0.22, 0.96       -0.00
+CMS_vhbb_statQCD_ZnunuLowPt_bin4_8TeV            +0.01, 1.00        +0.01, 1.00       +0.00
+CMS_vhbb_statQCD_ZnunuLowPt_bin7_8TeV            -0.27, 0.91        -0.27, 0.91       -0.00
+CMS_vhbb_statQCD_ZnunuMedPt_bin14_8TeV           +0.04, 0.99        +0.04, 0.99       -0.00
+CMS_vhbb_statQCD_ZnunuMedPt_bin15_8TeV           -0.05, 0.98        -0.05, 0.98       -0.00
+CMS_vhbb_statQCD_ZnunuMedPt_bin1_8TeV         * +0.12, 0.85*     * +0.12, 0.85*       +0.00
+CMS_vhbb_statQCD_ZnunuMedPt_bin2_8TeV         * -0.10, 0.78*     * -0.10, 0.78*       -0.00
+CMS_vhbb_statQCD_ZnunuMedPt_bin3_8TeV            +0.01, 0.99        +0.01, 0.99       -0.00
+CMS_vhbb_statQCD_ZnunuMedPt_bin4_8TeV            -0.02, 0.99        -0.02, 0.99       +0.00
+CMS_vhbb_statQCD_ZnunuMedPt_bin5_8TeV            +0.00, 0.99        +0.00, 0.99       +0.00
+CMS_vhbb_statQCD_ZnunuMedPt_bin6_8TeV            +0.04, 1.00        +0.04, 1.00       +0.00
+CMS_vhbb_statQCD_ZnunuMedPt_bin7_8TeV            +0.06, 1.01        +0.06, 1.01       +0.00
+CMS_vhbb_statTT_ZnunuHighPt_bin16_8TeV           -0.15, 0.99        -0.15, 0.99       -0.00
+CMS_vhbb_statTT_ZnunuHighPt_bin17_8TeV           +0.01, 0.99        +0.01, 0.99       -0.00
+CMS_vhbb_statTT_ZnunuMedPt_bin20_8TeV            +0.12, 0.99        +0.12, 0.99       -0.00
+CMS_vhbb_statVVLF_ZnunuHighPt_bin13_8TeV         +0.13, 0.99        +0.13, 0.99       -0.00
+CMS_vhbb_statVVLF_ZnunuHighPt_bin14_8TeV         +0.11, 0.99        +0.11, 0.99       -0.00
+CMS_vhbb_statVVLF_ZnunuHighPt_bin15_8TeV         +0.00, 0.99        +0.00, 0.99       -0.00
+CMS_vhbb_statVVLF_ZnunuHighPt_bin16_8TeV         -0.13, 0.99        -0.12, 0.99       +0.00
+CMS_vhbb_statVVLF_ZnunuHighPt_bin17_8TeV         +0.00, 0.99        +0.00, 0.99       -0.00
+CMS_vhbb_statVVLF_ZnunuHighPt_bin18_8TeV         +0.01, 0.99        +0.01, 0.99       -0.00
+CMS_vhbb_statVVLF_ZnunuLowPt_bin15_8TeV          +0.02, 0.99        +0.02, 0.99       -0.00
+CMS_vhbb_statVVLF_ZnunuLowPt_bin16_8TeV          -0.04, 0.99        -0.04, 0.99       +0.00
+CMS_vhbb_statVVLF_ZnunuLowPt_bin17_8TeV          -0.08, 0.99        -0.08, 0.99       +0.00
+CMS_vhbb_statVVLF_ZnunuLowPt_bin18_8TeV          -0.04, 0.99        -0.04, 0.99       +0.00
+CMS_vhbb_statVVLF_ZnunuLowPt_bin19_8TeV          +0.01, 0.99        +0.01, 0.99       -0.00
+CMS_vhbb_statVVLF_ZnunuMedPt_bin17_8TeV          -0.03, 0.99        -0.03, 0.99       +0.00
+CMS_vhbb_statVVLF_ZnunuMedPt_bin18_8TeV          -0.04, 0.99        -0.04, 0.99       +0.00
+CMS_vhbb_statWH_hbb_ZnunuLowPt_bin19_8TeV         +0.00, 0.99        +0.00, 0.99       -0.00
+CMS_vhbb_statWZ_ZnunuHighPt_bin16_8TeV           -0.10, 0.99        -0.10, 0.99       +0.00
+CMS_vhbb_statWZ_ZnunuHighPt_bin18_8TeV           +0.02, 0.99        +0.01, 0.99       -0.01
+CMS_vhbb_statWZ_ZnunuHighPt_bin19_8TeV           +0.00, 0.98        -0.00, 0.99       -0.01
+CMS_vhbb_statWZ_ZnunuLowPt_bin20_8TeV            -0.03, 0.99        -0.03, 0.99       +0.00
+CMS_vhbb_statWZ_ZnunuMedPt_bin20_8TeV            +0.19, 0.98        +0.19, 0.98       -0.01
+CMS_vhbb_statWj0b_ZnunuHighPt_bin16_8TeV         -0.04, 0.99        -0.04, 0.99       -0.00
+CMS_vhbb_statWj0b_ZnunuHighPt_bin19_8TeV         -0.00, 0.99        -0.00, 0.99       -0.00
+CMS_vhbb_statWj0b_ZnunuLowPt_bin19_8TeV          +0.04, 0.99        +0.04, 0.99       -0.00
+CMS_vhbb_statWj0b_ZnunuMedPt_bin19_8TeV          -0.02, 0.99        -0.02, 0.99       -0.00
+CMS_vhbb_statWj1b_ZnunuHighPt_bin14_8TeV         +0.13, 0.99        +0.13, 0.99       -0.00
+CMS_vhbb_statWj1b_ZnunuHighPt_bin15_8TeV         +0.00, 0.99        +0.00, 0.99       -0.00
+CMS_vhbb_statWj1b_ZnunuHighPt_bin16_8TeV         -0.09, 0.99        -0.09, 0.99       -0.00
+CMS_vhbb_statWj1b_ZnunuHighPt_bin17_8TeV         +0.00, 0.99        +0.00, 0.99       -0.00
+CMS_vhbb_statWj1b_ZnunuHighPt_bin19_8TeV         -0.00, 0.99        -0.00, 0.99       -0.00
+CMS_vhbb_statWj1b_ZnunuLowPt_bin13_8TeV          +0.28, 0.98        +0.28, 0.98       +0.00
+CMS_vhbb_statWj1b_ZnunuLowPt_bin14_8TeV          +0.26, 0.99        +0.26, 0.99       +0.00
+CMS_vhbb_statWj1b_ZnunuLowPt_bin15_8TeV          +0.11, 0.98        +0.11, 0.98       -0.00
+CMS_vhbb_statWj1b_ZnunuLowPt_bin16_8TeV          -0.10, 0.99        -0.10, 0.99       +0.00
+CMS_vhbb_statWj1b_ZnunuLowPt_bin17_8TeV       * -0.81, 0.94*     * -0.80, 0.94*       -0.00
+CMS_vhbb_statWj1b_ZnunuLowPt_bin18_8TeV          -0.15, 0.99        -0.15, 0.99       -0.00
+CMS_vhbb_statWj1b_ZnunuMedPt_bin13_8TeV          -0.12, 0.99        -0.12, 0.99       +0.00
+CMS_vhbb_statWj1b_ZnunuMedPt_bin14_8TeV          +0.05, 0.98        +0.05, 0.98       -0.00
+CMS_vhbb_statWj1b_ZnunuMedPt_bin15_8TeV          -0.08, 0.99        -0.08, 0.99       -0.00
+CMS_vhbb_statWj1b_ZnunuMedPt_bin16_8TeV          -0.23, 0.99        -0.23, 0.99       -0.00
+CMS_vhbb_statWj1b_ZnunuMedPt_bin17_8TeV          -0.03, 0.99        -0.03, 0.99       +0.00
+CMS_vhbb_statWj1b_ZnunuMedPt_bin19_8TeV          -0.01, 0.99        -0.01, 0.99       -0.00
+CMS_vhbb_statWj2b_ZnunuHighPt_bin19_8TeV         +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_vhbb_statWj2b_ZnunuHighPt_bin20_8TeV         +0.06, 0.99        +0.06, 0.99       -0.00
+CMS_vhbb_statWj2b_ZnunuLowPt_bin19_8TeV          +0.21, 0.97        +0.21, 0.97       -0.00
+CMS_vhbb_statWj2b_ZnunuLowPt_bin20_8TeV          -0.03, 0.99        -0.03, 0.99       -0.00
+CMS_vhbb_statWj2b_ZnunuMedPt_bin20_8TeV          +0.10, 0.99        +0.10, 0.99       -0.00
+CMS_vhbb_statZj0b_ZnunuHighPt_bin18_8TeV         +0.01, 0.99        +0.01, 0.99       -0.00
+CMS_vhbb_statZj0b_ZnunuLowPt_bin19_8TeV       * +0.40, 0.92*     * +0.39, 0.92*       -0.00
+CMS_vhbb_statZj0b_ZnunuLowPt_bin20_8TeV          -0.04, 0.99        -0.04, 0.99       -0.00
+CMS_vhbb_statZj0b_ZnunuMedPt_bin18_8TeV          -0.06, 0.99        -0.06, 0.99       -0.00
+CMS_vhbb_statZj0b_ZnunuMedPt_bin19_8TeV          -0.01, 0.99        -0.02, 0.99       -0.00
+CMS_vhbb_statZj1b_ZnunuHighPt_bin16_8TeV         -0.18, 0.99        -0.18, 0.99       -0.00
+CMS_vhbb_statZj1b_ZnunuHighPt_bin17_8TeV         +0.01, 0.99        +0.00, 0.99       -0.00
+CMS_vhbb_statZj1b_ZnunuHighPt_bin18_8TeV         +0.01, 0.99        +0.01, 0.99       -0.00
+CMS_vhbb_statZj1b_ZnunuLowPt_bin15_8TeV       * +0.34, 0.81*     * +0.34, 0.81*       -0.00
+CMS_vhbb_statZj1b_ZnunuLowPt_bin16_8TeV       * -0.70, 0.87*     * -0.70, 0.87*       +0.00
+CMS_vhbb_statZj1b_ZnunuLowPt_bin19_8TeV          +0.13, 0.99        +0.12, 0.99       -0.00
+CMS_vhbb_statZj1b_ZnunuMedPt_bin17_8TeV          -0.06, 0.98        -0.05, 0.98       +0.00
+CMS_vhbb_statZj1b_ZnunuMedPt_bin18_8TeV          -0.20, 0.98        -0.20, 0.98       -0.00
+CMS_vhbb_statZj1b_ZnunuMedPt_bin19_8TeV          -0.06, 0.98        -0.06, 0.98       -0.00
+CMS_vhbb_statZj2b_ZnunuHighPt_bin20_8TeV         +0.16, 0.97        +0.16, 0.97       -0.01
+CMS_vhbb_statZj2b_ZnunuMedPt_bin20_8TeV          +0.24, 0.97        +0.24, 0.97       -0.00
+CMS_vhbb_stats_Top_ZnunuHighPt_bin13_8TeV      * +0.46, 0.97*     * +0.45, 0.97*       -0.00
+CMS_vhbb_stats_Top_ZnunuHighPt_bin15_8TeV         +0.01, 0.97        +0.01, 0.97       -0.01
+CMS_vhbb_stats_Top_ZnunuHighPt_bin16_8TeV         -0.25, 0.99        -0.26, 0.99       -0.00
+CMS_vhbb_stats_Top_ZnunuLowPt_bin18_8TeV         -0.17, 0.98        -0.17, 0.98       +0.00
+CMS_vhbb_stats_Top_ZnunuMedPt_bin15_8TeV         -0.08, 0.99        -0.08, 0.99       -0.00
+CMS_vhbb_stats_Top_ZnunuMedPt_bin18_8TeV         -0.22, 0.98        -0.22, 0.98       -0.00
+CMS_vhbb_stats_Top_ZnunuMedPt_bin19_8TeV         -0.04, 0.99        -0.05, 0.99       -0.00
+CMS_vhbb_stats_Top_ZnunuMedPt_bin20_8TeV      * +0.52, 0.90*     * +0.52, 0.90*       -0.00
+CMS_vhbb_trigger_CSV_Znn_8TeV                    -0.04, 0.99        -0.04, 0.99       -0.00
+CMS_vhbb_trigger_CSV_fake_Znn_8TeV               -0.01, 0.99        -0.01, 0.99       -0.00
+CMS_vhbb_trigger_MET_Znn_8TeV                    -0.04, 0.90        -0.04, 0.91       +0.00
+CMS_zllhinv_EM_7TeV                           * -0.08, 0.76*     * -0.11, 0.76*       -0.04
+CMS_zllhinv_EM_8TeV                              -0.02, 0.94        -0.03, 0.94       -0.01
+CMS_zllhinv_WZ3l                                 +0.01, 0.99        -0.00, 0.99       -0.01
+CMS_zllhinv_ZLL_7TeV                             -0.19, 0.93        -0.19, 0.93       -0.00
+CMS_zllhinv_pu                                   -0.03, 1.00        -0.05, 1.00       -0.02
+CMS_zllhinv_stat_EM_8TeV_Bin14                * -0.14, 0.54*     * -0.13, 0.54*       +0.01
+CMS_zllhinv_stat_EM_8TeV_Bin24                * +0.13, 0.61*     * +0.12, 0.62*       -0.01
+CMS_zllhinv_stat_eeeq0jets_WZ_8TeV_Bin12         +0.00, 0.99        +0.00, 0.99       -0.00
+CMS_zllhinv_stat_eeeq0jets_WZ_8TeV_Bin13         +0.03, 0.99        +0.02, 0.99       -0.00
+CMS_zllhinv_stat_eeeq0jets_WZ_8TeV_Bin14         -0.05, 0.99        -0.05, 0.99       +0.00
+CMS_zllhinv_stat_eeeq0jets_WZ_8TeV_Bin15         +0.04, 0.99        +0.04, 0.99       -0.00
+CMS_zllhinv_stat_eeeq0jets_WZ_8TeV_Bin2          +0.07, 0.99        +0.06, 0.99       -0.01
+CMS_zllhinv_stat_eeeq0jets_ZH_hinv_8TeV_Bin12         +0.00, 0.99        +0.00, 0.99       -0.00
+CMS_zllhinv_stat_eeeq0jets_ZH_hinv_8TeV_Bin13         +0.00, 0.99        +0.00, 0.99       +0.00
+CMS_zllhinv_stat_eeeq0jets_ZH_hinv_8TeV_Bin14         +0.00, 0.99        -0.01, 0.99       -0.01
+CMS_zllhinv_stat_eeeq0jets_ZH_hinv_8TeV_Bin15         +0.00, 0.99        +0.01, 0.99       +0.01
+CMS_zllhinv_stat_eeeq0jets_ZH_hinv_8TeV_Bin16         +0.00, 0.99        -0.00, 0.99       -0.01
+CMS_zllhinv_stat_eeeq0jets_ZH_hinv_8TeV_Bin2         +0.00, 0.99        +0.01, 0.99       +0.01
+CMS_zllhinv_stat_eeeq0jets_ZH_hinv_8TeV_Bin3         +0.00, 0.99        -0.01, 0.99       -0.01
+CMS_zllhinv_stat_eeeq0jets_ZZ_8TeV_Bin13         +0.03, 0.99        +0.03, 0.99       -0.00
+CMS_zllhinv_stat_eeeq0jets_ZZ_8TeV_Bin14         -0.07, 0.99        -0.07, 0.99       -0.00
+CMS_zllhinv_stat_eeeq1jets_WZ_8TeV_Bin13         +0.11, 0.99        +0.11, 0.99       -0.00
+CMS_zllhinv_stat_eeeq1jets_WZ_8TeV_Bin14         -0.08, 1.00        -0.08, 1.00       +0.00
+CMS_zllhinv_stat_eeeq1jets_ZH_hinv_8TeV_Bin13         +0.00, 0.99        +0.01, 0.99       +0.01
+CMS_zllhinv_stat_eeeq1jets_ZH_hinv_8TeV_Bin14         +0.00, 0.99        -0.01, 0.99       -0.01
+CMS_zllhinv_stat_eeeq1jets_ZH_hinv_8TeV_Bin15         +0.00, 0.99        -0.01, 0.99       -0.01
+CMS_zllhinv_stat_eeeq1jets_ZH_hinv_8TeV_Bin16         +0.00, 0.99        -0.00, 0.99       -0.01
+CMS_zllhinv_stat_eeeq1jets_ZH_hinv_8TeV_Bin17         +0.00, 0.99        -0.01, 0.99       -0.01
+CMS_zllhinv_stat_eeeq1jets_ZH_hinv_8TeV_Bin3         +0.00, 0.99        -0.01, 0.99       -0.01
+CMS_zllhinv_stat_eeeq1jets_ZH_hinv_8TeV_Bin6         +0.00, 0.99        -0.01, 0.99       -0.01
+CMS_zllhinv_stat_eeeq1jets_ZH_hinv_8TeV_Bin7         +0.00, 0.99        -0.01, 0.99       -0.01
+CMS_zllhinv_stat_eeeq1jets_ZH_hinv_8TeV_Bin9         +0.00, 0.99        +0.03, 0.99       +0.03
+CMS_zllhinv_stat_eeeq1jets_ZZ_8TeV_Bin13         +0.10, 0.99        +0.10, 0.99       -0.00
+CMS_zllhinv_stat_eeeq1jets_ZZ_8TeV_Bin14         -0.07, 0.99        -0.07, 0.99       +0.00
+CMS_zllhinv_stat_eeeq1jets_ZZ_8TeV_Bin15         -0.05, 0.99        -0.05, 0.99       +0.00
+CMS_zllhinv_stat_eeeq1jets_ZZ_8TeV_Bin16         -0.05, 0.99        -0.05, 0.99       +0.00
+CMS_zllhinv_stat_eq0jets_Zjets_8TeV           * -0.27, 0.61*     * -0.27, 0.63*       -0.01
+CMS_zllhinv_stat_eq1jets_Zjets_8TeV           ! -0.07, 0.32!     ! -0.05, 0.33!       +0.06
+CMS_zllhinv_stat_mumueq0jets_WZ_8TeV_Bin13         -0.08, 0.99        -0.08, 0.99       +0.00
+CMS_zllhinv_stat_mumueq0jets_WZ_8TeV_Bin14         -0.04, 0.99        -0.04, 0.99       -0.00
+CMS_zllhinv_stat_mumueq0jets_ZH_hinv_8TeV_Bin13         +0.00, 0.99        -0.01, 0.99       -0.02
+CMS_zllhinv_stat_mumueq0jets_ZH_hinv_8TeV_Bin14         +0.00, 0.99        -0.01, 0.99       -0.01
+CMS_zllhinv_stat_mumueq0jets_ZH_hinv_8TeV_Bin15         +0.00, 0.99        +0.02, 0.99       +0.02
+CMS_zllhinv_stat_mumueq0jets_ZZ_8TeV_Bin13         -0.10, 0.99        -0.10, 0.99       -0.00
+CMS_zllhinv_stat_mumueq0jets_ZZ_8TeV_Bin14         -0.05, 0.99        -0.06, 0.99       -0.00
+CMS_zllhinv_stat_mumueq1jets_WZ_8TeV_Bin13         +0.16, 0.99        +0.16, 0.99       -0.00
+CMS_zllhinv_stat_mumueq1jets_WZ_8TeV_Bin14         +0.05, 0.99        +0.05, 0.99       -0.00
+CMS_zllhinv_stat_mumueq1jets_ZH_hinv_8TeV_Bin13         +0.00, 0.99        +0.02, 0.99       +0.02
+CMS_zllhinv_stat_mumueq1jets_ZH_hinv_8TeV_Bin14         +0.00, 0.99        +0.01, 0.99       +0.01
+CMS_zllhinv_stat_mumueq1jets_ZH_hinv_8TeV_Bin15         +0.00, 0.99        +0.01, 0.99       +0.01
+CMS_zllhinv_stat_mumueq1jets_ZH_hinv_8TeV_Bin16         +0.00, 0.99        +0.00, 0.99       +0.00
+CMS_zllhinv_stat_mumueq1jets_ZZ_8TeV_Bin13         +0.17, 0.99        +0.17, 0.99       -0.00
+CMS_zllhinv_stat_mumueq1jets_ZZ_8TeV_Bin14         +0.04, 0.99        +0.04, 0.99       -0.00
+CMS_zllhinv_stat_mumueq1jets_ZZ_8TeV_Bin15         +0.07, 0.99        +0.06, 0.99       -0.01
+CMS_zllhinv_sys_Zjets_8TeV                       +0.24, 1.06        +0.17, 1.04       -0.06
+CMS_zllhinvee0j_MVAEMStatBounding_7TeV_Bin0         -0.07, 1.00        -0.10, 1.00       +0.00
+CMS_zllhinvee0j_MVAEMStatBounding_7TeV_Bin1         +0.00, 0.99        +0.00, 0.99       -0.00
+CMS_zllhinvee0j_MVAEMStatBounding_7TeV_Bin2         +0.01, 0.96        +0.02, 0.96       -0.01
+CMS_zllhinvee0j_MVAEMStatBounding_7TeV_Bin3         +0.06, 1.05        +0.06, 1.04       -0.01
+CMS_zllhinvee0j_MVAWZStatBounding_7TeV_Bin0         -0.01, 0.99        -0.01, 0.99       -0.00
+CMS_zllhinvee0j_MVAWZStatBounding_7TeV_Bin1         +0.00, 0.99        +0.00, 0.99       -0.00
+CMS_zllhinvee0j_MVAWZStatBounding_7TeV_Bin2         +0.00, 0.99        +0.00, 0.99       -0.00
+CMS_zllhinvee0j_MVAWZStatBounding_7TeV_Bin3         +0.07, 0.99        +0.07, 0.99       -0.01
+CMS_zllhinvee0j_MVAWZStatBounding_7TeV_Bin4         -0.02, 0.99        -0.02, 0.99       +0.00
+CMS_zllhinvee0j_MVAWZStatBounding_7TeV_Bin5         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvee0j_MVAWZStatBounding_7TeV_Bin6         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvee0j_MVAWZStatBounding_7TeV_Bin7         -0.00, 0.99        -0.00, 0.99       +0.00
+CMS_zllhinvee0j_MVAWZStatBounding_7TeV_Bin8         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvee0j_MVAWZStatBounding_7TeV_Bin9         -0.00, 0.99        -0.00, 0.99       +0.00
+CMS_zllhinvee0j_MVAZHStatBounding_7TeV_Bin0         +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_zllhinvee0j_MVAZHStatBounding_7TeV_Bin1         +0.00, 0.99        +0.00, 0.99       -0.00
+CMS_zllhinvee0j_MVAZHStatBounding_7TeV_Bin10         +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_zllhinvee0j_MVAZHStatBounding_7TeV_Bin2         +0.00, 0.99        +0.00, 0.99       +0.00
+CMS_zllhinvee0j_MVAZHStatBounding_7TeV_Bin3         +0.00, 0.99        +0.01, 0.99       +0.01
+CMS_zllhinvee0j_MVAZHStatBounding_7TeV_Bin4         +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_zllhinvee0j_MVAZHStatBounding_7TeV_Bin5         +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_zllhinvee0j_MVAZHStatBounding_7TeV_Bin6         +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_zllhinvee0j_MVAZHStatBounding_7TeV_Bin7         +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_zllhinvee0j_MVAZHStatBounding_7TeV_Bin8         +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_zllhinvee0j_MVAZHStatBounding_7TeV_Bin9         +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_zllhinvee0j_MVAZZStatBounding_7TeV_Bin10         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvee0j_MVAZZStatBounding_7TeV_Bin4         -0.02, 0.99        -0.02, 0.99       +0.00
+CMS_zllhinvee0j_MVAZZStatBounding_7TeV_Bin5         -0.02, 0.99        -0.02, 0.99       +0.00
+CMS_zllhinvee0j_MVAZZStatBounding_7TeV_Bin6         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvee0j_MVAZZStatBounding_7TeV_Bin7         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvee0j_MVAZZStatBounding_7TeV_Bin8         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvee0j_MVAZZStatBounding_7TeV_Bin9         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvee1j_MVAEMStatBounding_7TeV_Bin0         -0.10, 1.02        -0.10, 1.02       +0.00
+CMS_zllhinvee1j_MVAEMStatBounding_7TeV_Bin1         -0.10, 0.98        -0.09, 0.98       +0.00
+CMS_zllhinvee1j_MVAEMStatBounding_7TeV_Bin2         -0.14, 1.02        -0.14, 1.02       +0.00
+CMS_zllhinvee1j_MVAWZStatBounding_7TeV_Bin0         -0.02, 0.99        -0.02, 0.99       +0.00
+CMS_zllhinvee1j_MVAWZStatBounding_7TeV_Bin1         -0.03, 1.00        -0.03, 1.00       +0.00
+CMS_zllhinvee1j_MVAWZStatBounding_7TeV_Bin10         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvee1j_MVAWZStatBounding_7TeV_Bin2         -0.03, 1.00        -0.03, 1.00       +0.00
+CMS_zllhinvee1j_MVAWZStatBounding_7TeV_Bin3         +0.06, 0.99        +0.06, 0.99       -0.00
+CMS_zllhinvee1j_MVAWZStatBounding_7TeV_Bin4         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvee1j_MVAWZStatBounding_7TeV_Bin5         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvee1j_MVAWZStatBounding_7TeV_Bin6         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvee1j_MVAWZStatBounding_7TeV_Bin7         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvee1j_MVAWZStatBounding_7TeV_Bin8         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvee1j_MVAWZStatBounding_7TeV_Bin9         -0.00, 0.99        -0.00, 0.99       +0.00
+CMS_zllhinvee1j_MVAZHStatBounding_7TeV_Bin0         +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_zllhinvee1j_MVAZHStatBounding_7TeV_Bin1         +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_zllhinvee1j_MVAZHStatBounding_7TeV_Bin10         +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_zllhinvee1j_MVAZHStatBounding_7TeV_Bin2         +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_zllhinvee1j_MVAZHStatBounding_7TeV_Bin3         +0.00, 0.99        +0.01, 0.99       +0.01
+CMS_zllhinvee1j_MVAZHStatBounding_7TeV_Bin4         +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_zllhinvee1j_MVAZHStatBounding_7TeV_Bin5         +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_zllhinvee1j_MVAZHStatBounding_7TeV_Bin6         +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_zllhinvee1j_MVAZHStatBounding_7TeV_Bin7         +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_zllhinvee1j_MVAZHStatBounding_7TeV_Bin8         +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_zllhinvee1j_MVAZHStatBounding_7TeV_Bin9         +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_zllhinvee1j_MVAZZStatBounding_7TeV_Bin0         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvee1j_MVAZZStatBounding_7TeV_Bin1         -0.02, 0.99        -0.02, 0.99       +0.00
+CMS_zllhinvee1j_MVAZZStatBounding_7TeV_Bin10         -0.00, 0.99        -0.00, 0.99       +0.00
+CMS_zllhinvee1j_MVAZZStatBounding_7TeV_Bin2         -0.02, 0.99        -0.02, 0.99       +0.00
+CMS_zllhinvee1j_MVAZZStatBounding_7TeV_Bin3         +0.05, 0.99        +0.04, 0.99       -0.00
+CMS_zllhinvee1j_MVAZZStatBounding_7TeV_Bin4         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvee1j_MVAZZStatBounding_7TeV_Bin5         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvee1j_MVAZZStatBounding_7TeV_Bin6         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvee1j_MVAZZStatBounding_7TeV_Bin7         -0.00, 0.99        -0.00, 0.99       +0.00
+CMS_zllhinvee1j_MVAZZStatBounding_7TeV_Bin8         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvee1j_MVAZZStatBounding_7TeV_Bin9         -0.00, 0.99        -0.00, 0.99       +0.00
+CMS_zllhinvmm0j_MVAEMStatBounding_7TeV_Bin0         -0.08, 1.01        -0.08, 1.01       +0.00
+CMS_zllhinvmm0j_MVAEMStatBounding_7TeV_Bin1         +0.05, 0.98        +0.04, 0.99       -0.01
+CMS_zllhinvmm0j_MVAEMStatBounding_7TeV_Bin2         -0.09, 1.01        -0.09, 1.00       +0.00
+CMS_zllhinvmm0j_MVAWZStatBounding_7TeV_Bin0         -0.02, 0.99        -0.02, 0.99       +0.00
+CMS_zllhinvmm0j_MVAWZStatBounding_7TeV_Bin1         +0.02, 0.99        +0.02, 0.99       -0.00
+CMS_zllhinvmm0j_MVAWZStatBounding_7TeV_Bin10         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvmm0j_MVAWZStatBounding_7TeV_Bin2         -0.04, 0.99        -0.04, 0.99       +0.00
+CMS_zllhinvmm0j_MVAWZStatBounding_7TeV_Bin3         +0.02, 0.99        +0.02, 0.99       -0.00
+CMS_zllhinvmm0j_MVAWZStatBounding_7TeV_Bin4         -0.02, 0.99        -0.02, 0.99       +0.00
+CMS_zllhinvmm0j_MVAWZStatBounding_7TeV_Bin5         +0.03, 0.99        +0.02, 0.99       -0.00
+CMS_zllhinvmm0j_MVAWZStatBounding_7TeV_Bin6         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvmm0j_MVAWZStatBounding_7TeV_Bin7         +0.05, 0.99        +0.05, 0.99       -0.00
+CMS_zllhinvmm0j_MVAWZStatBounding_7TeV_Bin8         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvmm0j_MVAWZStatBounding_7TeV_Bin9         -0.00, 0.99        -0.00, 0.99       +0.00
+CMS_zllhinvmm0j_MVAZHStatBounding_7TeV_Bin0         +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_zllhinvmm0j_MVAZHStatBounding_7TeV_Bin1         +0.00, 0.99        +0.00, 0.99       +0.00
+CMS_zllhinvmm0j_MVAZHStatBounding_7TeV_Bin10         +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_zllhinvmm0j_MVAZHStatBounding_7TeV_Bin2         +0.00, 0.99        -0.01, 0.99       -0.01
+CMS_zllhinvmm0j_MVAZHStatBounding_7TeV_Bin3         +0.00, 0.99        +0.00, 0.99       +0.00
+CMS_zllhinvmm0j_MVAZHStatBounding_7TeV_Bin4         +0.00, 0.99        -0.00, 0.99       -0.01
+CMS_zllhinvmm0j_MVAZHStatBounding_7TeV_Bin5         +0.00, 0.99        +0.01, 0.99       +0.01
+CMS_zllhinvmm0j_MVAZHStatBounding_7TeV_Bin6         +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_zllhinvmm0j_MVAZHStatBounding_7TeV_Bin7         +0.00, 0.99        +0.01, 0.99       +0.02
+CMS_zllhinvmm0j_MVAZHStatBounding_7TeV_Bin8         +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_zllhinvmm0j_MVAZHStatBounding_7TeV_Bin9         +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_zllhinvmm0j_MVAZZStatBounding_7TeV_Bin10         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvmm0j_MVAZZStatBounding_7TeV_Bin5         +0.03, 0.99        +0.03, 0.99       -0.00
+CMS_zllhinvmm0j_MVAZZStatBounding_7TeV_Bin6         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvmm0j_MVAZZStatBounding_7TeV_Bin7         +0.07, 0.99        +0.07, 0.99       -0.01
+CMS_zllhinvmm0j_MVAZZStatBounding_7TeV_Bin8         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvmm0j_MVAZZStatBounding_7TeV_Bin9         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvmm1j_MVAEMStatBounding_7TeV_Bin0         -0.08, 1.00        -0.08, 1.00       +0.00
+CMS_zllhinvmm1j_MVAEMStatBounding_7TeV_Bin1      * +0.31, 0.94*     * +0.30, 0.94*       -0.01
+CMS_zllhinvmm1j_MVAEMStatBounding_7TeV_Bin8         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvmm1j_MVAWZStatBounding_7TeV_Bin0         -0.02, 0.99        -0.02, 0.99       +0.00
+CMS_zllhinvmm1j_MVAWZStatBounding_7TeV_Bin1         +0.06, 0.99        +0.06, 0.99       -0.00
+CMS_zllhinvmm1j_MVAWZStatBounding_7TeV_Bin10         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvmm1j_MVAWZStatBounding_7TeV_Bin2         -0.03, 0.99        -0.03, 0.99       +0.00
+CMS_zllhinvmm1j_MVAWZStatBounding_7TeV_Bin3         +0.05, 0.99        +0.05, 0.99       -0.00
+CMS_zllhinvmm1j_MVAWZStatBounding_7TeV_Bin4         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvmm1j_MVAWZStatBounding_7TeV_Bin5         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvmm1j_MVAWZStatBounding_7TeV_Bin6         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvmm1j_MVAWZStatBounding_7TeV_Bin7         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvmm1j_MVAWZStatBounding_7TeV_Bin8         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvmm1j_MVAWZStatBounding_7TeV_Bin9         -0.00, 0.99        -0.00, 0.99       +0.00
+CMS_zllhinvmm1j_MVAZHStatBounding_7TeV_Bin0         +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_zllhinvmm1j_MVAZHStatBounding_7TeV_Bin1         +0.00, 0.99        +0.01, 0.99       +0.01
+CMS_zllhinvmm1j_MVAZHStatBounding_7TeV_Bin10         +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_zllhinvmm1j_MVAZHStatBounding_7TeV_Bin2         +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_zllhinvmm1j_MVAZHStatBounding_7TeV_Bin3         +0.00, 0.99        +0.01, 0.99       +0.01
+CMS_zllhinvmm1j_MVAZHStatBounding_7TeV_Bin4         +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_zllhinvmm1j_MVAZHStatBounding_7TeV_Bin5         +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_zllhinvmm1j_MVAZHStatBounding_7TeV_Bin6         +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_zllhinvmm1j_MVAZHStatBounding_7TeV_Bin7         +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_zllhinvmm1j_MVAZHStatBounding_7TeV_Bin8         +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_zllhinvmm1j_MVAZHStatBounding_7TeV_Bin9         +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_zllhinvmm1j_MVAZZStatBounding_7TeV_Bin0         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvmm1j_MVAZZStatBounding_7TeV_Bin1         +0.04, 0.99        +0.04, 0.99       -0.00
+CMS_zllhinvmm1j_MVAZZStatBounding_7TeV_Bin10         -0.00, 0.99        -0.00, 0.99       +0.00
+CMS_zllhinvmm1j_MVAZZStatBounding_7TeV_Bin2         -0.02, 0.99        -0.02, 0.99       +0.00
+CMS_zllhinvmm1j_MVAZZStatBounding_7TeV_Bin3         +0.03, 0.99        +0.03, 0.99       -0.00
+CMS_zllhinvmm1j_MVAZZStatBounding_7TeV_Bin4         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvmm1j_MVAZZStatBounding_7TeV_Bin5         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvmm1j_MVAZZStatBounding_7TeV_Bin6         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvmm1j_MVAZZStatBounding_7TeV_Bin7         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvmm1j_MVAZZStatBounding_7TeV_Bin8         -0.01, 0.99        -0.01, 0.99       +0.00
+CMS_zllhinvmm1j_MVAZZStatBounding_7TeV_Bin9         -0.00, 0.99        -0.00, 0.99       +0.00
+QCDscale_VH                                      +0.01, 0.99        -0.01, 0.99       -0.03
+QCDscale_VV                                   * -0.06, 0.85*     * -0.25, 0.88*       -0.24
+QCDscale_ggH2in                                  +0.00, 0.99        +0.01, 1.00       -0.02
+QCDscale_qqH                                     +0.00, 0.99        +0.00, 0.99       -0.00
+UEPS                                             +0.00, 0.99        -0.00, 0.99       -0.02
+lumi_7TeV                                        +0.00, 0.99        -0.01, 0.99       -0.01
+lumi_8TeV                                        -0.00, 0.97        -0.06, 0.97       -0.09
+pdf_gg                                           +0.00, 0.99        +0.00, 0.99       -0.00
+pdf_qqbar                                        -0.10, 0.91        -0.25, 0.93       -0.21

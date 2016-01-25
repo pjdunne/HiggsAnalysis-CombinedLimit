@@ -1,0 +1,150 @@
+[?1034hname                                              b-only fit            s+b fit         rho
+CMS_eff_m                                     * -0.01, 0.56*     * +0.00, 0.86*       +0.38
+CMS_scale_j                                   * -0.00, 0.89*        +0.00, 0.99       +0.00
+Met                                           * -0.00, 0.89*        -0.00, 0.99       -0.00
+PhotonEfficiency                              ! +0.00, 0.39!        +0.01, 0.99       -0.01
+QCD_Norm8TeV                                  * +0.00, 0.67*     * -0.00, 0.87*       -0.01
+QCDscale_VH                                      +0.00, 0.90        -0.00, 0.99       -0.00
+QCDscale_ggH                                     +0.00, 0.90        -0.00, 0.99       -0.00
+QCDscale_qqH                                     +0.00, 0.90        -0.00, 0.99       -0.00
+VEff_Norm8TeV                                 * -0.00, 0.83*        +0.00, 0.96       -0.11
+ZG_qgcontent                                  * -0.00, 0.85*        -0.00, 0.97       -0.08
+boosted_stat_error_dimuonCR_bin0              * -0.00, 0.87*        -0.00, 0.97       -0.02
+boosted_stat_error_dimuonCR_bin1              * -0.00, 0.87*        -0.00, 0.97       -0.02
+boosted_stat_error_dimuonCR_bin2              * +0.00, 0.87*        +0.00, 0.97       -0.02
+boosted_stat_error_dimuonCR_bin3              * +0.00, 0.87*        -0.00, 0.97       -0.01
+boosted_stat_error_dimuonCR_bin4              * +0.00, 0.88*        -0.00, 0.98       -0.01
+boosted_stat_error_dimuonCR_bin5                 +0.00, 1.09        -0.00, 0.97       -0.02
+boosted_stat_error_photonCR_bin0              * +0.00, 0.77*     * -0.00, 0.88*       -0.05
+boosted_stat_error_photonCR_bin1              * +0.00, 0.62*     * +0.00, 0.87*       -0.06
+boosted_stat_error_photonCR_bin2              * +0.00, 0.66*     * +0.00, 0.88*       -0.06
+boosted_stat_error_photonCR_bin3              * -0.00, 0.68*     * -0.00, 0.88*       -0.05
+boosted_stat_error_photonCR_bin4              * +0.00, 0.76*     * -0.00, 0.86*       -0.08
+boosted_stat_error_photonCR_bin5              * +0.00, 0.64*     * +0.00, 0.82*       -0.10
+boosted_stat_error_singlemuonCR_bin0          * -0.00, 0.71*        -0.00, 0.94       -0.05
+boosted_stat_error_singlemuonCR_bin1          * -0.00, 0.76*        -0.00, 0.94       -0.05
+boosted_stat_error_singlemuonCR_bin2          * +0.00, 0.69*        -0.00, 0.94       -0.05
+boosted_stat_error_singlemuonCR_bin3          * -0.00, 0.75*        -0.00, 0.97       -0.03
+boosted_stat_error_singlemuonCR_bin4          * +0.00, 0.76*        -0.00, 0.97       -0.03
+boosted_stat_error_singlemuonCR_bin5          * +0.00, 0.76*        -0.00, 0.97       -0.04
+ewk_boosted_bin0                              * -0.00, 0.60*     * +0.00, 0.87*       +0.05
+ewk_boosted_bin1                              * -0.00, 0.82*     * -0.00, 0.90*       +0.05
+ewk_boosted_bin2                              * -0.00, 0.72*        -0.00, 0.93       +0.04
+ewk_boosted_bin3                              * +0.00, 0.78*        +0.00, 0.95       +0.03
+ewk_boosted_bin4                                 -0.00, 0.91        +0.00, 0.97       +0.03
+ewk_boosted_bin5                              * -0.00, 0.81*        +0.00, 0.94       +0.05
+ewk_monojet_bin0                              ! -0.00, 0.31!     * +0.00, 0.75*       +0.01
+ewk_monojet_bin1                              ! +0.00, 0.42!     * +0.00, 0.72*       -0.03
+ewk_monojet_bin10                             ! -0.00, 0.40!     * -0.01, 0.73*       -0.03
+ewk_monojet_bin11                             ! -0.00, 0.43!     * -0.00, 0.74*       -0.06
+ewk_monojet_bin12                             ! -0.00, 0.44!     * -0.01, 0.76*       -0.04
+ewk_monojet_bin13                             ! +0.00, 0.47!     * -0.00, 0.75*       -0.04
+ewk_monojet_bin14                             ! -0.00, 0.38!     * -0.01, 0.69*       -0.01
+ewk_monojet_bin15                             ! -0.00, 0.41!     * -0.01, 0.71*       -0.01
+ewk_monojet_bin16                             ! +0.00, 0.37!     * -0.01, 0.66*       -0.05
+ewk_monojet_bin17                             ! -0.00, 0.33!     * -0.01, 0.63*       +0.08
+ewk_monojet_bin18                             ! +0.00, 0.40!     * +0.00, 0.71*       +0.32
+ewk_monojet_bin2                              ! +0.00, 0.31!     * +0.01, 0.69*       -0.02
+ewk_monojet_bin3                              ! +0.00, 0.38!     * +0.00, 0.68*       -0.02
+ewk_monojet_bin4                              ! -0.00, 0.33!     * +0.00, 0.68*       -0.03
+ewk_monojet_bin5                              ! -0.00, 0.34!     * +0.00, 0.68*       -0.02
+ewk_monojet_bin6                              ! +0.00, 0.44!     * -0.00, 0.68*       -0.05
+ewk_monojet_bin7                              ! +0.00, 0.37!     * -0.00, 0.69*       -0.04
+ewk_monojet_bin8                              ! +0.00, 0.38!     * -0.00, 0.70*       -0.02
+ewk_monojet_bin9                              ! -0.00, 0.39!     * -0.00, 0.72*       -0.05
+ewk_resolved_bin0                                +0.00, 0.91        -0.00, 0.95       -0.00
+ewk_resolved_bin1                             * +0.00, 0.86*        +0.00, 0.95       -0.00
+ewk_resolved_bin2                                +0.00, 0.94        +0.00, 0.98       -0.00
+ewk_resolved_bin3                                -0.00, 0.90        -0.00, 0.99       -0.00
+ewk_resolved_bin4                             * -0.00, 0.88*        -0.00, 0.99       -0.00
+ewk_resolved_bin5                                +0.00, 1.08        +0.00, 0.98       -0.00
+fp                                            ! +0.00, 0.03!     ! -0.01, 0.31!       -0.36
+gg_mjj_nlo                                       +0.00, 0.90        -0.00, 0.99       -0.00
+gg_njets_nlo                                     +0.00, 0.90        +0.00, 0.99       -0.00
+hpt                                              +0.00, 0.90        -0.00, 0.99       -0.01
+lumi_8TeV                                     * +0.00, 0.86*        -0.00, 0.99       +0.02
+mf                                            * -0.00, 0.89*        -0.00, 0.99       +0.01
+mf2                                           ! +0.00, 0.15!        +0.02, 0.98       -0.02
+monojet_stat_error_dimuonCR_bin10             * -0.00, 0.87*        -0.00, 0.97       -0.02
+monojet_stat_error_dimuonCR_bin11             * +0.00, 0.87*        -0.00, 0.97       -0.02
+monojet_stat_error_dimuonCR_bin12             * -0.00, 0.87*        -0.00, 0.97       -0.02
+monojet_stat_error_dimuonCR_bin13             * -0.00, 0.87*        -0.00, 0.97       -0.02
+monojet_stat_error_dimuonCR_bin14             * +0.00, 0.87*        -0.00, 0.97       -0.03
+monojet_stat_error_dimuonCR_bin15             * -0.00, 0.87*        -0.00, 0.97       -0.03
+monojet_stat_error_dimuonCR_bin16             * +0.00, 0.87*        -0.00, 0.97       -0.03
+monojet_stat_error_dimuonCR_bin17             * +0.00, 0.87*        -0.00, 0.97       -0.06
+monojet_stat_error_dimuonCR_bin18             * -0.00, 0.87*        -0.00, 0.98       -0.08
+monojet_stat_error_dimuonCR_bin3              * -0.00, 0.87*        -0.00, 0.97       -0.02
+monojet_stat_error_dimuonCR_bin4              * +0.00, 0.87*        -0.00, 0.97       -0.02
+monojet_stat_error_dimuonCR_bin5              * +0.00, 0.87*        -0.00, 0.97       -0.02
+monojet_stat_error_dimuonCR_bin6              * +0.00, 0.86*        +0.00, 0.96       -0.02
+monojet_stat_error_dimuonCR_bin7              * +0.00, 0.87*        -0.00, 0.97       -0.02
+monojet_stat_error_dimuonCR_bin8              * +0.00, 0.87*        -0.00, 0.97       -0.03
+monojet_stat_error_dimuonCR_bin9              * -0.00, 0.87*        -0.00, 0.97       -0.02
+monojet_stat_error_photonCR_bin0              * +0.00, 0.56*        -0.00, 0.94       -0.00
+monojet_stat_error_photonCR_bin1              * -0.00, 0.69*        -0.00, 0.95       +0.01
+monojet_stat_error_photonCR_bin10             * +0.00, 0.63*        +0.00, 0.93       +0.01
+monojet_stat_error_photonCR_bin11             * +0.00, 0.64*        +0.00, 0.92       +0.02
+monojet_stat_error_photonCR_bin12             * +0.00, 0.63*        +0.00, 0.92       +0.02
+monojet_stat_error_photonCR_bin13             * -0.00, 0.64*        +0.00, 0.91       +0.02
+monojet_stat_error_photonCR_bin14             * +0.00, 0.65*        +0.00, 0.94       +0.00
+monojet_stat_error_photonCR_bin15             * +0.00, 0.66*        +0.00, 0.93       +0.00
+monojet_stat_error_photonCR_bin16             * -0.00, 0.68*        +0.00, 0.95       +0.02
+monojet_stat_error_photonCR_bin17             * +0.00, 0.69*        +0.00, 0.96       -0.02
+monojet_stat_error_photonCR_bin18             * -0.00, 0.79*        +0.00, 0.95       -0.10
+monojet_stat_error_photonCR_bin2              * -0.00, 0.61*        -0.00, 0.95       +0.01
+monojet_stat_error_photonCR_bin3              * -0.00, 0.81*        +0.00, 0.95       +0.01
+monojet_stat_error_photonCR_bin4              * +0.00, 0.63*        +0.00, 0.95       +0.01
+monojet_stat_error_photonCR_bin5              * +0.00, 0.63*        +0.00, 0.95       +0.01
+monojet_stat_error_photonCR_bin6              * -0.00, 0.66*        +0.00, 0.94       +0.01
+monojet_stat_error_photonCR_bin7              * -0.00, 0.63*        +0.00, 0.93       +0.01
+monojet_stat_error_photonCR_bin8              * -0.00, 0.63*        +0.00, 0.93       +0.01
+monojet_stat_error_photonCR_bin9              * +0.00, 0.63*        +0.00, 0.93       +0.02
+monojet_stat_error_singlemuonCR_bin0          ! +0.00, 0.50!     * -0.00, 0.84*       -0.00
+monojet_stat_error_singlemuonCR_bin1          * +0.00, 0.87*     * -0.00, 0.87*       +0.02
+monojet_stat_error_singlemuonCR_bin10         * +0.00, 0.52*     * +0.00, 0.87*       -0.02
+monojet_stat_error_singlemuonCR_bin11         * +0.00, 0.62*     * +0.00, 0.89*       -0.00
+monojet_stat_error_singlemuonCR_bin12         * +0.00, 0.53*     * +0.00, 0.89*       -0.01
+monojet_stat_error_singlemuonCR_bin13         * -0.00, 0.64*        +0.00, 0.93       -0.01
+monojet_stat_error_singlemuonCR_bin14         * +0.00, 0.53*        +0.00, 0.92       -0.04
+monojet_stat_error_singlemuonCR_bin15         * -0.00, 0.54*        +0.00, 0.92       -0.04
+monojet_stat_error_singlemuonCR_bin16         * -0.00, 0.57*        +0.00, 0.93       -0.03
+monojet_stat_error_singlemuonCR_bin17         * +0.00, 0.52*        +0.00, 0.94       -0.09
+monojet_stat_error_singlemuonCR_bin18         * -0.00, 0.60*        -0.01, 0.97       -0.15
+monojet_stat_error_singlemuonCR_bin2          * -0.00, 0.52*     * -0.00, 0.87*       -0.01
+monojet_stat_error_singlemuonCR_bin3             -0.00, 0.97     * -0.00, 0.87*       -0.02
+monojet_stat_error_singlemuonCR_bin4          ! +0.00, 0.50!     * +0.00, 0.86*       -0.02
+monojet_stat_error_singlemuonCR_bin5          * +0.00, 0.51*     * +0.00, 0.86*       -0.03
+monojet_stat_error_singlemuonCR_bin6          ! +0.01, 1.57!     * +0.01, 0.87*       -0.02
+monojet_stat_error_singlemuonCR_bin7          * -0.00, 0.52*     * +0.00, 0.88*       -0.02
+monojet_stat_error_singlemuonCR_bin8          * +0.00, 0.53*     * +0.00, 0.90*       -0.03
+monojet_stat_error_singlemuonCR_bin9          * +0.00, 0.66*     * +0.00, 0.89*       -0.01
+mr                                            * +0.00, 0.60*        +0.00, 0.99       -0.02
+mr2                                           ! -0.00, 0.06!     * +0.02, 0.58*       +0.21
+pdf                                           * -0.00, 0.72*        +0.00, 0.99       -0.03
+pdf_CT10                                      * -0.00, 0.81*        +0.00, 0.99       +0.05
+pdf_gg                                           +0.00, 0.90        -0.00, 0.99       -0.00
+pdf_qqbar                                        +0.00, 0.90        +0.00, 0.99       -0.00
+photon_purity                                 ! -0.00, 0.27!        -0.01, 0.98       -0.03
+qcd_Norm8TeV                                  * -0.00, 0.85*        +0.00, 0.98       +0.02
+resolved_stat_error_dimuonCR_bin0             * +0.00, 0.89*        -0.00, 0.96       -0.01
+resolved_stat_error_dimuonCR_bin1             * +0.00, 0.87*        -0.00, 0.96       -0.01
+resolved_stat_error_dimuonCR_bin2             * -0.00, 0.87*        -0.00, 0.97       -0.00
+resolved_stat_error_dimuonCR_bin3             * -0.00, 0.87*        -0.00, 0.97       -0.00
+resolved_stat_error_dimuonCR_bin4             * -0.00, 0.87*        -0.00, 0.97       -0.00
+resolved_stat_error_dimuonCR_bin5             * -0.00, 0.85*        -0.00, 0.95       -0.01
+resolved_stat_error_photonCR_bin0             * -0.00, 0.62*     * +0.00, 0.88*       +0.00
+resolved_stat_error_photonCR_bin1             * -0.00, 0.59*     * +0.00, 0.84*       +0.01
+resolved_stat_error_photonCR_bin2             * -0.00, 0.61*     * +0.00, 0.88*       +0.01
+resolved_stat_error_photonCR_bin3             * +0.01, 0.61*     * +0.01, 0.80*       +0.02
+resolved_stat_error_photonCR_bin4             * +0.00, 0.55*        +0.00, 0.92       +0.01
+resolved_stat_error_photonCR_bin5             * -0.00, 0.54*     * +0.00, 0.71*       +0.02
+resolved_stat_error_singlemuonCR_bin0         * -0.00, 0.76*        +0.00, 0.94       -0.01
+resolved_stat_error_singlemuonCR_bin1         * -0.00, 0.83*        -0.00, 0.95       -0.00
+resolved_stat_error_singlemuonCR_bin2         * -0.00, 0.70*     * +0.00, 0.87*       +0.01
+resolved_stat_error_singlemuonCR_bin3         * +0.00, 0.68*        +0.00, 0.91       +0.01
+resolved_stat_error_singlemuonCR_bin4         * -0.00, 0.52*     * -0.00, 0.59*       +0.01
+resolved_stat_error_singlemuonCR_bin5         * -0.00, 0.78*        +0.00, 0.97       +0.00
+tauEff8TeV                                    ! +0.00, 0.45!     * -0.01, 0.89*       -0.23
+top_Norm8TeV                                  * -0.00, 0.84*        +0.00, 0.99       +0.07
+vv_Norm8TeV                                   * -0.00, 0.80*        -0.00, 0.98       -0.02

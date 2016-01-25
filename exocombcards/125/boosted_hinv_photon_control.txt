@@ -1,0 +1,44 @@
+Control Region Datacard
+
+imax * number of bins
+jmax * number of processes minus 1
+kmax * number of nuisance parameters
+
+-------------------------------------------------------------------------------------------------
+
+shapes data_obs    boosted_photon_cr mono-x-backgrounds.root  mono-x-ws:boosted_photon_data 
+shapes non_prompt  boosted_photon_cr mono-x-backgrounds.root  mono-x-ws:boosted_photon_purity_bkg
+shapes gjet        boosted_photon_cr mono-x-backgrounds.root  mono-x-ws:boosted_photon_gjet_model
+
+-------------------------------------------------------------------------------------------------
+bin 	     boosted_photon_cr
+observation  -1 
+-------------------------------------------------------------------------------------------------
+bin          		boosted_photon_cr   	boosted_photon_cr      
+process      		gjet		     	non_prompt 
+process      		7       		8       
+rate         		1      		 	-1      
+-------------------------------------------------------------------------------------------------
+photon_purity  lnN      -			1.5
+--------------------------------------------------------------------------------------------------
+# Parametric uncertainties associated to control regions fits
+
+mr param 0.0 1
+mf param 0.0 1
+mr2 param 0.0 1
+mf2 param 0.0 1
+pdf param 0.0 1
+fp param 0.0 1
+PhotonEfficiency param 0.0 1
+ewk_boosted_bin0 param 1.0 1
+ewk_boosted_bin1 param 1.0 1
+ewk_boosted_bin2 param 1.0 1
+ewk_boosted_bin3 param 1.0 1
+ewk_boosted_bin4 param 1.0 1
+ewk_boosted_bin5 param 1.0 1
+boosted_stat_error_photonCR_bin0 param 0.0 1
+boosted_stat_error_photonCR_bin1 param 0.0 1
+boosted_stat_error_photonCR_bin2 param 0.0 1
+boosted_stat_error_photonCR_bin3 param 0.0 1
+boosted_stat_error_photonCR_bin4 param 0.0 1
+boosted_stat_error_photonCR_bin5 param 0.0 1

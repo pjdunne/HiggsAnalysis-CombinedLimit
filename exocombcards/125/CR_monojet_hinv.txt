@@ -1,0 +1,110 @@
+Combination of monojet_dimuon=monojet_hinv_dimuon_control.txt  monojet_photon=monojet_hinv_photon_control.txt  monojet_singlemuon=monojet_hinv_singlemuon_control.txt
+imax 3 number of bins
+jmax 7 number of processes minus 1
+kmax 87 number of nuisance parameters
+----------------------------------------------------------------------------------------------------------------------------------
+shapes *                   monojet_dimuon      mono-x-backgrounds.root mono-x-ws:monojet_dimuon_$PROCESS
+shapes data_obs            monojet_dimuon      mono-x-backgrounds.root mono-x-ws:monojet_dimuon_data
+shapes zmm                 monojet_dimuon      mono-x-backgrounds.root mono-x-ws:monojet_dimuon_zjets_model
+shapes data_obs            monojet_photon      mono-x-backgrounds.root mono-x-ws:monojet_photon_data
+shapes gjet                monojet_photon      mono-x-backgrounds.root mono-x-ws:monojet_photon_gjet_model
+shapes non_prompt          monojet_photon      mono-x-backgrounds.root mono-x-ws:monojet_photon_purity_bkg
+shapes *                   monojet_singlemuon  mono-x-backgrounds.root mono-x-ws:monojet_singlemuon_$PROCESS
+shapes data_obs            monojet_singlemuon  mono-x-backgrounds.root mono-x-ws:monojet_singlemuon_data
+shapes wlm                 monojet_singlemuon  mono-x-backgrounds.root mono-x-ws:monojet_singlemuon_wjets_model
+----------------------------------------------------------------------------------------------------------------------------------
+bin          monojet_dimuon      monojet_photon      monojet_singlemuon
+observation  -1.0                -1.0                -1.0              
+----------------------------------------------------------------------------------------------------------------------------------
+bin                              monojet_dimuon      monojet_dimuon      monojet_dimuon      monojet_photon      monojet_photon      monojet_singlemuon  monojet_singlemuon  monojet_singlemuon  monojet_singlemuon  monojet_singlemuon
+process                          top                 dibosons            zmm                 gjet                non_prompt          zll                 top                 qcd                 wlm                 dibosons          
+process                          1                   2                   3                   4                   5                   6                   1                   7                   8                   2                 
+rate                             -1                  -1                  1.0000              1.0000              -1                  -1                  -1                  -1                  1.0000              -1                
+----------------------------------------------------------------------------------------------------------------------------------
+lumi_8TeV               lnN      1.026               1.026               -                   -                   -                   1.026               1.026               1.026               -                   1.026             
+photon_purity           lnN      -                   -                   -                   -                   1.5                 -                   -                   -                   -                   -                 
+qcd_Norm8TeV            lnN      -                   -                   -                   -                   -                   -                   -                   1.5                 -                   -                 
+top_Norm8TeV            lnN      1.07                -                   -                   -                   -                   -                   1.07                -                   -                   -                 
+vv_Norm8TeV             lnN      -                   1.1                 -                   -                   -                   1.1                 -                   -                   -                   1.1               
+monojet_stat_error_singlemuonCR_bin18  param  0.0 1
+monojet_stat_error_dimuonCR_bin8  param  0.0 1
+monojet_stat_error_dimuonCR_bin9  param  0.0 1
+monojet_stat_error_photonCR_bin14  param  0.0 1
+monojet_stat_error_singlemuonCR_bin11  param  0.0 1
+monojet_stat_error_dimuonCR_bin3  param  0.0 1
+monojet_stat_error_singlemuonCR_bin13  param  0.0 1
+monojet_stat_error_photonCR_bin15  param  0.0 1
+monojet_stat_error_dimuonCR_bin6  param  0.0 1
+monojet_stat_error_dimuonCR_bin7  param  0.0 1
+monojet_stat_error_dimuonCR_bin4  param  0.0 1
+monojet_stat_error_dimuonCR_bin5  param  0.0 1
+monojet_stat_error_singlemuonCR_bin1  param  0.0 1
+monojet_stat_error_singlemuonCR_bin0  param  0.0 1
+monojet_stat_error_singlemuonCR_bin3  param  0.0 1
+monojet_stat_error_singlemuonCR_bin2  param  0.0 1
+monojet_stat_error_singlemuonCR_bin5  param  0.0 1
+monojet_stat_error_singlemuonCR_bin4  param  0.0 1
+monojet_stat_error_singlemuonCR_bin7  param  0.0 1
+monojet_stat_error_singlemuonCR_bin6  param  0.0 1
+monojet_stat_error_singlemuonCR_bin9  param  0.0 1
+monojet_stat_error_photonCR_bin2  param  0.0 1
+CMS_eff_m     param  0.0 1
+ewk_monojet_bin10  param  1.0 1
+ewk_monojet_bin11  param  1.0 1
+ewk_monojet_bin3  param  1.0 1
+ewk_monojet_bin13  param  1.0 1
+ewk_monojet_bin14  param  1.0 1
+ewk_monojet_bin15  param  1.0 1
+ewk_monojet_bin16  param  1.0 1
+ewk_monojet_bin17  param  1.0 1
+ewk_monojet_bin18  param  1.0 1
+monojet_stat_error_photonCR_bin9  param  0.0 1
+monojet_stat_error_singlemuonCR_bin10  param  0.0 1
+mr2           param  0.0 1
+pdf_CT10      param  0.0 1
+PhotonEfficiency  param  0.0 1
+monojet_stat_error_photonCR_bin17  param  0.0 1
+monojet_stat_error_singlemuonCR_bin8  param  0.0 1
+monojet_stat_error_photonCR_bin11  param  0.0 1
+fp            param  0.0 1
+monojet_stat_error_photonCR_bin0  param  0.0 1
+monojet_stat_error_singlemuonCR_bin17  param  0.0 1
+monojet_stat_error_singlemuonCR_bin12  param  0.0 1
+monojet_stat_error_photonCR_bin3  param  0.0 1
+monojet_stat_error_photonCR_bin1  param  0.0 1
+monojet_stat_error_singlemuonCR_bin15  param  0.0 1
+monojet_stat_error_photonCR_bin10  param  0.0 1
+ewk_monojet_bin12  param  1.0 1
+monojet_stat_error_singlemuonCR_bin14  param  0.0 1
+monojet_stat_error_dimuonCR_bin10  param  0.0 1
+monojet_stat_error_dimuonCR_bin11  param  0.0 1
+mf2           param  0.0 1
+monojet_stat_error_dimuonCR_bin13  param  0.0 1
+monojet_stat_error_dimuonCR_bin14  param  0.0 1
+monojet_stat_error_dimuonCR_bin15  param  0.0 1
+monojet_stat_error_dimuonCR_bin16  param  0.0 1
+monojet_stat_error_dimuonCR_bin17  param  0.0 1
+monojet_stat_error_dimuonCR_bin18  param  0.0 1
+monojet_stat_error_photonCR_bin4  param  0.0 1
+monojet_stat_error_photonCR_bin18  param  0.0 1
+monojet_stat_error_singlemuonCR_bin16  param  0.0 1
+monojet_stat_error_photonCR_bin16  param  0.0 1
+monojet_stat_error_photonCR_bin5  param  0.0 1
+monojet_stat_error_photonCR_bin12  param  0.0 1
+mf            param  0.0 1
+monojet_stat_error_photonCR_bin6  param  0.0 1
+monojet_stat_error_photonCR_bin13  param  0.0 1
+monojet_stat_error_photonCR_bin7  param  0.0 1
+monojet_stat_error_dimuonCR_bin12  param  0.0 1
+monojet_stat_error_photonCR_bin8  param  0.0 1
+ewk_monojet_bin8  param  1.0 1
+ewk_monojet_bin9  param  1.0 1
+mr            param  0.0 1
+ewk_monojet_bin2  param  1.0 1
+pdf           param  0.0 1
+ewk_monojet_bin0  param  1.0 1
+ewk_monojet_bin1  param  1.0 1
+ewk_monojet_bin6  param  1.0 1
+ewk_monojet_bin7  param  1.0 1
+ewk_monojet_bin4  param  1.0 1
+ewk_monojet_bin5  param  1.0 1

@@ -1,0 +1,29 @@
+[?1034hname                                              b-only fit            s+b fit         rho
+CMS_VBFHinv_ggH_norm                             +0.00, 0.99        +0.00, 0.99       -0.02
+CMS_VBFHinv_puweight                             -0.02, 1.02        -0.00, 0.99       +0.03
+CMS_VBFHinv_qcd_norm                             +0.18, 1.04        -0.00, 0.99       -0.17
+CMS_VBFHinv_qqH_norm                             +0.00, 0.99        -0.00, 0.99       -0.04
+CMS_VBFHinv_tau_eff                              +0.13, 0.99        -0.00, 0.99       -0.12
+CMS_VBFHinv_tau_extrapfacunc                  * +0.30, 0.98*        +0.00, 0.99       -0.29
+CMS_VBFHinv_top_norm                             +0.03, 1.00        -0.00, 0.99       -0.04
+CMS_VBFHinv_vv_norm                              +0.01, 0.99        -0.00, 0.99       -0.01
+CMS_VBFHinv_vv_xsunc                             +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_VBFHinv_wel_norm                             +0.09, 1.00        +0.00, 0.99       -0.09
+CMS_VBFHinv_wel_stat                             +0.11, 1.00        -0.00, 0.99       -0.12
+CMS_VBFHinv_wmu_norm                             +0.13, 0.99        +0.00, 0.99       -0.13
+CMS_VBFHinv_wmu_stat                             +0.10, 0.99        +0.00, 0.99       -0.10
+CMS_VBFHinv_wtau_norm                            +0.18, 0.99        +0.00, 0.99       -0.17
+CMS_VBFHinv_wtau_stat                            +0.22, 0.99        +0.00, 0.99       -0.21
+CMS_VBFHinv_zvv_norm                          * +0.34, 0.95*        -0.00, 0.99       -0.29
+CMS_VBFHinv_zvv_stat                          * +0.74, 0.87*        +0.01, 0.99       -0.63
+CMS_eff_e                                        -0.07, 1.00        +0.00, 0.99       +0.07
+CMS_eff_m                                        -0.10, 0.98        +0.00, 0.99       +0.09
+CMS_res_j                                     ! +0.08, 1.71!        -0.01, 0.99       +0.02
+CMS_scale_j                                   * +0.40, 0.80*        +0.00, 0.99       -0.33
+CMS_scale_met                                 ! -0.09, 2.49!        -0.00, 0.99       -0.01
+QCDscale_ggH2in                                  +0.00, 0.99        -0.00, 0.99       -0.04
+QCDscale_qqH                                     +0.00, 0.99        -0.00, 0.99       -0.00
+UEPS                                             +0.00, 0.99        -0.00, 0.99       -0.01
+lumi_8TeV                                        +0.00, 0.99        +0.00, 0.99       -0.03
+pdf_gg                                           +0.00, 0.99        +0.00, 0.99       -0.01
+pdf_qqbar                                        +0.00, 0.99        +0.00, 0.99       -0.03

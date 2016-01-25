@@ -1,0 +1,51 @@
+Control Region Datacard -- monojet singlemuon
+
+imax * number of bins
+jmax * number of processes minus 1
+kmax * number of nuisance parameters
+
+-------------------------------------------------------------------------------------------------
+
+shapes data_obs    monojet_singlemuon_cr mono-x-backgrounds.root  mono-x-ws:monojet_singlemuon_data 
+shapes wlm   	   monojet_singlemuon_cr mono-x-backgrounds.root  mono-x-ws:monojet_singlemuon_wjets_model
+shapes *   	   monojet_singlemuon_cr mono-x-backgrounds.root  mono-x-ws:monojet_singlemuon_$PROCESS
+
+-------------------------------------------------------------------------------------------------
+bin 	     monojet_singlemuon_cr
+observation  -1 
+--------------------------------------------------------------------------------------------------------------------------------------------------
+bin          		monojet_singlemuon_cr   monojet_singlemuon_cr  monojet_singlemuon_cr     monojet_singlemuon_cr  monojet_singlemuon_cr     
+process      		wlm		     	top		       dibosons		         qcd		        zll		
+process      		10       		2                      4                         3                      1  
+rate         		1      		 	-1                     -1                        -1                     -1 
+--------------------------------------------------------------------------------------------------------------------------------------------------
+                                                                                                                                                   
+top_Norm8TeV	 lnN	-			1.07		       -                         -		       -
+vv_Norm8TeV	 lnN	-			-		       1.1                       -		       1.1
+qcd_Norm8TeV	 lnN	-			-		       -                         1.5		       -
+lumi_8TeV        lnN    -                       1.026                  1.026                     1.026                 1.026 
+
+-------------------------------------------------------------------------------------------------
+# Parametric uncertainties associated to control regions fits
+CMS_eff_m param 0.0 1
+pdf_CT10 param 0.0 1
+monojet_stat_error_singlemuonCR_bin0 param 0.0 1
+monojet_stat_error_singlemuonCR_bin1 param 0.0 1
+monojet_stat_error_singlemuonCR_bin2 param 0.0 1
+monojet_stat_error_singlemuonCR_bin3 param 0.0 1
+monojet_stat_error_singlemuonCR_bin4 param 0.0 1
+monojet_stat_error_singlemuonCR_bin5 param 0.0 1
+monojet_stat_error_singlemuonCR_bin6 param 0.0 1
+monojet_stat_error_singlemuonCR_bin7 param 0.0 1
+monojet_stat_error_singlemuonCR_bin8 param 0.0 1
+monojet_stat_error_singlemuonCR_bin9 param 0.0 1
+monojet_stat_error_singlemuonCR_bin10 param 0.0 1
+monojet_stat_error_singlemuonCR_bin11 param 0.0 1
+monojet_stat_error_singlemuonCR_bin12 param 0.0 1
+monojet_stat_error_singlemuonCR_bin13 param 0.0 1
+monojet_stat_error_singlemuonCR_bin14 param 0.0 1
+monojet_stat_error_singlemuonCR_bin15 param 0.0 1
+monojet_stat_error_singlemuonCR_bin16 param 0.0 1
+monojet_stat_error_singlemuonCR_bin17 param 0.0 1
+monojet_stat_error_singlemuonCR_bin18 param 0.0 1
+

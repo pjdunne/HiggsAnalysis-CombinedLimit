@@ -1,0 +1,16 @@
+#!/bin/bash
+combineCards.py monojet_signal=monojet_hinv.txt monojet_dimuon=monojet_hinv_dimuon_control.txt monojet_photon=monojet_hinv_photon_control.txt monojet_singlemuon=monojet_hinv_singlemuon_control.txt > combined_monojet_hinv.txt 
+combineCards.py monojet_dimuon=monojet_hinv_dimuon_control.txt monojet_photon=monojet_hinv_photon_control.txt monojet_singlemuon=monojet_hinv_singlemuon_control.txt > CR_monojet_hinv.txt 
+combineCards.py boosted_signal=boosted_hinv.txt boosted_dimuon=boosted_hinv_dimuon_control.txt boosted_photon=boosted_hinv_photon_control.txt boosted_singlemuon=boosted_hinv_singlemuon_control.txt > combined_boosted_hinv.txt 
+combineCards.py boosted_dimuon=boosted_hinv_dimuon_control.txt boosted_photon=boosted_hinv_photon_control.txt boosted_singlemuon=boosted_hinv_singlemuon_control.txt > CR_boosted_hinv.txt 
+combineCards.py resolved_signal=resolved_hinv.txt resolved_dimuon=resolved_hinv_dimuon_control.txt resolved_photon=resolved_hinv_photon_control.txt resolved_singlemuon=resolved_hinv_singlemuon_control.txt > combined_resolved_hinv.txt 
+combineCards.py resolved_dimuon=resolved_hinv_dimuon_control.txt resolved_photon=resolved_hinv_photon_control.txt resolved_singlemuon=resolved_hinv_singlemuon_control.txt > CR_resolved_hinv.txt 
+combineCards.py monojet=combined_monojet_hinv.txt boosted=combined_boosted_hinv.txt resolved=combined_resolved_hinv.txt > combined_hinv.txt
+combineCards.py boosted=combined_boosted_hinv.txt resolved=combined_resolved_hinv.txt > monov_hinv.txt
+combineCards.py monojet=CR_monojet_hinv.txt boosted=CR_boosted_hinv.txt resolved=CR_resolved_hinv.txt > CR_combined_hinv.txt
+
+# also make no gjet cards
+#combineCards.py monojet_dimuon=monojet_hinv_dimuon_control.txt  monojet_singlemuon=monojet_hinv_singlemuon_control.txt > CR_monojet_hinv_nogjet.txt 
+#combineCards.py boosted_dimuon=boosted_hinv_dimuon_control.txt  boosted_singlemuon=boosted_hinv_singlemuon_control.txt > CR_boosted_hinv_nogjet.txt 
+#combineCards.py resolved_dimuon=resolved_hinv_dimuon_control.txt resolved_singlemuon=resolved_hinv_singlemuon_control.txt > CR_resolved_hinv_nogjet.txt 
+

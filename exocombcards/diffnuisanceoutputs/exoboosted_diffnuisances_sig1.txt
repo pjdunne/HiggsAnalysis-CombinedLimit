@@ -1,0 +1,52 @@
+[?1034hname                                              b-only fit            s+b fit         rho
+CMS_eff_m                                        -0.13, 0.99        -0.00, 0.99       +0.12
+CMS_scale_j                                      -0.00, 0.99        +0.00, 1.00       -0.00
+Met                                              +0.01, 0.99        -0.00, 0.98       +0.17
+PhotonEfficiency                                 -0.01, 0.99        -0.00, 0.99       -0.01
+QCD_Norm8TeV                                     +0.00, 0.99        +0.00, 0.99       -0.00
+QCDscale_VH                                      +0.00, 0.99        +0.00, 0.99       -0.01
+QCDscale_ggH                                     +0.00, 0.99        +0.00, 0.99       -0.02
+QCDscale_qqH                                     +0.00, 0.99        +0.00, 0.99       +0.00
+VEff_Norm8TeV                                    +0.23, 0.99        +0.00, 0.99       -0.20
+ZG_qgcontent                                     +0.16, 0.98        +0.00, 0.99       -0.08
+boosted_stat_error_dimuonCR_bin0                 +0.14, 0.97        -0.00, 0.98       -0.15
+boosted_stat_error_dimuonCR_bin1                 +0.11, 0.97        -0.00, 0.98       -0.11
+boosted_stat_error_dimuonCR_bin2                 +0.08, 0.97        +0.00, 0.98       -0.10
+boosted_stat_error_dimuonCR_bin3                 +0.07, 0.97        +0.00, 0.98       -0.11
+boosted_stat_error_dimuonCR_bin4                 +0.05, 0.97        +0.00, 0.98       -0.04
+boosted_stat_error_dimuonCR_bin5                 +0.08, 0.96        +0.00, 0.97       -0.07
+boosted_stat_error_photonCR_bin0                 -0.09, 0.92        +0.00, 0.93       +0.06
+boosted_stat_error_photonCR_bin1                 -0.01, 0.90        +0.00, 0.91       +0.01
+boosted_stat_error_photonCR_bin2              * +0.05, 0.90*        +0.00, 0.92       -0.21
+boosted_stat_error_photonCR_bin3              * +0.08, 0.89*        -0.00, 0.94       -0.29
+boosted_stat_error_photonCR_bin4              * +0.17, 0.86*        +0.00, 0.95       -0.36
+boosted_stat_error_photonCR_bin5              * +0.17, 0.83*     * +0.00, 0.89*       -0.27
+boosted_stat_error_singlemuonCR_bin0             +0.07, 0.95        -0.00, 0.95       -0.03
+boosted_stat_error_singlemuonCR_bin1             +0.12, 0.94        -0.00, 0.95       -0.10
+boosted_stat_error_singlemuonCR_bin2             +0.12, 0.94        +0.00, 0.94       -0.12
+boosted_stat_error_singlemuonCR_bin3             +0.08, 0.96        -0.00, 0.97       -0.09
+boosted_stat_error_singlemuonCR_bin4             +0.09, 0.98        +0.00, 0.98       -0.10
+boosted_stat_error_singlemuonCR_bin5             +0.11, 0.98        +0.00, 0.98       -0.10
+ewk_boosted_bin0                                 +0.10, 0.92        -0.00, 0.94       -0.19
+ewk_boosted_bin1                                 +0.01, 0.92        -0.00, 0.93       -0.10
+ewk_boosted_bin2                                 -0.04, 0.94        -0.00, 0.94       -0.11
+ewk_boosted_bin3                                 -0.05, 0.95        +0.00, 0.95       -0.09
+ewk_boosted_bin4                                 -0.08, 0.96        -0.00, 0.96       -0.04
+ewk_boosted_bin5                                 -0.10, 0.94        -0.00, 0.94       -0.13
+fp                                            ! +0.47, 0.46!     * +0.00, 0.68*       -0.73
+gg_njets_nlo                                     +0.00, 0.99        +0.00, 0.99       -0.02
+hpt                                              +0.00, 0.99        +0.00, 0.99       -0.07
+lumi_8TeV                                        -0.03, 0.99        +0.00, 1.00       +0.03
+mf                                               -0.00, 0.99        -0.00, 1.01       -0.20
+mf2                                              +0.08, 0.98        +0.00, 0.99       -0.11
+mr                                               +0.00, 0.99        +0.00, 1.01       -0.18
+mr2                                              +0.07, 0.92        +0.00, 0.95       -0.26
+pdf                                              +0.02, 0.99        +0.00, 0.99       -0.05
+pdf_CT10                                         -0.02, 0.99        -0.00, 0.99       +0.01
+pdf_gg                                           +0.00, 0.99        +0.00, 1.00       -0.01
+pdf_qqbar                                        +0.00, 0.99        +0.00, 0.99       -0.02
+photon_purity                                    -0.01, 0.99        -0.00, 1.01       -0.21
+qcd_Norm8TeV                                     -0.00, 0.99        +0.00, 0.99       +0.00
+tauEff8TeV                                       +0.11, 0.99        +0.00, 0.99       -0.06
+top_Norm8TeV                                     -0.09, 0.99        -0.00, 1.00       +0.09
+vv_Norm8TeV                                      -0.00, 0.99        -0.00, 1.00       +0.10

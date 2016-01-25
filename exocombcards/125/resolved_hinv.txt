@@ -1,0 +1,46 @@
+Signal Region Datacard -- resolved category
+
+imax * number of bins
+jmax * number of processes minus 1
+kmax * number of nuisance parameters
+
+--------------------------------------------------------------------------------------------------
+
+shapes data_obs  resolved   mono-x-backgrounds.root mono-x-ws:resolved_signal_data 
+shapes zjets     resolved   mono-x-backgrounds.root mono-x-ws:resolved_signal_zjets_model
+shapes wjets     resolved   mono-x-backgrounds.root mono-x-ws:resolved_signal_wjets_model
+shapes *         resolved   mono-x-backgrounds.root mono-x-ws:resolved_signal_$PROCESS mono-x-ws:resolved_signalSYS_$PROCESS_$SYSTEMATIC
+shapes ggH       resolved   signal_resolved.root signal_higgs_ws:resolved_signal_$PROCESS signal_higgs_ws:resolved_signalSYS_$PROCESS_$SYSTEMATIC
+shapes vbf       resolved   signal_resolved.root signal_higgs_ws:resolved_signal_$PROCESS signal_higgs_ws:resolved_signalSYS_$PROCESS_$SYSTEMATIC
+shapes wh        resolved   signal_resolved.root signal_higgs_ws:resolved_signal_$PROCESS signal_higgs_ws:resolved_signalSYS_$PROCESS_$SYSTEMATIC
+shapes zh        resolved   signal_resolved.root signal_higgs_ws:resolved_signal_$PROCESS signal_higgs_ws:resolved_signalSYS_$PROCESS_$SYSTEMATIC
+
+--------------------------------------------------------------------------------------------------
+bin 	     resolved
+observation  -1 
+--------------------------------------------------------------------------------------------------
+bin          		 resolved     resolved     resolved     resolved     resolved     resolved   resolved resolved    resolved    resolved 
+process      		 zll          top          qcd     	dibosons     zjets        wjets      ggH      vbf         wh          zh
+process      		 1            2            3       	4            5            6          -3       -2          -1          0 
+rate        		 -1           -1           -1      	-1           1            1          -1       -1          -1          -1 
+--------------------------------------------------------------------------------------------------
+# Normal uncertainties in the signal region 
+
+lumi_8TeV         lnN    1.026        1.026        1.026        1.026        -           -          1.026    1.026       1.026       1.026 
+QCD_Norm8TeV      lnN    -            -            1.5          -            -      	 -          -        -           -           - 
+VEff_Norm8TeV     lnN    -            1.01/0.99    -            -            -           -          -        -           1.01         1.01 
+top_Norm8TeV      lnN    -            1.07         -            -            -           -          -        -           -           -
+vv_Norm8TeV       lnN    -            -            -            1.1          -           -          -        -           -           -
+tauEff8TeV        lnN    -            -            -            -            -           1.035      -        -           -           - 
+CMS_mono_scale_j       lnN    -            0.974        -            1.003        -           -          1.07     1.46        1.04        1.026 
+Met               shape  1.0          1.0          1.0          1.0          -           -          1.0      1.0         1.0         1.0
+hpt		  shape  -            -            -            -            -           -          1.0      -           -           -  
+
+
+QCDscale_VH       lnN    - 	      -		   -		-	     -		 -          -        -      0.990/1.010 0.970/1.031 
+QCDscale_ggH      lnN    - 	      -		   -		-	     -		 -     0.928/1.072   -           -           -
+QCDscale_qqH      lnN    -	      -		   -		-	     -		 -          -   0.998/1.002      -           - 
+pdf_gg            lnN    - 	      -		   -		-	     -		 -     0.935/1.075   -           -           - 
+pdf_qqbar         lnN    - 	      -		   -		-	     -		 -          -   0.973/1.026 0.978/1.023 0.976/1.025
+gg_njets_nlo	  lnN    -            -            -            -            -           -          1.05     -           -           - 
+gg_mjj_nlo	  lnN    -            -            -            -            -           -          1.15     -           -           - 

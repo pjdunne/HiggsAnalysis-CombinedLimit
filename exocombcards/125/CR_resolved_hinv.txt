@@ -1,0 +1,61 @@
+Combination of resolved_dimuon=resolved_hinv_dimuon_control.txt  resolved_photon=resolved_hinv_photon_control.txt  resolved_singlemuon=resolved_hinv_singlemuon_control.txt
+imax 3 number of bins
+jmax 7 number of processes minus 1
+kmax 38 number of nuisance parameters
+----------------------------------------------------------------------------------------------------------------------------------
+shapes *                    resolved_dimuon      mono-x-backgrounds.root mono-x-ws:resolved_dimuon_$PROCESS
+shapes data_obs             resolved_dimuon      mono-x-backgrounds.root mono-x-ws:resolved_dimuon_data
+shapes zmm                  resolved_dimuon      mono-x-backgrounds.root mono-x-ws:resolved_dimuon_zjets_model
+shapes data_obs             resolved_photon      mono-x-backgrounds.root mono-x-ws:resolved_photon_data
+shapes gjet                 resolved_photon      mono-x-backgrounds.root mono-x-ws:resolved_photon_gjet_model
+shapes non_prompt           resolved_photon      mono-x-backgrounds.root mono-x-ws:resolved_photon_purity_bkg
+shapes *                    resolved_singlemuon  mono-x-backgrounds.root mono-x-ws:resolved_singlemuon_$PROCESS
+shapes data_obs             resolved_singlemuon  mono-x-backgrounds.root mono-x-ws:resolved_singlemuon_data
+shapes wlm                  resolved_singlemuon  mono-x-backgrounds.root mono-x-ws:resolved_singlemuon_wjets_model
+----------------------------------------------------------------------------------------------------------------------------------
+bin          resolved_dimuon      resolved_photon      resolved_singlemuon
+observation  -1.0                 -1.0                 -1.0               
+----------------------------------------------------------------------------------------------------------------------------------
+bin                              resolved_dimuon      resolved_dimuon      resolved_dimuon      resolved_photon      resolved_photon      resolved_singlemuon  resolved_singlemuon  resolved_singlemuon  resolved_singlemuon  resolved_singlemuon
+process                          top                  dibosons             zmm                  gjet                 non_prompt           zll                  top                  qcd                  wlm                  dibosons           
+process                          1                    2                    3                    4                    5                    6                    1                    7                    8                    2                  
+rate                             -1                   -1                   1.0000               1.0000               -1                   -1                   -1                   -1                   1.0000               -1                 
+----------------------------------------------------------------------------------------------------------------------------------
+lumi_8TeV               lnN      1.026                1.026                -                    -                    -                    1.026                1.026                1.026                -                    1.026              
+photon_purity           lnN      -                    -                    -                    -                    1.5                  -                    -                    -                    -                    -                  
+qcd_Norm8TeV            lnN      -                    -                    -                    -                    -                    -                    -                    1.5                  -                    -                  
+top_Norm8TeV            lnN      1.07                 -                    -                    -                    -                    -                    1.07                 -                    -                    -                  
+vv_Norm8TeV             lnN      -                    1.1                  -                    -                    -                    1.1                  -                    -                    -                    1.1                
+PhotonEfficiency  param  0.0 1
+ewk_resolved_bin5  param  1.0 1
+ewk_resolved_bin4  param  1.0 1
+ewk_resolved_bin1  param  1.0 1
+ewk_resolved_bin0  param  1.0 1
+ewk_resolved_bin3  param  1.0 1
+ewk_resolved_bin2  param  1.0 1
+pdf_CT10      param  0.0 1
+CMS_eff_m     param  0.0 1
+resolved_stat_error_photonCR_bin3  param  0.0 1
+resolved_stat_error_photonCR_bin2  param  0.0 1
+resolved_stat_error_photonCR_bin1  param  0.0 1
+resolved_stat_error_photonCR_bin0  param  0.0 1
+mr2           param  0.0 1
+resolved_stat_error_photonCR_bin4  param  0.0 1
+fp            param  0.0 1
+mf2           param  0.0 1
+resolved_stat_error_singlemuonCR_bin1  param  0.0 1
+resolved_stat_error_dimuonCR_bin0  param  0.0 1
+resolved_stat_error_singlemuonCR_bin2  param  0.0 1
+resolved_stat_error_singlemuonCR_bin3  param  0.0 1
+resolved_stat_error_singlemuonCR_bin0  param  0.0 1
+mf            param  0.0 1
+resolved_stat_error_singlemuonCR_bin4  param  0.0 1
+resolved_stat_error_singlemuonCR_bin5  param  0.0 1
+resolved_stat_error_photonCR_bin5  param  0.0 1
+mr            param  0.0 1
+resolved_stat_error_dimuonCR_bin1  param  0.0 1
+pdf           param  0.0 1
+resolved_stat_error_dimuonCR_bin3  param  0.0 1
+resolved_stat_error_dimuonCR_bin2  param  0.0 1
+resolved_stat_error_dimuonCR_bin5  param  0.0 1
+resolved_stat_error_dimuonCR_bin4  param  0.0 1

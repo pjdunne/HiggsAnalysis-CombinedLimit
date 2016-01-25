@@ -1,0 +1,39 @@
+Control Region Datacard -- resolved singlemuon
+
+imax * number of bins
+jmax * number of processes minus 1
+kmax * number of nuisance parameters
+
+-------------------------------------------------------------------------------------------------
+
+shapes data_obs    resolved_singlemuon_cr mono-x-backgrounds.root  mono-x-ws:resolved_singlemuon_data 
+shapes wlm   	   resolved_singlemuon_cr mono-x-backgrounds.root  mono-x-ws:resolved_singlemuon_wjets_model
+shapes *   	   resolved_singlemuon_cr mono-x-backgrounds.root  mono-x-ws:resolved_singlemuon_$PROCESS
+
+-------------------------------------------------------------------------------------------------
+bin 	     resolved_singlemuon_cr
+observation  -1 
+--------------------------------------------------------------------------------------------------------------------------------------------------
+bin          		resolved_singlemuon_cr  resolved_singlemuon_cr resolved_singlemuon_cr    resolved_singlemuon_cr resolved_singlemuon_cr     
+process      		wlm		     	top		       dibosons		         qcd		        zll		
+process      		10       		2                      4                         3                      1  
+rate         		1      		 	-1                     -1                        -1                     -1 
+--------------------------------------------------------------------------------------------------------------------------------------------------
+                                                                                                                                                   
+top_Norm8TeV	 lnN	-			1.07		       -                         -		       -
+vv_Norm8TeV	 lnN	-			-		       1.1                       -		       1.1
+qcd_Norm8TeV	 lnN	-			-		       -                         1.5		       -
+lumi_8TeV        lnN    -                       1.026                  1.026                     1.026                 1.026 
+
+--------------------------------------------------------------------------------------------------
+# Parametric uncertainties associated to control regions fits
+
+CMS_eff_m param 0.0 1
+pdf_CT10 param 0.0 1
+resolved_stat_error_singlemuonCR_bin0 param 0.0 1
+resolved_stat_error_singlemuonCR_bin1 param 0.0 1
+resolved_stat_error_singlemuonCR_bin2 param 0.0 1
+resolved_stat_error_singlemuonCR_bin3 param 0.0 1
+resolved_stat_error_singlemuonCR_bin4 param 0.0 1
+resolved_stat_error_singlemuonCR_bin5 param 0.0 1
+

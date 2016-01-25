@@ -1,0 +1,71 @@
+Control Region Datacard
+
+imax * number of bins
+jmax * number of processes minus 1
+kmax * number of nuisance parameters
+
+-------------------------------------------------------------------------------------------------
+
+shapes data_obs    monojet_photon_cr mono-x-backgrounds.root  mono-x-ws:monojet_photon_data 
+shapes non_prompt  monojet_photon_cr mono-x-backgrounds.root  mono-x-ws:monojet_photon_purity_bkg
+shapes gjet        monojet_photon_cr mono-x-backgrounds.root  mono-x-ws:monojet_photon_gjet_model
+
+-------------------------------------------------------------------------------------------------
+bin 	     monojet_photon_cr
+observation  -1 
+-------------------------------------------------------------------------------------------------
+bin          		monojet_photon_cr   	monojet_photon_cr      
+process      		gjet		     	non_prompt 
+process      		7       		8       
+rate         		1      		 	-1      
+-------------------------------------------------------------------------------------------------
+photon_purity  lnN      -			1.5
+
+-------------------------------------------------------------------------------------------------
+# Parametric uncertainties associated to control regions fits
+
+mr param 0.0 1
+mf param 0.0 1
+mr2 param 0.0 1
+mf2 param 0.0 1
+pdf param 0.0 1
+fp param 0.0 1
+PhotonEfficiency param 0.0 1
+ewk_monojet_bin0 param 1.0 1
+ewk_monojet_bin1 param 1.0 1
+ewk_monojet_bin2 param 1.0 1
+ewk_monojet_bin3 param 1.0 1
+ewk_monojet_bin4 param 1.0 1
+ewk_monojet_bin5 param 1.0 1
+ewk_monojet_bin6 param 1.0 1
+ewk_monojet_bin7 param 1.0 1
+ewk_monojet_bin8 param 1.0 1
+ewk_monojet_bin9 param 1.0 1
+ewk_monojet_bin10 param 1.0 1
+ewk_monojet_bin11 param 1.0 1
+ewk_monojet_bin12 param 1.0 1
+ewk_monojet_bin13 param 1.0 1
+ewk_monojet_bin14 param 1.0 1
+ewk_monojet_bin15 param 1.0 1
+ewk_monojet_bin16 param 1.0 1
+ewk_monojet_bin17 param 1.0 1
+ewk_monojet_bin18 param 1.0 1
+monojet_stat_error_photonCR_bin0 param 0.0 1
+monojet_stat_error_photonCR_bin1 param 0.0 1
+monojet_stat_error_photonCR_bin2 param 0.0 1
+monojet_stat_error_photonCR_bin3 param 0.0 1
+monojet_stat_error_photonCR_bin4 param 0.0 1
+monojet_stat_error_photonCR_bin5 param 0.0 1
+monojet_stat_error_photonCR_bin6 param 0.0 1
+monojet_stat_error_photonCR_bin7 param 0.0 1
+monojet_stat_error_photonCR_bin8 param 0.0 1
+monojet_stat_error_photonCR_bin9 param 0.0 1
+monojet_stat_error_photonCR_bin10 param 0.0 1
+monojet_stat_error_photonCR_bin11 param 0.0 1
+monojet_stat_error_photonCR_bin12 param 0.0 1
+monojet_stat_error_photonCR_bin13 param 0.0 1
+monojet_stat_error_photonCR_bin14 param 0.0 1
+monojet_stat_error_photonCR_bin15 param 0.0 1
+monojet_stat_error_photonCR_bin16 param 0.0 1
+monojet_stat_error_photonCR_bin17 param 0.0 1
+monojet_stat_error_photonCR_bin18 param 0.0 1

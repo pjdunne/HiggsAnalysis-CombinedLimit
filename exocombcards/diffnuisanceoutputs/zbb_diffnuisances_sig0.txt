@@ -1,0 +1,134 @@
+[?1034hname                                              b-only fit            s+b fit         rho
+CMS_scale_met                                    -0.00, 0.99        -0.00, 0.99       -0.05
+CMS_vhbb_BR_Hbb                                  +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_vhbb_QCD_SF_ZnunuHighPt_8TeV                 +0.00, 1.01        -0.00, 0.99       -0.00
+CMS_vhbb_QCD_SF_ZnunuLowPt_8TeV               * -0.00, 0.63*     * +0.00, 0.63*       -0.00
+CMS_vhbb_QCD_SF_ZnunuMedPt_8TeV               * -0.00, 0.85*     * -0.00, 0.85*       -0.04
+CMS_vhbb_TTModel_Znn_8TeV                     * +0.00, 0.60*     * -0.00, 0.59*       -0.07
+CMS_vhbb_TT_SF_ZnunuHighPt_8TeV                  +0.00, 0.90     * -0.00, 0.89*       +0.00
+CMS_vhbb_TT_SF_ZnunuLowPt_8TeV                   -0.00, 0.92        +0.00, 0.92       +0.01
+CMS_vhbb_TT_SF_ZnunuMedPt_8TeV                * +0.00, 0.88*     * +0.00, 0.88*       +0.01
+CMS_vhbb_WJSlope_Znn_8TeV                        -0.00, 1.00        -0.00, 0.99       -0.03
+CMS_vhbb_Wj0b_SF_ZnunuHighPt_8TeV                +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_vhbb_Wj0b_SF_ZnunuLowPt_8TeV                 -0.00, 0.99        +0.00, 0.99       +0.01
+CMS_vhbb_Wj0b_SF_ZnunuMedPt_8TeV                 +0.00, 0.99        +0.00, 0.99       +0.00
+CMS_vhbb_Wj1b_SF_ZnunuHighPt_8TeV                +0.00, 0.98        -0.00, 0.98       -0.00
+CMS_vhbb_Wj1b_SF_ZnunuLowPt_8TeV                 -0.00, 0.97        +0.00, 0.97       +0.01
+CMS_vhbb_Wj1b_SF_ZnunuMedPt_8TeV                 +0.00, 0.97        -0.00, 0.97       -0.00
+CMS_vhbb_Wj2b_SF_ZnunuHighPt_8TeV                +0.00, 0.98        -0.00, 0.98       -0.08
+CMS_vhbb_Wj2b_SF_ZnunuLowPt_8TeV                 -0.00, 0.98        -0.00, 0.98       -0.01
+CMS_vhbb_Wj2b_SF_ZnunuMedPt_8TeV                 +0.00, 0.97        -0.00, 0.97       -0.03
+CMS_vhbb_ZJSlope_Znn_8TeV                        +0.00, 0.96        -0.00, 0.97       -0.13
+CMS_vhbb_Zj0b_SF_ZnunuHighPt_8TeV                +0.00, 0.99        +0.00, 0.98       +0.01
+CMS_vhbb_Zj0b_SF_ZnunuLowPt_8TeV                 -0.00, 0.99        +0.00, 0.99       +0.00
+CMS_vhbb_Zj0b_SF_ZnunuMedPt_8TeV                 +0.00, 0.99        +0.00, 0.99       +0.00
+CMS_vhbb_Zj1b_SF_ZnunuHighPt_8TeV             * +0.00, 0.89*     * +0.00, 0.88*       +0.00
+CMS_vhbb_Zj1b_SF_ZnunuLowPt_8TeV              * -0.00, 0.89*     * +0.00, 0.89*       +0.01
+CMS_vhbb_Zj1b_SF_ZnunuMedPt_8TeV                 +0.00, 0.90        -0.00, 0.90       -0.00
+CMS_vhbb_Zj2bModel_Znn_8TeV                   * -0.00, 0.56*     * -0.00, 0.56*       -0.01
+CMS_vhbb_Zj2b_SF_ZnunuHighPt_8TeV             * +0.00, 0.84*     * -0.00, 0.85*       -0.23
+CMS_vhbb_Zj2b_SF_ZnunuLowPt_8TeV              * -0.00, 0.78*     * -0.00, 0.78*       -0.05
+CMS_vhbb_Zj2b_SF_ZnunuMedPt_8TeV              * +0.00, 0.83*     * -0.00, 0.83*       -0.08
+CMS_vhbb_Znn_res_j                            * +0.00, 0.62*     * +0.00, 0.59*       +0.03
+CMS_vhbb_Znn_scale_j                          ! +0.00, 0.36!     ! +0.00, 0.35!       +0.10
+CMS_vhbb_boost_EWK_8TeV                          +0.00, 1.00        -0.00, 0.99       -0.00
+CMS_vhbb_boost_QCD_8TeV                          +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_vhbb_eff_b                                * +0.00, 0.61*     * -0.00, 0.62*       -0.17
+CMS_vhbb_fake_b_8TeV                          * -0.00, 0.65*     * +0.00, 0.64*       +0.03
+CMS_vhbb_s_Top                                   +0.00, 0.91        +0.00, 0.90       +0.01
+CMS_vhbb_statQCD_ZnunuHighPt_bin1_8TeV           +0.00, 1.00        -0.00, 0.99       -0.00
+CMS_vhbb_statQCD_ZnunuHighPt_bin2_8TeV           +0.00, 1.00        -0.00, 0.99       -0.00
+CMS_vhbb_statQCD_ZnunuHighPt_bin3_8TeV           -0.00, 1.00        +0.00, 0.99       -0.00
+CMS_vhbb_statQCD_ZnunuLowPt_bin1_8TeV         * -0.00, 0.63*     * -0.00, 0.63*       -0.04
+CMS_vhbb_statQCD_ZnunuLowPt_bin2_8TeV         ! +0.00, 0.46!     ! +0.00, 0.46!       +0.01
+CMS_vhbb_statQCD_ZnunuLowPt_bin3_8TeV         * +0.00, 0.84*     * +0.00, 0.84*       +0.01
+CMS_vhbb_statQCD_ZnunuLowPt_bin4_8TeV            -0.00, 0.99        +0.00, 0.99       +0.00
+CMS_vhbb_statQCD_ZnunuLowPt_bin7_8TeV         * -0.00, 0.83*     * -0.00, 0.83*       -0.00
+CMS_vhbb_statQCD_ZnunuMedPt_bin14_8TeV           -0.00, 0.99        -0.00, 0.99       -0.00
+CMS_vhbb_statQCD_ZnunuMedPt_bin15_8TeV           +0.00, 0.99        -0.00, 0.99       -0.01
+CMS_vhbb_statQCD_ZnunuMedPt_bin1_8TeV            -0.00, 0.90        -0.00, 0.90       -0.02
+CMS_vhbb_statQCD_ZnunuMedPt_bin2_8TeV         * +0.00, 0.90*     * -0.00, 0.82*       -0.01
+CMS_vhbb_statQCD_ZnunuMedPt_bin3_8TeV            +0.00, 1.00        -0.00, 0.99       -0.00
+CMS_vhbb_statQCD_ZnunuMedPt_bin4_8TeV            +0.00, 1.00        +0.00, 0.99       +0.00
+CMS_vhbb_statQCD_ZnunuMedPt_bin5_8TeV            -0.00, 1.00        +0.00, 0.99       +0.00
+CMS_vhbb_statQCD_ZnunuMedPt_bin6_8TeV            +0.00, 1.01        +0.00, 0.99       +0.00
+CMS_vhbb_statQCD_ZnunuMedPt_bin7_8TeV            +0.00, 1.00        +0.00, 0.99       +0.00
+CMS_vhbb_statTT_ZnunuHighPt_bin16_8TeV           -0.00, 1.00        -0.00, 0.99       -0.02
+CMS_vhbb_statTT_ZnunuHighPt_bin17_8TeV           +0.00, 1.00        -0.00, 0.99       -0.03
+CMS_vhbb_statTT_ZnunuMedPt_bin20_8TeV            -0.00, 0.99        -0.00, 0.99       -0.01
+CMS_vhbb_statVVLF_ZnunuHighPt_bin13_8TeV         -0.00, 1.00        -0.00, 0.99       -0.01
+CMS_vhbb_statVVLF_ZnunuHighPt_bin14_8TeV         +0.00, 1.01        -0.00, 0.99       -0.01
+CMS_vhbb_statVVLF_ZnunuHighPt_bin15_8TeV         -0.00, 0.99        -0.00, 0.99       -0.01
+CMS_vhbb_statVVLF_ZnunuHighPt_bin16_8TeV         -0.00, 0.99        -0.00, 0.99       -0.02
+CMS_vhbb_statVVLF_ZnunuHighPt_bin17_8TeV         +0.00, 1.00        -0.00, 0.99       -0.01
+CMS_vhbb_statVVLF_ZnunuHighPt_bin18_8TeV         +0.00, 1.00        -0.00, 0.99       -0.02
+CMS_vhbb_statVVLF_ZnunuLowPt_bin15_8TeV          -0.00, 0.99        -0.00, 0.99       -0.00
+CMS_vhbb_statVVLF_ZnunuLowPt_bin16_8TeV          -0.00, 0.99        -0.00, 0.99       -0.00
+CMS_vhbb_statVVLF_ZnunuLowPt_bin17_8TeV          +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_vhbb_statVVLF_ZnunuLowPt_bin18_8TeV          -0.00, 0.99        -0.00, 0.99       -0.00
+CMS_vhbb_statVVLF_ZnunuLowPt_bin19_8TeV          +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_vhbb_statVVLF_ZnunuMedPt_bin17_8TeV          -0.00, 0.99        -0.00, 0.99       -0.01
+CMS_vhbb_statVVLF_ZnunuMedPt_bin18_8TeV          -0.00, 1.00        -0.00, 0.99       -0.00
+CMS_vhbb_statWH_hbb_ZnunuLowPt_bin19_8TeV         +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_vhbb_statWZ_ZnunuHighPt_bin16_8TeV           -0.00, 0.99        -0.00, 0.99       -0.01
+CMS_vhbb_statWZ_ZnunuHighPt_bin18_8TeV           +0.00, 0.99        -0.00, 0.99       -0.04
+CMS_vhbb_statWZ_ZnunuHighPt_bin19_8TeV           +0.00, 1.01        -0.00, 0.99       -0.03
+CMS_vhbb_statWZ_ZnunuLowPt_bin20_8TeV            +0.00, 0.99        -0.00, 0.99       -0.01
+CMS_vhbb_statWZ_ZnunuMedPt_bin20_8TeV            -0.00, 1.00        -0.00, 0.98       -0.02
+CMS_vhbb_statWj0b_ZnunuHighPt_bin16_8TeV         -0.00, 0.99        -0.00, 0.99       -0.00
+CMS_vhbb_statWj0b_ZnunuHighPt_bin19_8TeV         +0.00, 0.99        -0.00, 0.99       -0.01
+CMS_vhbb_statWj0b_ZnunuLowPt_bin19_8TeV          +0.00, 1.03        -0.00, 0.99       -0.00
+CMS_vhbb_statWj0b_ZnunuMedPt_bin19_8TeV          +0.00, 0.99        -0.00, 0.99       -0.01
+CMS_vhbb_statWj1b_ZnunuHighPt_bin14_8TeV         +0.00, 1.01        -0.00, 0.99       -0.01
+CMS_vhbb_statWj1b_ZnunuHighPt_bin15_8TeV         -0.00, 0.99        -0.00, 0.99       -0.01
+CMS_vhbb_statWj1b_ZnunuHighPt_bin16_8TeV         -0.00, 1.01        -0.00, 0.99       -0.01
+CMS_vhbb_statWj1b_ZnunuHighPt_bin17_8TeV         +0.00, 1.00        -0.00, 0.99       -0.01
+CMS_vhbb_statWj1b_ZnunuHighPt_bin19_8TeV         +0.00, 0.99        -0.00, 0.99       -0.02
+CMS_vhbb_statWj1b_ZnunuLowPt_bin13_8TeV          +0.00, 0.98        +0.00, 0.98       +0.01
+CMS_vhbb_statWj1b_ZnunuLowPt_bin14_8TeV          +0.00, 0.98        -0.00, 0.98       -0.01
+CMS_vhbb_statWj1b_ZnunuLowPt_bin15_8TeV          -0.00, 0.98        -0.00, 0.98       -0.01
+CMS_vhbb_statWj1b_ZnunuLowPt_bin16_8TeV          -0.00, 0.99        -0.00, 0.99       -0.00
+CMS_vhbb_statWj1b_ZnunuLowPt_bin17_8TeV          +0.00, 0.94        -0.00, 0.94       -0.02
+CMS_vhbb_statWj1b_ZnunuLowPt_bin18_8TeV          +0.00, 0.98        -0.00, 0.98       -0.01
+CMS_vhbb_statWj1b_ZnunuMedPt_bin13_8TeV          +0.00, 0.99        -0.00, 0.99       -0.00
+CMS_vhbb_statWj1b_ZnunuMedPt_bin14_8TeV          -0.00, 0.98        -0.00, 0.98       -0.01
+CMS_vhbb_statWj1b_ZnunuMedPt_bin15_8TeV          -0.00, 1.00        -0.00, 0.99       -0.01
+CMS_vhbb_statWj1b_ZnunuMedPt_bin16_8TeV          +0.00, 0.99        -0.00, 0.99       -0.01
+CMS_vhbb_statWj1b_ZnunuMedPt_bin17_8TeV          -0.00, 1.01        -0.00, 0.99       -0.01
+CMS_vhbb_statWj1b_ZnunuMedPt_bin19_8TeV          +0.00, 1.00        -0.00, 0.99       -0.01
+CMS_vhbb_statWj2b_ZnunuHighPt_bin19_8TeV         +0.00, 0.99        -0.00, 0.99       -0.02
+CMS_vhbb_statWj2b_ZnunuHighPt_bin20_8TeV         -0.00, 0.99        -0.00, 0.99       -0.01
+CMS_vhbb_statWj2b_ZnunuLowPt_bin19_8TeV          +0.00, 0.98        -0.00, 0.98       -0.02
+CMS_vhbb_statWj2b_ZnunuLowPt_bin20_8TeV          +0.00, 0.99        -0.00, 0.99       -0.01
+CMS_vhbb_statWj2b_ZnunuMedPt_bin20_8TeV          -0.00, 0.99        -0.00, 0.99       -0.01
+CMS_vhbb_statZj0b_ZnunuHighPt_bin18_8TeV         +0.00, 0.99        -0.00, 0.99       -0.02
+CMS_vhbb_statZj0b_ZnunuLowPt_bin19_8TeV          +0.00, 0.93        -0.00, 0.93       -0.03
+CMS_vhbb_statZj0b_ZnunuLowPt_bin20_8TeV          +0.00, 0.99        -0.00, 0.99       -0.01
+CMS_vhbb_statZj0b_ZnunuMedPt_bin18_8TeV          -0.00, 0.99        -0.00, 0.99       -0.01
+CMS_vhbb_statZj0b_ZnunuMedPt_bin19_8TeV          +0.00, 1.00        -0.00, 0.99       -0.01
+CMS_vhbb_statZj1b_ZnunuHighPt_bin16_8TeV         -0.00, 0.99        -0.00, 0.99       -0.02
+CMS_vhbb_statZj1b_ZnunuHighPt_bin17_8TeV         +0.00, 0.99        -0.00, 0.99       -0.03
+CMS_vhbb_statZj1b_ZnunuHighPt_bin18_8TeV         +0.00, 0.99        -0.00, 0.99       -0.02
+CMS_vhbb_statZj1b_ZnunuLowPt_bin15_8TeV       * -0.00, 0.82*     * -0.00, 0.82*       -0.03
+CMS_vhbb_statZj1b_ZnunuLowPt_bin16_8TeV       * -0.00, 0.87*     * -0.00, 0.87*       -0.03
+CMS_vhbb_statZj1b_ZnunuLowPt_bin19_8TeV          +0.00, 0.99        -0.00, 0.99       -0.01
+CMS_vhbb_statZj1b_ZnunuMedPt_bin17_8TeV          -0.00, 1.02        -0.00, 0.98       -0.01
+CMS_vhbb_statZj1b_ZnunuMedPt_bin18_8TeV          -0.00, 0.99        -0.00, 0.98       -0.02
+CMS_vhbb_statZj1b_ZnunuMedPt_bin19_8TeV          +0.00, 1.00        -0.00, 0.98       -0.03
+CMS_vhbb_statZj2b_ZnunuHighPt_bin20_8TeV         +0.00, 0.98        -0.00, 0.98       -0.03
+CMS_vhbb_statZj2b_ZnunuMedPt_bin20_8TeV          -0.00, 0.98        -0.00, 0.98       -0.02
+CMS_vhbb_stats_Top_ZnunuHighPt_bin13_8TeV         -0.00, 0.98        -0.00, 0.98       -0.02
+CMS_vhbb_stats_Top_ZnunuHighPt_bin15_8TeV         -0.00, 0.97        -0.00, 0.97       -0.04
+CMS_vhbb_stats_Top_ZnunuHighPt_bin16_8TeV         -0.00, 1.01        -0.00, 0.98       -0.03
+CMS_vhbb_stats_Top_ZnunuLowPt_bin18_8TeV         -0.00, 0.98        -0.00, 0.98       -0.02
+CMS_vhbb_stats_Top_ZnunuMedPt_bin15_8TeV         +0.00, 0.99        -0.00, 0.99       -0.01
+CMS_vhbb_stats_Top_ZnunuMedPt_bin18_8TeV         -0.00, 1.01        -0.00, 0.98       -0.02
+CMS_vhbb_stats_Top_ZnunuMedPt_bin19_8TeV         +0.00, 1.00        -0.00, 0.99       -0.02
+CMS_vhbb_stats_Top_ZnunuMedPt_bin20_8TeV         -0.00, 0.93        -0.00, 0.91       -0.05
+CMS_vhbb_trigger_CSV_Znn_8TeV                    -0.00, 0.99        +0.00, 0.99       +0.00
+CMS_vhbb_trigger_CSV_fake_Znn_8TeV               -0.00, 0.99        -0.00, 0.99       -0.00
+CMS_vhbb_trigger_MET_Znn_8TeV                    -0.00, 0.98        -0.00, 0.98       -0.02
+QCDscale_VH                                      +0.00, 0.99        -0.00, 0.99       -0.00
+QCDscale_VV                                      +0.00, 0.95        -0.00, 0.98       -0.22
+lumi_8TeV                                        -0.00, 0.98        -0.00, 0.99       -0.09
+pdf_qqbar                                        +0.00, 0.97        -0.00, 0.99       -0.16
