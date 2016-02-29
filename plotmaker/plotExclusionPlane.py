@@ -175,12 +175,18 @@ def makePlot():
       if i==0:
         print xvalues[j]
       if (j%6==0):
-        down95values.append([xvalues[j][0],yvalues[i][0],xvalues[j][1]])
-        down68values.append([xvalues[j][0],yvalues[i][0],xvalues[j+1][1]])
-        medianvalues.append([xvalues[j][0],yvalues[i][0],xvalues[j+2][1]])
-        up68values.append([xvalues[j][0],yvalues[i][0],xvalues[j+3][1]])
-        up95values.append([xvalues[j][0],yvalues[i][0],xvalues[j+4][1]])
-        obsvalues.append([xvalues[j][0],yvalues[i][0],xvalues[j+5][1]])
+        if len(xvalues)>j : down95values.append([xvalues[j][0],yvalues[i][0],xvalues[j][1]])
+        else : down95values.append([xvalues[j][0],yvalues[i][0],100])
+        if len(xvalues)>j+1 : down68values.append([xvalues[j][0],yvalues[i][0],xvalues[j+1][1]])
+        else : down68values.append([xvalues[j][0],yvalues[i][0],100])
+        if len(xvalues)>j+2 : medianvalues.append([xvalues[j][0],yvalues[i][0],xvalues[j+2][1]])
+        else : medianvalues.append([xvalues[j][0],yvalues[i][0],100])
+        if len(xvalues)>j+3 : up68values.append([xvalues[j][0],yvalues[i][0],xvalues[j+3][1]])
+        else : up68values.append([xvalues[j][0],yvalues[i][0],100])
+        if len(xvalues)>j+4 : up95values.append([xvalues[j][0],yvalues[i][0],xvalues[j+4][1]])
+        else : up95values.append([xvalues[j][0],yvalues[i][0],100])
+        if len(xvalues)>j+5 : obsvalues.append([xvalues[j][0],yvalues[i][0],xvalues[j+5][1]])
+        else : obsvalues.append([xvalues[j][0],yvalues[i][0],100])
         if(i==0):
           xbincenters.append(xvalues[j][0])
             
@@ -210,12 +216,14 @@ def makePlot():
   #axis = makeHist('hist2d', 5*len(xbincenters), 5*len(ybincenters), graph_exp)
   axis = r.TH2D('hist2d','', len(xbincenters), graph_exp.GetXmin(), graph_exp.GetXmax(), len(ybincenters), graph_exp.GetYmin(), graph_exp.GetYmax())
 
-  h_exp = makeHist("h_exp", len(xbincenters), len(ybincenters), graph_exp)
-  h_obs = makeHist("h_obs", len(xbincenters), len(ybincenters), graph_obs)
-  h_minus1sigma = makeHist("h_minus1sigma", len(xbincenters), len(ybincenters), graph_minus1sigma)
-  h_plus1sigma = makeHist("h_plus1sigma", len(xbincenters), len(ybincenters), graph_plus1sigma)
-  h_minus2sigma = makeHist("h_minus2sigma", len(xbincenters), len(ybincenters), graph_minus2sigma)
-  h_plus2sigma = makeHist("h_plus2sigma", len(xbincenters), len(ybincenters), graph_plus2sigma)
+  pointmultiple=5
+
+  h_exp = makeHist("h_exp", pointmultiple*len(xbincenters), pointmultiple*len(ybincenters), graph_exp)
+  h_obs = makeHist("h_obs", pointmultiple*len(xbincenters), pointmultiple*len(ybincenters), graph_obs)
+  h_minus1sigma = makeHist("h_minus1sigma", pointmultiple*len(xbincenters), pointmultiple*len(ybincenters), graph_minus1sigma)
+  h_plus1sigma = makeHist("h_plus1sigma", pointmultiple*len(xbincenters), pointmultiple*len(ybincenters), graph_plus1sigma)
+  h_minus2sigma = makeHist("h_minus2sigma", pointmultiple*len(xbincenters), pointmultiple*len(ybincenters), graph_minus2sigma)
+  h_plus2sigma = makeHist("h_plus2sigma", pointmultiple*len(xbincenters), pointmultiple*len(ybincenters), graph_plus2sigma)
 
   fillTH2(h_exp, graph_exp)
   fillTH2(h_obs, graph_obs)
@@ -237,14 +245,14 @@ def makePlot():
   pads[0].Draw()
 #  canv.Clear()
 #  canv.SetLogy(False)
-  pads[0].SetLogx(True)
+#  pads[0].SetLogx(True)
   leg = r.TLegend(0.15, 0.55, 0.52, 0.89)
   leg.SetFillStyle(0)
   leg.SetBorderSize(0)
   leg.SetTextFont(62)
 
-  axis.GetXaxis().SetTitle('m_{H} [GeV]')
-  axis.GetYaxis().SetTitle('m_{DM} [GeV]')
+  axis.GetXaxis().SetTitle('log(m_{DM}[GeV])')
+  axis.GetYaxis().SetTitle('log(m_{A} [GeV])')
   axis.SetTitleSize(.05,"X")
   axis.SetTitleOffset(0.75,"X")
   axis.SetTitleSize(.05,"Y")
@@ -312,9 +320,9 @@ def makePlot():
 
   leg.SetHeader('95% CL exclusion limits')
   
-  if cont_minus1sigma[0] : leg.AddEntry(cont_minus1sigma[0], "#pm 1#sigma Expected", "F")
-  if cont_exp[0] : leg.AddEntry(cont_exp[0],"Expected exclusion", "F")
-  if cont_minus2sigma[0] : leg.AddEntry(cont_minus2sigma[0], "#pm 2#sigma Expected", "F")
+  if len(cont_minus1sigma)>0 : leg.AddEntry(cont_minus1sigma[0], "#pm 1#sigma Expected", "F")
+  if len(cont_exp)>0 : leg.AddEntry(cont_exp[0],"Expected exclusion", "F")
+  if len(cont_minus2sigma)>0 : leg.AddEntry(cont_minus2sigma[0], "#pm 2#sigma Expected", "F")
 
   # draw dummy hist and multigraph
   # dummyHist.SetMinimum(ybinedges[0])

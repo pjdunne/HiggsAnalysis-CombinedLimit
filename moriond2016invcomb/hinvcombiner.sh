@@ -13,7 +13,7 @@ for dir in 125
 #  combine -M Asymptotic --cl $cl -m $dir -n VBF vbfhinv_125_8TeV.txt | tee combineoutput${dir}.log
 #  combine -M Asymptotic --cl $cl -m $dir -n ggH combined_monojet_hinv.txt
 
-  combineCards.py -S vbfhinv*.txt zllhinv*.txt >hinvcombinedcard.txt
+  combineCards.py vbfhinv*.txt #zllhinv*.txt >hinvcombinedcard.txt
 #  combine -M Asymptotic --cl $cl -m $dir -n Comb hinvcombinedcard.txt
   cd ..
 done
