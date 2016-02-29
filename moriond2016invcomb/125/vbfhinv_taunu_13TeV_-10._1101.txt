@@ -1,0 +1,47 @@
+# Invisible Higgs analysis for mH=125 GeV
+imax 1
+jmax *  number of backgrounds
+kmax *  number of nuisance parameters (sources of systematical uncertainties)
+shapes *    ch1  FAKE
+bin ch1
+observation 26
+------------
+bin			ch1	ch1	ch1	ch1	ch1	ch1	ch1	ch1	ch1
+process			wmuqcd	wmuewk	welqcd	welewk	wtauqcd	wtauewk	top	qcd	vv
+process			1	2	3	4	5	6	7	8	9
+rate			0.367	0	0.145	0.2187	11.2	5.401	7.157	0.5199	0
+------------
+lumi_13TeV	lnN	1.027	1.027	1.027	1.027	1.027	1.027	1.027	1.027	1.027
+CMS_scale_j	lnN	0.9977/1.126	-	0.9986/1.001	0.9922/1.007	0.972/1.072	0.9519/1.114	0.9243/1.078	0.9443/1.049	-
+CMS_res_j	lnN	1.125/0.9991	-	2.852/0.9987	1.003/0.9974	1.021/0.9624	1.06/0.9653	1.041/0.966	1.046/0.9494	-
+CMS_scale_met	lnN	1/1.122	-	0.9899/2.667	1.009/0.9894	0.9993/1.025	0.9961/1.023	0.9874/1.029	1.004/0.9956	-
+CMS_VBFHinv_puweight	lnN	0.847/1.106	-	1.419/0.8951	1.127/0.8506	0.9848/1.028	0.9604/1.031	0.9981/0.9967	1.082/0.8814	-
+CMS_VBFHinv_trig0weight	lnN	1.002/0.9952	-	1.012/0.9837	1.024/0.9728	1.003/0.9961	1.005/0.9931	1.01/0.9876	1.045/0.9599	-
+CMS_VBFHinv_trig1weight	lnN	0.9992/0.9998	-	0.9944/1.004	0.9878/1.009	0.9988/0.9996	0.9978/1.001	0.9943/1.004	0.967/1.028	-
+CMS_VBFHinv_trig2weight	lnN	1.015/0.9849	-	1.016/0.9843	1.019/0.9815	1.022/0.978	1.02/0.9795	1.019/0.9805	1.021/0.9789	-
+CMS_VBFHinv_wmu_qcd_norm	lnN	1.393	-	-	-	-	-	-	-	-
+CMS_VBFHinv_wmu_ewk_norm	lnN	-	1	-	-	-	-	-	-	-
+CMS_VBFHinv_wel_qcd_norm	lnN	-	-	1.746	-	-	-	-	-	-
+CMS_VBFHinv_wel_ewk_norm	lnN	-	-	-	1.715	-	-	-	-	-
+CMS_VBFHinv_wtau_qcd_norm	lnN	-	-	-	-	1.1	-	-	-	-
+CMS_VBFHinv_wtau_ewk_norm	lnN	-	-	-	-	-	1.146	-	-	-
+CMS_VBFHinv_tau_eff	lnN	-	-	-	-	1.06	1.06	-	-	-
+CMS_VBFHinv_tau_extrapfacunc	lnN	-	-	-	-	1.2	1.2	-	-	-
+CMS_VBFHinv_top_norm	lnN	-	-	-	-	-	-	1.055	-	-
+CMS_VBFHinv_top_xsunc	lnN	-	-	-	-	-	-	1.1	-	-
+CMS_VBFHinv_qcd_norm	lnN	-	-	-	-	-	-	-	2	-
+CMS_VBFHinv_vv_norm	lnN	-	-	-	-	-	-	-	-	1
+CMS_VBFHinv_vv_xsunc	lnN	-	-	-	-	-	-	-	-	1.007
+
+
+WZ_xsection rateParam ch1 zvvewk 1
+WZ_xsection rateParam ch1 zvvqcd 1
+WZ_xsection rateParam ch1 mumuqcd 1
+WZ_xsection rateParam ch1 wmuqcd 1
+WZ_xsection rateParam ch1 welqcd 1
+WZ_xsection rateParam ch1 wtauqcd 1
+WZ_xsection rateParam ch1 mumuewk 1
+WZ_xsection rateParam ch1 wmuewk 1
+WZ_xsection rateParam ch1 welewk 1
+WZ_xsection rateParam ch1 wtauewk 1
+QCD_xsection rateParam ch1 qcd 1

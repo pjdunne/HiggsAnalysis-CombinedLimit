@@ -1,0 +1,44 @@
+Combination of histo_limits_zllhinvll0j_mh125_shape_13TeV2015_bin4.txt
+imax 1 number of bins
+jmax 6 number of processes minus 1
+kmax 29 number of nuisance parameters
+----------------------------------------------------------------------------------------------------------------------------------
+shapes *    ch1  FAKE
+----------------------------------------------------------------------------------------------------------------------------------
+bin          ch1        
+observation  0.0        
+----------------------------------------------------------------------------------------------------------------------------------
+bin                                                                       ch1          ch1          ch1          ch1          ch1          ch1          ch1        
+process                                                                   ggZH_hinv    ZH_hinv      EM           VVV          ZZ           Zjets        WZ         
+process                                                                   -1           0            1            2            3            4            5          
+rate                                                                      0.0376       0.3886       0.0013       0.0024       0.5032       0.0079       0.1757     
+----------------------------------------------------------------------------------------------------------------------------------
+CMS_eff_b               lnN                                               1.02         1.02         -            1.02         1.02         -            1.02       
+CMS_eff_e               lnN                                               1.02         1.02         -            1.02         1.02         -            1.02       
+CMS_eff_m               lnN                                               1.02         1.02         -            1.02         1.02         -            1.02       
+CMS_scale_e             lnN                                               1.01         1.01         -            1.01         1.01         -            1.01       
+CMS_scale_j             lnN                                               0.949/1.031  0.949/1.031  -            0.933/1.016  0.972/1.024  -            0.858/1.001
+CMS_scale_m             lnN                                               1.01         1.01         -            1.01         1.01         -            1.01       
+CMS_scale_met           lnN                                               0.998/1.002  0.998/1.002  -            0.998/1.002  0.998/1.002  -            0.998/1.002
+CMS_zllhinv_EMNorm_ll0j_13TeV2015   gmN  2                                -            -            0.00064      -            -            -            -          
+CMS_zllhinv_EMSyst_ll0j_13TeV2015   lnN                                   -            -            1.05759      -            -            -            -          
+CMS_zllhinv_ZLLNorm_ll0j_13TeV2015   lnN                                  -            -            -            -            -            2.0          -          
+CMS_zllhinv_ZLLShape_ll0j_13TeV2015   lnN                                 -            -            -            -            -            0.477/1.523  -          
+CMS_zllhinv_ggZZCorr    lnN                                               -            -            -            -            1.1          -            -          
+CMS_zllhinvll0j_MVAEMStatBounding_13TeV2015_Bin4   lnN                    -            -            2.0          -            -            -            -          
+CMS_zllhinvll0j_MVAVVVStatBounding_13TeV2015_Bin4   gmN  16               -            -            -            0.00015      -            -            -          
+CMS_zllhinvll0j_MVAWZStatBounding_13TeV2015_Bin4   lnN                    -            -            -            -            -            -            1.27204    
+CMS_zllhinvll0j_MVAZHStatBounding_13TeV2015_Bin4   lnN                    -            1.09112      -            -            -            -            -          
+CMS_zllhinvll0j_MVAZZStatBounding_13TeV2015_Bin4   lnN                    -            -            -            -            1.0272       -            -          
+CMS_zllhinvll0j_MVAZjetsStatBounding_13TeV2015_Bin4   gmN  2              -            -            -            -            -            0.00393      -          
+CMS_zllhinvll0j_MVAggZHStatBounding_13TeV2015_Bin4   lnN                  1.22854      -            -            -            -            -            -          
+QCDscale_VH             lnN                                               -            1.035        -            -            -            -            -          
+QCDscale_VH_ACCEPT      lnN                                               -            1.01321      -            -            -            -            -          
+QCDscale_VV             lnN                                               -            -            -            -            1.02898      -            1.05066    
+QCDscale_VVV            lnN                                               -            -            -            1.07457      -            -            -          
+QCDscale_ggVH           lnN                                               1.231        -            -            -            -            -            -          
+UEPS                    lnN                                               1.03         1.03         -            -            -            -            -          
+lumi_13TeV2015          lnN                                               1.027        1.027        -            1.027        1.027        -            1.027      
+pdf_gg                  lnN                                               1.051        -            -            -            -            -            -          
+pdf_qqbar               lnN                                               -            1.016        -            -            -            -            -          
+pdf_qqbar_ACCEPT        lnN                                               -            1.0114       -            1.06509      1.01737      -            1.01782    

@@ -1,0 +1,58 @@
+# Invisible Higgs analysis for mH=125 GeV
+imax 1
+jmax *  number of backgrounds
+kmax *  number of nuisance parameters (sources of systematical uncertainties)
+shapes *    ch1  FAKE
+bin ch1
+observation 112.7
+------------
+bin			ch1	ch1	ch1	ch1	ch1	ch1	ch1	ch1	ch1	ch1	ch1	ch1	ch1
+process			qqH	ggH	zvvqcd	zvvewk	wmuqcd	wmuewk	welqcd	welewk	wtauqcd	wtauewk	top	qcd	vv
+process			-1	0	1	2	3	4	5	6	7	8	9	10	11
+rate			53.63	5.397	36.76	20.4	12.84	4.175	8.81	5.205	12.4	5.415	2.259	3.8	0.6808
+------------
+lumi_13TeV	lnN	1.027	1.027	1.027	1.027	1.027	1.027	1.027	1.027	1.027	1.027	1.027	1.027	1.027
+CMS_scale_j	lnN	0.9563/1.082	1.074/1.167	0.9486/1.051	0.9606/1.024	0.9838/1.092	0.9366/1.118	0.9397/1.089	1.084/1.063	1.011/0.9858	1.083/0.891	1.048/1.012	2.072/1	0.9949/1.005
+CMS_res_j	lnN	1.039/0.9867	1.003/1.048	1.03/0.975	1.009/0.9869	1.076/1.004	1.033/0.9596	0.9889/0.9632	1.009/0.9882	0.9894/0.9761	0.9855/1.005	1.074/0.9732	2.372/1	1.003/1.023
+CMS_scale_met	lnN	1.018/1.006	1.004/0.9958	0.9873/1.002	0.9979/0.9937	0.9945/1.011	1.027/1.008	0.9965/1.015	0.999/1.03	0.9945/1.001	1/1	1.006/1.012	0.9998/1	0.997/1.003
+CMS_VBFHinv_puweight	lnN	0.9986/1.003	0.9121/1.114	1.002/0.9954	0.9789/1.017	0.9699/1.022	0.995/0.9756	1.023/0.9769	1.058/0.9546	1.035/0.9723	0.9258/1.063	0.9863/0.9967	0.8603/1.055	1.239/0.7992
+CMS_VBFHinv_trig0weight	lnN	1.005/0.9936	0.9932/1.005	1/0.998	1/0.9986	1.002/0.9961	1.007/0.9905	1.005/0.992	0.9971/1.001	1.001/0.9974	1.001/0.9963	1.005/0.9933	0.9925/1.006	1.003/0.9944
+CMS_VBFHinv_trig1weight	lnN	0.9983/0.9995	1.005/0.9936	1.001/0.9977	1/0.9983	0.9995/0.9985	0.9955/1.002	0.9985/0.9982	1.003/0.9959	1.001/0.9974	1.001/0.9975	0.998/0.9997	1.004/0.9961	0.999/0.9997
+CMS_VBFHinv_trig2weight	lnN	1.025/0.9746	1.027/0.9727	1.023/0.9768	1.022/0.9783	1.024/0.9761	1.021/0.9791	1.03/0.97	1.022/0.9783	1.025/0.9747	1.024/0.9755	1.025/0.9754	1.015/0.9849	1.018/0.9818
+CMS_VBFHinv_zvv_ewk_norm	lnN	-	-	-	1.062	-	-	-	-	-	-	-	-	-
+CMS_VBFHinv_zvv_qcd_norm	lnN	-	-	1.032	-	-	-	-	-	-	-	-	-	-
+CMS_WZQCD_ratio_from_theory	lnN	-	-	1.15	-	-	-	-	-	-	-	-	-	-
+CMS_WZEWK_ratio_from_theory	lnN	-	-	-	1.15	-	-	-	-	-	-	-	-	-
+CMS_VBFHinv_wmu_qcd_norm	lnN	-	-	-	-	1.12	-	-	-	-	-	-	-	-
+CMS_VBFHinv_wmu_ewk_norm	lnN	-	-	-	-	-	1.166	-	-	-	-	-	-	-
+CMS_VBFHinv_wel_qcd_norm	lnN	-	-	-	-	-	-	1.143	-	-	-	-	-	-
+CMS_VBFHinv_wel_ewk_norm	lnN	-	-	-	-	-	-	-	1.153	-	-	-	-	-
+CMS_VBFHinv_wtau_qcd_norm	lnN	-	-	-	-	-	-	-	-	1.124	-	-	-	-
+CMS_VBFHinv_wtau_ewk_norm	lnN	-	-	-	-	-	-	-	-	-	1.142	-	-	-
+CMS_VBFHinv_tau_eff	lnN	-	-	-	-	-	-	-	-	1.06	1.06	-	-	-
+CMS_VBFHinv_top_norm	lnN	-	-	-	-	-	-	-	-	-	-	1.116	-	-
+CMS_VBFHinv_top_xsunc	lnN	-	-	-	-	-	-	-	-	-	-	1.1	-	-
+CMS_VBFHinv_qcd_norm	lnN	-	-	-	-	-	-	-	-	-	-	-	2	-
+CMS_VBFHinv_qcd_extrap	lnN	-	-	-	-	-	-	-	-	-	-	-	2	-
+CMS_VBFHinv_vv_norm	lnN	-	-	-	-	-	-	-	-	-	-	-	-	1.445
+CMS_VBFHinv_vv_xsunc	lnN	-	-	-	-	-	-	-	-	-	-	-	-	1.007
+CMS_VBFHinv_qqH_norm	lnN	1.04	-	-	-	-	-	-	-	-	-	-	-	-
+QCDscale_qqH	lnN	1.004	-	-	-	-	-	-	-	-	-	-	-	-
+pdf_qqbar	lnN	1.021	-	-	-	-	-	-	-	-	-	-	-	-
+CMS_VBFHinv_ggH_norm	lnN	-	1.29	-	-	-	-	-	-	-	-	-	-	-
+QCDscale_ggH2in	lnN	-	1.553	-	-	-	-	-	-	-	-	-	-	-
+pdf_gg	lnN	-	1.031	-	-	-	-	-	-	-	-	-	-	-
+UEPS	lnN	-	1.168	-	-	-	-	-	-	-	-	-	-	-
+
+
+WZ_xsection rateParam ch1 zvvewk 1
+WZ_xsection rateParam ch1 zvvqcd 1
+WZ_xsection rateParam ch1 mumuqcd 1
+WZ_xsection rateParam ch1 wmuqcd 1
+WZ_xsection rateParam ch1 welqcd 1
+WZ_xsection rateParam ch1 wtauqcd 1
+WZ_xsection rateParam ch1 mumuewk 1
+WZ_xsection rateParam ch1 wmuewk 1
+WZ_xsection rateParam ch1 welewk 1
+WZ_xsection rateParam ch1 wtauewk 1
+QCD_xsection rateParam ch1 qcd 1

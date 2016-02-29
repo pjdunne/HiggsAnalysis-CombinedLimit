@@ -1,0 +1,72 @@
+# Invisible Higgs analysis for mH=125 GeV
+imax 1
+jmax *  number of backgrounds
+kmax *  number of nuisance parameters (sources of systematical uncertainties)
+shapes *    ch1  FAKE
+bin ch1
+#observation 975
+observation 862
+------------
+bin			ch1	ch1	ch1
+process			qqH	ggH	bkg
+process			-1	0	1
+rate			579.5	46.95	741
+------------
+bkg_stat	lnN	-	-	1.071
+bkg_syst	lnN	-	-	1.099
+qqH_syst	lnN	1.114	-	-
+ggH_syst	lnN	-	1.688	-
+
+
+# bin			ch1	ch1	ch1	ch1	ch1	ch1	ch1	ch1	ch1
+# process		qqH	ggH	zvv	wmu	wel	wtau	top	vv	qcd
+# process		-1	0	1	2	3	4	5	6	7
+#8tev rate		273.068	23.0519	158.142	102.486	57.8666	94.567	5.45832	3.87778	17
+#8tevxs			1.578	19.27	3504.6	37509	-	-	360.7	105.7	?
+#13tevxs		3.748	43.92	6024	61526.7	-	-	977	228.8	?
+
+#bkg sum without QCD is 713.2, was 422.4 QCD at 3.9% it was before would now be 27.8
+
+#8 TeV stat uncs:
+#Z 37.3
+#W 16.3
+
+#scale stat uncs by sqrt(sigma_13/sigma_8)
+#Z 48.9
+#W 20.9
+
+#leave syst the same as a percentage for 20fb-1
+
+#13 tev background xs from https://github.com/CERN-PH-CMG/cmg-cmssw/blob/CMGTools-from-CMSSW_7_4_12/CMGTools/RootTools/python/samples/samples_13TeV_RunIISpring15MiniAODv2.py
+#except vv which is calculated using ratio between WW here https://twiki.cern.ch/twiki/bin/viewauth/CMS/StandardModelCrossSectionsat13TeV and in AN2014_243
+#signal from https://twiki.cern.ch/twiki/bin/view/LHCPhysics/CERNYellowReportPageAt1314TeV
+# ------------
+# lumi_8TeV	lnN	1.026	1.026	-	-	-	-	-	1.026	-
+# CMS_eff_e	lnN	1/1	1/1	1/1	1/1	1.07769/0.930911	0.993707/1.00634	1.04465/0.955011	1.03365/0.972449	-
+# CMS_eff_m	lnN	1/1	1/1	1.02609/0.975306	1.00885/0.984313	1/1	1.00013/0.999952	0.998491/1.00055	1/1	-
+# CMS_scale_j	lnN	0.896949/1.09604	0.800551/1.18487	1.04504/1.05693	0.942052/1.08093	1.0126/1.069	0.961142/0.998471	0.910722/0.98441	0.876636/1.0852	-
+# CMS_res_j	lnN	1.01354/0.980713	0.989262/0.928956	1.01284/1.0493	1.0523/0.977535	1.03404/0.996484	0.950599/1.01119	1.02789/1.01919	1.0431/0.919076	-
+# CMS_scale_met	lnN	0.985764/1.00773	1.07533/1.08336	1.02429/1.01209	0.989228/1.01093	0.999804/1.00916	1.05026/1.03844	0.9936/0.998565	0.978102/0.987022	-
+# CMS_VBFHinv_puweight	lnN	1.01429/0.986724	1.0365/0.968668	1.01825/0.985522	1.00208/0.998471	0.98786/1.01112	0.984652/1.01554	1.00065/1.02249	1.00235/1.00597	-
+# CMS_VBFHinv_zvv_norm	lnN	-	-	1.115	-	-	-	-	-	-
+# CMS_VBFHinv_zvv_stat	gmN	18	-	-	8.78569	-	-	-	-	-	-
+# CMS_VBFHinv_wmu_norm	lnN	-	-	-	1.08039	-	-	-	-	-
+# CMS_VBFHinv_wmu_stat	lnN	-	-	-	1.06074	-	-	-	-	-
+# CMS_VBFHinv_wel_norm	lnN	-	-	-	-	1.10126	-	-	-	-
+# CMS_VBFHinv_wel_stat	lnN	-	-	-	-	1.12794	-	-	-	-
+# CMS_VBFHinv_tau_eff	lnN	-	-	-	-	-	1.08	-	-	-
+# CMS_VBFHinv_tau_extrapfacunc	lnN	-	-	-	-	-	1.2	-	-	-
+# CMS_VBFHinv_wtau_norm	lnN	-	-	-	-	-	1.11515	-	-	-
+# CMS_VBFHinv_wtau_stat	lnN	-	-	-	-	-	1.13898	-	-	-
+# CMS_VBFHinv_top_norm	lnN	-	-	-	-	-	-	1.24133	-	-
+# CMS_VBFHinv_top_norm	lnN	-	-	-	-	-	-	1.2	-	-
+# CMS_VBFHinv_qcd_norm	lnN	-	-	-	-	-	-	-	-	1.82353
+# CMS_VBFHinv_vv_norm	lnN	-	-	-	-	-	-	-	1.13152	-
+# CMS_VBFHinv_vv_xsunc	lnN	-	-	-	-	-	-	-	1.007	-
+# CMS_VBFHinv_qqH_norm	lnN	1.03373	-	-	-	-	-	-	-	-
+# QCDscale_qqH	lnN	1.002	-	-	-	-	-	-	-	-
+# pdf_qqbar	lnN	1.027	-	-	-	-	-	-	-	-
+# CMS_VBFHinv_ggH_norm	lnN	-	1.28205	-	-	-	-	-	-	-
+# QCDscale_ggH2in	lnN	-	1.553	-	-	-	-	-	-	-
+# pdf_gg	lnN	-	1.113	-	-	-	-	-	-	-
+# UEPS	lnN	-	1.168	-	-	-	-	-	-	-

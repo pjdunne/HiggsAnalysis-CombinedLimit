@@ -1,0 +1,4 @@
+1 /vols/cms04/pjd12/invcmssws/CMSSW_7_1_5/src/HiggsAnalysis/CombinedLimit/phenowork/cardmaker/extsyst_logmha1combineresults.root
+2.3 /vols/cms04/pjd12/invcmssws/CMSSW_7_1_5/src/HiggsAnalysis/CombinedLimit/phenowork/cardmaker/extsyst_logmha2.3combineresults.root
+3 /vols/cms04/pjd12/invcmssws/CMSSW_7_1_5/src/HiggsAnalysis/CombinedLimit/phenowork/cardmaker/extsyst_logmha3combineresults.root
+2 /vols/cms04/pjd12/invcmssws/CMSSW_7_1_5/src/HiggsAnalysis/CombinedLimit/phenowork/cardmaker/extsyst_logmha2combineresults.root

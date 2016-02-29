@@ -1,0 +1,46 @@
+# Invisible Higgs analysis for mH=125 GeV
+imax 1
+jmax *  number of backgrounds
+kmax *  number of nuisance parameters (sources of systematical uncertainties)
+shapes *    ch1  FAKE
+bin ch1
+observation 29
+------------
+bin			ch1	ch1	ch1	ch1	ch1	ch1	ch1	ch1	ch1
+process			wmuqcd	wmuewk	welqcd	welewk	wtauqcd	wtauewk	top	qcd	vv
+process			1	2	3	4	5	6	7	8	9
+rate			0	0	15.23	7.311	0.05224	0	1.434	0	0.3755
+------------
+lumi_13TeV	lnN	1.027	1.027	1.027	1.027	1.027	1.027	1.027	1.027	1.027
+CMS_scale_j	lnN	-	-	0.9757/1.096	0.8411/1.069	1/1	-	0.9523/0.9984	-	1/1
+CMS_res_j	lnN	-	-	1.087/1	1.005/0.9531	1/1	-	1.064/0.9288	-	1/1
+CMS_scale_met	lnN	-	-	0.9936/1.02	0.8975/1.028	1/1	-	0.9754/1.002	-	1/1
+CMS_VBFHinv_puweight	lnN	-	-	1.009/0.9945	1.024/0.9791	0.7071/1.246	-	1.07/0.9537	-	1.176/0.8161
+CMS_VBFHinv_trig0weight	lnN	-	-	1.002/0.9965	1.006/0.9928	0.9915/1.008	-	1.01/0.9876	-	0.9915/1.008
+CMS_VBFHinv_trig1weight	lnN	-	-	0.9994/0.9991	0.9971/1.001	1.004/0.9957	-	0.995/1.002	-	1.004/0.9957
+CMS_VBFHinv_trig2weight	lnN	-	-	1.021/0.9793	1.024/0.9764	1.015/0.9849	-	1.023/0.977	-	1.015/0.9849
+CMS_VBFHinv_wmu_qcd_norm	lnN	1	-	-	-	-	-	-	-	-
+CMS_VBFHinv_wmu_ewk_norm	lnN	-	1	-	-	-	-	-	-	-
+CMS_VBFHinv_wel_qcd_norm	lnN	-	-	1.093	-	-	-	-	-	-
+CMS_VBFHinv_wel_ewk_norm	lnN	-	-	-	1.122	-	-	-	-	-
+CMS_VBFHinv_wtau_qcd_norm	lnN	-	-	-	-	2	-	-	-	-
+CMS_VBFHinv_wtau_ewk_norm	lnN	-	-	-	-	-	1	-	-	-
+CMS_VBFHinv_tau_eff	lnN	-	-	-	-	1.06	1.06	-	-	-
+CMS_VBFHinv_top_norm	lnN	-	-	-	-	-	-	1.137	-	-
+CMS_VBFHinv_top_xsunc	lnN	-	-	-	-	-	-	1.1	-	-
+CMS_VBFHinv_qcd_norm	lnN	-	-	-	-	-	-	-	1	-
+CMS_VBFHinv_vv_norm	lnN	-	-	-	-	-	-	-	-	2
+CMS_VBFHinv_vv_xsunc	lnN	-	-	-	-	-	-	-	-	1.007
+
+
+WZ_xsection rateParam ch1 zvvewk 1
+WZ_xsection rateParam ch1 zvvqcd 1
+WZ_xsection rateParam ch1 mumuqcd 1
+WZ_xsection rateParam ch1 wmuqcd 1
+WZ_xsection rateParam ch1 welqcd 1
+WZ_xsection rateParam ch1 wtauqcd 1
+WZ_xsection rateParam ch1 mumuewk 1
+WZ_xsection rateParam ch1 wmuewk 1
+WZ_xsection rateParam ch1 welewk 1
+WZ_xsection rateParam ch1 wtauewk 1
+QCD_xsection rateParam ch1 qcd 1

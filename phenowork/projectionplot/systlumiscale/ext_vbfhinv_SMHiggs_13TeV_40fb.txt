@@ -1,0 +1,16 @@
+# Invisible Higgs analysis for SMHiggs
+imax 1 number of bins
+jmax 1 number of backgrounds
+kmax * number of nuisance parameters (sources of systematic uncertainties)
+shapes * ch1 FAKE
+bin ch1
+observation 1884.79166667
+------------
+bin			ch1	ch1
+process			sig	bkg
+process			0	1
+rate			1531.04583333	1884.79166667
+------------
+bkg_stat	lnN	-	1.04711178197
+bkg_syst	lnN	-	1.06858921198
+sig_syst	lnN	1.07898151683	-
