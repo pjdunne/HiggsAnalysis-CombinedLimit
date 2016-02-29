@@ -28,6 +28,8 @@
 #include "../interface/HZZ4L_RooSpinZeroPdf_phase.h"
 #include "../interface/HZZ4L_RooSpinZeroPdf_2D.h"
 #include "../interface/HWWLVJJRooPdfs.h"
+#include "../interface/RooMorphingPdf.h"
+#include "../interface/GaussExp.h"
 
 #ifdef __CINT__
 #pragma link off all globals;
@@ -139,6 +141,7 @@
 #pragma link C++ class RooParamKeysPdf+;
 #pragma link C++ class RooStarMomentMorph+;
 
+#pragma link C++ class RooMorphingPdf+;
 #pragma link C++ class RooSigPlusInt+;
 #pragma link C++ class RooBWHighMassGGH+;
 #pragma link C++ class RooCPSHighMassGGH+;
@@ -154,5 +157,5 @@
 #pragma link C++ class RooPowerExpPdf+;
 #pragma link C++ class RooErfPdf+;
 #pragma link C++ class RooChebyshevPDF+;
-
+#pragma link C++ class GaussExp+;
 #endif 
