@@ -1,0 +1,260 @@
+Combination of higgs.txt
+imax 1 number of bins
+jmax 4 number of processes minus 1
+kmax 243 number of nuisance parameters
+----------------------------------------------------------------------------------------------------------------------------------
+shapes *                     ch1_monojet_singleel  combined_model.root combinedws:monojet_Wen_$PROCESS
+shapes data_obs              ch1_monojet_singleel  combined_model.root combinedws:monojet_Wen_data
+shapes wjets                 ch1_monojet_singleel  combined_model.root combinedws:monojet_singleelectron_wjets_model
+----------------------------------------------------------------------------------------------------------------------------------
+bin          ch1_monojet_singleel
+observation  -1.0                
+----------------------------------------------------------------------------------------------------------------------------------
+bin                             ch1_monojet_singleel  ch1_monojet_singleel  ch1_monojet_singleel  ch1_monojet_singleel  ch1_monojet_singleel
+process                         zll                   top                   diboson               wjets                 qcd                 
+process                         1                     2                     3                     4                     5                   
+rate                            -1                    -1                    -1                    1.0000                -1                  
+----------------------------------------------------------------------------------------------------------------------------------
+btag                    lnN     1.02                  1.06                  1.02                  -                     1.02                
+dibos                   lnN     -                     -                     1.2                   -                     -                   
+elSF                    lnN     1.02                  1.02                  1.02                  1.02                  1.02                
+etrig                   lnN     1.01                  1.01                  1.01                  1.01                  1.01                
+lumi                    lnN     1.046                 1.046                 1.046                 -                     1.046               
+met                     lnN     1.04                  1.04                  1.04                  -                     1.04                
+muSF                    lnN     -                     -                     -                     -                     -                   
+phoSF                   lnN     -                     -                     -                     -                     -                   
+qcd_e                   lnN     -                     -                     -                     -                     1.5                 
+qcd_m                   lnN     -                     -                     -                     -                     -                   
+qcd_p                   lnN     -                     -                     -                     -                     -                   
+qcd_s                   lnN     -                     -                     -                     -                     -                   
+tauVe                   lnN     1.03                  1.03                  1.03                  1.03                  1.03                
+top                     lnN     -                     1.1                   -                     -                     -                   
+zll                     lnN     -                     -                     -                     -                     -                   
+monov_stat_error_singleelectronCR_bin0  param  0.0 1
+renscale      param  0.0 1
+monojet_stat_error_photonCR_bin21  param  0.0 1
+monojet_stat_error_photonCR_bin20  param  0.0 1
+monojet_stat_error_singleelectronCR_bin15  param  0.0 1
+monojet_stat_error_dielectronCR_bin17  param  0.0 1
+monojet_stat_error_dielectronCR_bin16  param  0.0 1
+monojet_stat_error_dielectronCR_bin15  param  0.0 1
+monojet_stat_error_dielectronCR_bin14  param  0.0 1
+monojet_stat_error_dielectronCR_bin13  param  0.0 1
+monojet_stat_error_dielectronCR_bin12  param  0.0 1
+monojet_stat_error_dielectronCR_bin11  param  0.0 1
+monojet_stat_error_dielectronCR_bin10  param  0.0 1
+ewk_monojet_bin18  param  0.0 1
+ewk_monojet_bin19  param  0.0 1
+monojet_stat_error_dielectronCR_bin19  param  0.0 1
+monojet_stat_error_dielectronCR_bin18  param  0.0 1
+wpdf          param  0.0 1
+w_ewk_monov_bin1  param  0.0 1
+w_ewk_monov_bin0  param  0.0 1
+w_ewk_monov_bin3  param  0.0 1
+w_ewk_monov_bin2  param  0.0 1
+w_ewk_monov_bin5  param  0.0 1
+w_ewk_monov_bin4  param  0.0 1
+monojet_stat_error_wzCR_bin20  param  0.0 1
+monojet_stat_error_wzCR_bin21  param  0.0 1
+monov_stat_error_dimuonCR_bin1  param  0.0 1
+monojet_stat_error_wzCR_bin9  param  0.0 1
+monojet_stat_error_wzCR_bin8  param  0.0 1
+monov_stat_error_dimuonCR_bin0  param  0.0 1
+monojet_stat_error_wzCR_bin3  param  0.0 1
+ewk_monojet_bin3  param  0.0 1
+ewk_monojet_bin0  param  0.0 1
+ewk_monojet_bin1  param  0.0 1
+monojet_stat_error_wzCR_bin7  param  0.0 1
+monojet_stat_error_wzCR_bin6  param  0.0 1
+monojet_stat_error_wzCR_bin5  param  0.0 1
+monojet_stat_error_wzCR_bin4  param  0.0 1
+monojet_stat_error_singlemuonCR_bin19  param  0.0 1
+monojet_stat_error_singlemuonCR_bin18  param  0.0 1
+monojet_stat_error_dimuonCR_bin8  param  0.0 1
+monojet_stat_error_dimuonCR_bin9  param  0.0 1
+monojet_stat_error_dielectronCR_bin2  param  0.0 1
+monojet_stat_error_dimuonCR_bin2  param  0.0 1
+monojet_stat_error_dimuonCR_bin3  param  0.0 1
+monojet_stat_error_dimuonCR_bin0  param  0.0 1
+monojet_stat_error_dimuonCR_bin1  param  0.0 1
+monojet_stat_error_dimuonCR_bin6  param  0.0 1
+monojet_stat_error_dimuonCR_bin7  param  0.0 1
+monojet_stat_error_dimuonCR_bin4  param  0.0 1
+monojet_stat_error_singlemuonCR_bin16  param  0.0 1
+monojet_stat_error_singlemuonCR_bin9  param  0.0 1
+monov_stat_error_singlemuonCR_bin5  param  0.0 1
+monov_stat_error_singleelectronCR_bin1  param  0.0 1
+monojet_stat_error_wzCR_bin19  param  0.0 1
+monojet_stat_error_wzCR_bin18  param  0.0 1
+monojet_stat_error_wzCR_bin17  param  0.0 1
+monojet_stat_error_wzCR_bin16  param  0.0 1
+monojet_stat_error_wzCR_bin15  param  0.0 1
+monojet_stat_error_wzCR_bin14  param  0.0 1
+monojet_stat_error_wzCR_bin13  param  0.0 1
+monojet_stat_error_wzCR_bin12  param  0.0 1
+monojet_stat_error_wzCR_bin11  param  0.0 1
+monojet_stat_error_wzCR_bin10  param  0.0 1
+monojet_stat_error_photonCR_bin0  param  0.0 1
+monojet_stat_error_photonCR_bin1  param  0.0 1
+monojet_stat_error_photonCR_bin2  param  0.0 1
+monojet_stat_error_photonCR_bin3  param  0.0 1
+monojet_stat_error_photonCR_bin4  param  0.0 1
+monojet_stat_error_photonCR_bin5  param  0.0 1
+monojet_stat_error_photonCR_bin6  param  0.0 1
+monojet_stat_error_photonCR_bin7  param  0.0 1
+monojet_stat_error_photonCR_bin8  param  0.0 1
+monojet_stat_error_photonCR_bin9  param  0.0 1
+monov_stat_error_singlemuonCR_bin1  param  0.0 1
+ewk_monojet_bin8  param  0.0 1
+ewk_monojet_bin9  param  0.0 1
+ewk_monojet_bin11  param  0.0 1
+monov_stat_error_dielectronCR_bin2  param  0.0 1
+monojet_stat_error_dielectronCR_bin3  param  0.0 1
+ewk_monojet_bin10  param  0.0 1
+monojet_stat_error_dielectronCR_bin1  param  0.0 1
+monojet_stat_error_dielectronCR_bin0  param  0.0 1
+monojet_stat_error_dielectronCR_bin7  param  0.0 1
+monov_stat_error_singlemuonCR_bin3  param  0.0 1
+monojet_stat_error_dielectronCR_bin5  param  0.0 1
+monojet_stat_error_dielectronCR_bin4  param  0.0 1
+monojet_stat_error_dielectronCR_bin9  param  0.0 1
+monojet_stat_error_dielectronCR_bin8  param  0.0 1
+ewk_monojet_bin12  param  0.0 1
+monojet_stat_error_dimuonCR_bin10  param  0.0 1
+monojet_stat_error_dimuonCR_bin11  param  0.0 1
+monojet_stat_error_dimuonCR_bin12  param  0.0 1
+monojet_stat_error_dimuonCR_bin13  param  0.0 1
+monojet_stat_error_dimuonCR_bin14  param  0.0 1
+monojet_stat_error_dimuonCR_bin15  param  0.0 1
+monojet_stat_error_dimuonCR_bin16  param  0.0 1
+monojet_stat_error_wzCR_bin2  param  0.0 1
+monojet_stat_error_dimuonCR_bin18  param  0.0 1
+monojet_stat_error_dimuonCR_bin19  param  0.0 1
+wfacscale     param  0.0 1
+ewk_monojet_bin15  param  0.0 1
+ewk_monojet_bin16  param  0.0 1
+monov_stat_error_singlemuonCR_bin0  param  0.0 1
+ewk_monojet_bin6  param  0.0 1
+ewk_monojet_bin17  param  0.0 1
+ewk_monojet_bin7  param  0.0 1
+ewk_monojet_bin13  param  0.0 1
+monov_stat_error_dielectronCR_bin4  param  0.0 1
+monojet_stat_error_photonCR_bin11  param  0.0 1
+ewk_monojet_bin4  param  0.0 1
+monov_stat_error_dimuonCR_bin4  param  0.0 1
+pdf           param  0.0 1
+ewk_monojet_bin5  param  0.0 1
+monojet_stat_error_dimuonCR_bin17  param  0.0 1
+ewk_monojet_bin14  param  0.0 1
+monojet_stat_error_singlemuonCR_bin1  param  0.0 1
+monojet_stat_error_singlemuonCR_bin0  param  0.0 1
+monojet_stat_error_singlemuonCR_bin3  param  0.0 1
+monojet_stat_error_singlemuonCR_bin2  param  0.0 1
+monojet_stat_error_singlemuonCR_bin5  param  0.0 1
+monojet_stat_error_singlemuonCR_bin4  param  0.0 1
+monojet_stat_error_singlemuonCR_bin7  param  0.0 1
+monojet_stat_error_singlemuonCR_bin6  param  0.0 1
+ewk_monojet_bin21  param  0.0 1
+monojet_stat_error_singlemuonCR_bin8  param  0.0 1
+monov_stat_error_dielectronCR_bin0  param  0.0 1
+monojet_stat_error_singlemuonCR_bin11  param  0.0 1
+monojet_stat_error_singlemuonCR_bin10  param  0.0 1
+monov_stat_error_dimuonCR_bin3  param  0.0 1
+monojet_stat_error_singlemuonCR_bin12  param  0.0 1
+monojet_stat_error_singlemuonCR_bin15  param  0.0 1
+monojet_stat_error_singlemuonCR_bin14  param  0.0 1
+monojet_stat_error_singlemuonCR_bin17  param  0.0 1
+monojet_stat_error_dimuonCR_bin5  param  0.0 1
+facscale      param  0.0 1
+monov_stat_error_dimuonCR_bin2  param  0.0 1
+monov_stat_error_wzCR_bin1  param  0.0 1
+w_ewk_monojet_bin13  param  0.0 1
+w_ewk_monojet_bin8  param  0.0 1
+w_ewk_monojet_bin9  param  0.0 1
+w_ewk_monojet_bin6  param  0.0 1
+w_ewk_monojet_bin7  param  0.0 1
+w_ewk_monojet_bin4  param  0.0 1
+w_ewk_monojet_bin5  param  0.0 1
+w_ewk_monojet_bin2  param  0.0 1
+monov_stat_error_singleelectronCR_bin5  param  0.0 1
+w_ewk_monojet_bin0  param  0.0 1
+w_ewk_monojet_bin1  param  0.0 1
+monojet_stat_error_singlemuonCR_bin20  param  0.0 1
+monojet_stat_error_singlemuonCR_bin21  param  0.0 1
+monov_stat_error_wzCR_bin2  param  0.0 1
+monov_stat_error_wzCR_bin3  param  0.0 1
+monov_stat_error_wzCR_bin4  param  0.0 1
+monov_stat_error_wzCR_bin5  param  0.0 1
+monov_stat_error_singlemuonCR_bin4  param  0.0 1
+monov_stat_error_dimuonCR_bin5  param  0.0 1
+w_ewk_monojet_bin12  param  0.0 1
+w_ewk_monojet_bin3  param  0.0 1
+monov_stat_error_singleelectronCR_bin4  param  0.0 1
+ewk_monojet_bin20  param  0.0 1
+w_ewk_monojet_bin14  param  0.0 1
+w_ewk_monojet_bin15  param  0.0 1
+w_ewk_monojet_bin16  param  0.0 1
+w_ewk_monojet_bin17  param  0.0 1
+w_ewk_monojet_bin10  param  0.0 1
+w_ewk_monojet_bin11  param  0.0 1
+monojet_stat_error_singlemuonCR_bin13  param  0.0 1
+wrenscale     param  0.0 1
+w_ewk_monojet_bin18  param  0.0 1
+w_ewk_monojet_bin19  param  0.0 1
+monojet_stat_error_singleelectronCR_bin8  param  0.0 1
+monojet_stat_error_singleelectronCR_bin18  param  0.0 1
+monov_stat_error_dielectronCR_bin3  param  0.0 1
+monojet_stat_error_singleelectronCR_bin9  param  0.0 1
+monojet_stat_error_singleelectronCR_bin12  param  0.0 1
+monov_stat_error_singleelectronCR_bin3  param  0.0 1
+monojet_stat_error_singleelectronCR_bin10  param  0.0 1
+monojet_stat_error_singleelectronCR_bin11  param  0.0 1
+monojet_stat_error_singleelectronCR_bin16  param  0.0 1
+monojet_stat_error_singleelectronCR_bin17  param  0.0 1
+monojet_stat_error_singleelectronCR_bin14  param  0.0 1
+monov_stat_error_dielectronCR_bin5  param  0.0 1
+monov_stat_error_photonCR_bin3  param  0.0 1
+monov_stat_error_photonCR_bin2  param  0.0 1
+monov_stat_error_photonCR_bin1  param  0.0 1
+monov_stat_error_photonCR_bin0  param  0.0 1
+monov_stat_error_singlemuonCR_bin2  param  0.0 1
+monov_stat_error_photonCR_bin5  param  0.0 1
+monov_stat_error_photonCR_bin4  param  0.0 1
+monov_stat_error_dielectronCR_bin1  param  0.0 1
+monov_stat_error_singleelectronCR_bin2  param  0.0 1
+monojet_stat_error_photonCR_bin12  param  0.0 1
+monojet_stat_error_photonCR_bin13  param  0.0 1
+monojet_stat_error_photonCR_bin10  param  0.0 1
+monojet_stat_error_singleelectronCR_bin19  param  0.0 1
+monojet_stat_error_photonCR_bin16  param  0.0 1
+monojet_stat_error_photonCR_bin17  param  0.0 1
+monojet_stat_error_photonCR_bin14  param  0.0 1
+monojet_stat_error_photonCR_bin15  param  0.0 1
+w_ewk_monojet_bin21  param  0.0 1
+w_ewk_monojet_bin20  param  0.0 1
+monojet_stat_error_photonCR_bin18  param  0.0 1
+monojet_stat_error_photonCR_bin19  param  0.0 1
+monojet_stat_error_singleelectronCR_bin2  param  0.0 1
+monojet_stat_error_dielectronCR_bin6  param  0.0 1
+monojet_stat_error_singleelectronCR_bin3  param  0.0 1
+monov_stat_error_wzCR_bin0  param  0.0 1
+monojet_stat_error_dimuonCR_bin21  param  0.0 1
+monojet_stat_error_dimuonCR_bin20  param  0.0 1
+ewk_monojet_bin2  param  0.0 1
+monojet_stat_error_singleelectronCR_bin21  param  0.0 1
+monojet_stat_error_singleelectronCR_bin20  param  0.0 1
+ewk_monov_bin1  param  0.0 1
+ewk_monov_bin0  param  0.0 1
+ewk_monov_bin3  param  0.0 1
+ewk_monov_bin2  param  0.0 1
+ewk_monov_bin5  param  0.0 1
+ewk_monov_bin4  param  0.0 1
+monojet_stat_error_singleelectronCR_bin13  param  0.0 1
+monojet_stat_error_singleelectronCR_bin0  param  0.0 1
+monojet_stat_error_singleelectronCR_bin1  param  0.0 1
+monojet_stat_error_dielectronCR_bin20  param  0.0 1
+monojet_stat_error_dielectronCR_bin21  param  0.0 1
+monojet_stat_error_singleelectronCR_bin4  param  0.0 1
+monojet_stat_error_singleelectronCR_bin5  param  0.0 1
+monojet_stat_error_singleelectronCR_bin6  param  0.0 1
+monojet_stat_error_singleelectronCR_bin7  param  0.0 1
